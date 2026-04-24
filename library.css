@@ -212,22 +212,30 @@ a {
 }
 
 .mini-filter-dropdown {
-  display: none;
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
   width: max(100%, 320px);
   max-width: min(420px, calc(100vw - 36px));
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
   padding: 10px;
   background: var(--bg-panel);
   border: 1px solid #e5ddd7;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
   z-index: 20;
 }
 
 .mini-filter.open .mini-filter-dropdown {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .mini-checkbox-item {
