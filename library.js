@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     practice: 'Терапевтическая практика',
     relationships: 'Отношения',
     stress: 'Стресс',
+    2026: '2026',
+    2025: '2025',
     2024: '2024',
     2023: '2023',
     2022: '2022',
