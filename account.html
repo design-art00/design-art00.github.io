@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — Le Collectif</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="account.css?v=20260422-10">
+</head>
+<body class="account-body">
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main class="account-page">
+    <nav class="account-breadcrumbs" aria-label="Хлебные крошки"><a href="index.html#top">Главная</a><span>/</span><span>Личный кабинет</span></nav>
+
+    <div class="account-layout">
+      <aside class="account-sidebar" aria-label="Навигация личного кабинета">
+        <div class="account-sidebar__plate">
+          <div class="account-sidebar__user">
+            <img src="assets/expert-anna.jpg" alt="Анна Воронина">
+            <div>
+              <strong>Анна Воронина</strong>
+              <span>Участник сообщества</span>
+            </div>
+          </div>
+          <nav role="tablist" aria-label="Разделы личного кабинета">
+            <a class="is-active" href="#publications" data-account-tab="publications" role="tab" aria-selected="true">Мои публикации</a>
+            <a href="#profile" data-account-tab="profile" role="tab" aria-selected="false">Мой профиль</a>
+            <a href="#comments" data-account-tab="comments" role="tab" aria-selected="false">Мои комментарии</a>
+          </nav>
+        </div>
+      </aside>
+
+      <section class="account-content">
+        <section class="account-topbar" aria-label="Сводка личного кабинета">
+          <div>
+            <p>Профиль пользователя</p>
+            <h1>Личный кабинет</h1>
+            <span>Управление публикациями, профилем и комментариями пользователя.</span>
+          </div>
+        </section>
+
+        <section class="account-stats is-active" aria-label="Статистика аккаунта" data-account-panel="publications">
+          <article>
+            <span>Публикации</span>
+            <strong>2</strong>
+          </article>
+          <article>
+            <span>Комментарии</span>
+            <strong>12</strong>
+          </article>
+        </section>
+
+        <section class="account-section is-active" id="publications" data-account-panel="publications">
+          <div class="account-section__head">
+            <div>
+              <h2>Мои публикации</h2>
+              <p>Черновики и опубликованные материалы пользователя.</p>
+            </div>
+            <button class="button primary" type="button">Добавить публикацию</button>
+          </div>
+          <div class="account-table" role="table" aria-label="Мои публикации">
+            <div class="account-table__row account-table__row--head" role="row">
+              <span>Название</span>
+              <span>Статус</span>
+              <span>Дата</span>
+              <span></span>
+            </div>
+            <div class="account-table__row" role="row">
+              <div>
+                <strong>Психосоматика стресса: как тело говорит то, что молчит разум</strong>
+                <small>Статья в библиотеке знаний</small>
+              </div>
+              <span class="status-pill status-pill--published">Опубликовано</span>
+              <time datetime="2024-03-12">12.03.2024</time>
+              <a class="link-underline" href="psychosomatics-stress.html">Открыть</a>
+            </div>
+            <div class="account-table__row" role="row">
+              <div>
+                <strong>Как формируется терапевтический альянс</strong>
+                <small>Материал сохранен как пример будущей публикации</small>
+              </div>
+              <span class="status-pill status-pill--draft">Черновик</span>
+              <time datetime="2026-04-22">22.04.2026</time>
+              <a class="link-underline" href="#">Редактировать</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="account-section" id="profile" data-account-panel="profile" hidden>
+          <div class="account-section__head">
+            <div>
+              <h2>Мой профиль</h2>
+              <p>Поля отрисованы как настройки профиля, без сохранения на сервер.</p>
+            </div>
+            <button class="button ghost" type="button">Сохранить</button>
+          </div>
+          <form class="profile-form">
+            <label>
+              <span>Имя</span>
+              <input type="text" value="Анна Воронина">
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" value="anna.voronina@example.com">
+            </label>
+            <label>
+              <span>Роль</span>
+              <input type="text" value="Участник сообщества">
+            </label>
+            <label>
+              <span>Интересы</span>
+              <input type="text" value="Психология, статьи, тесты">
+            </label>
+            <label class="profile-form__wide">
+              <span>О себе</span>
+              <textarea>Интересуюсь психосоматикой, терапевтическим контактом и материалами для профессионального развития.</textarea>
+            </label>
+          </form>
+        </section>
+
+        <section class="account-section" id="comments" data-account-panel="comments" hidden>
+          <div class="account-section__head">
+            <div>
+              <h2>Мои комментарии</h2>
+              <p>Последние ответы и реакции в материалах сайта.</p>
+            </div>
+          </div>
+          <div class="account-comments">
+            <article>
+              <div>
+                <time datetime="2026-04-22">22.04.2026</time>
+                <p>Очень откликнулась мысль о том, что тело не враг, а способ обратной связи.</p>
+              </div>
+              <a class="link-underline" href="psychosomatics-stress.html">К статье</a>
+            </article>
+            <article>
+              <div>
+                <time datetime="2026-04-21">21.04.2026</time>
+                <p>Сохранила термин “саморегуляция”, хочу вернуться к нему позже.</p>
+              </div>
+              <a class="link-underline" href="glossary.html">К глоссарию</a>
+            </article>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+
+  <script src="script.js?v=20260422-11"></script>
+  <script src="account.js?v=20260422-1"></script>
+</body>
+</html>

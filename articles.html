@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека знаний — Статьи</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="library.css?v=20260423-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div id="library-root" data-library-page>
+    <div class="breadcrumbs"><a href="index.html#top">Главная</a><span>/</span><span>Статьи</span></div>
+    <div class="main-container">
+      <aside class="sidebar">
+        <div class="filters-plate">
+          <nav class="nav-menu">
+            <a href="articles.html" class="filter-btn active"><img src="assets/icons/articles.svg" class="cat-icon" alt="Статьи"><span class="cat-name">Статьи</span></a>
+            <a href="glossary.html" class="filter-btn"><img src="assets/icons/glossary.svg" class="cat-icon" alt="Глоссарий"><span class="cat-name">Глоссарий</span></a>
+            <a href="literature.html" class="filter-btn"><img src="assets/icons/literature.svg" class="cat-icon" alt="Подборки литературы"><span class="cat-name">Подборки литературы</span></a>
+            <a href="podcasts.html" class="filter-btn"><img src="assets/icons/podcasts.svg" class="cat-icon" alt="Подкасты"><span class="cat-name">Подкасты</span></a>
+            <a href="tests.html" class="filter-btn"><img src="assets/icons/tests.svg" class="cat-icon" alt="Банк тестов"><span class="cat-name">Банк тестов</span></a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="content-area">
+        <section class="page-intro" aria-label="Заголовок страницы">
+          <h1 class="page-title">Статьи</h1>
+          <p class="page-desc">Авторские материалы, исследования и профессиональные размышления.<br>Выберите тему, год или найдите статью по ключевым словам.</p>
+        </section>
+        <div class="top-toolbar">
+          <div class="toolbar-filters">
+            <div class="mini-filter" id="topicFilter">
+              <button type="button" class="mini-filter-btn" id="topicFilterBtn">Тема</button>
+              <div class="mini-filter-dropdown">
+                <label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="psychoanalysis">Психоанализ</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="subjectivity">Философия и субъектность</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="stress">Тревога и стресс</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="emotions">Эмоции и саморегуляция</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="practice">Терапевтическая практика</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="relationships">Отношения и границы</label>
+                <div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearTopicBtn">Сбросить</button></div>
+              </div>
+            </div>
+            <div class="mini-filter year-filter" id="yearFilter">
+              <button type="button" class="mini-filter-btn" id="yearFilterBtn">Год</button>
+              <div class="mini-filter-dropdown">
+                <label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2024">2024</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2023">2023</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2022">2022</label>
+                <label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2021">2021</label>
+                <div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearYearBtn">Сбросить</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="search-wrapper">
+            <input class="search-input" type="text" id="searchInput" placeholder="Поиск..">
+            <div class="search-icon-holder"><svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div>
+          </div>
+        </div>
+
+        <div class="items-grid" id="itemsGrid">
+          <article class="card" data-topic="emotions" data-year="2023"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-alina-safonova.png" alt="">Вера Лапина</a><div class="item-title">Желание и запрет: как формируется внутренний конфликт</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">29.03.2023</div></div></article>
+          <article class="card" data-topic="subjectivity" data-year="2024"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-artem-kravtsov.png" alt="">Сергей Волков</a><div class="item-title">Концепт Другого</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">27.01.2024</div></div></article>
+          <article class="card" data-topic="subjectivity" data-year="2021"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-marina-petrova.png" alt="">Марина Петрова</a><div class="item-title">Критика Декарта</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">09.02.2021</div></div></article>
+          <article class="card" data-topic="subjectivity" data-year="2022"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/expert-anna.jpg" alt="">Анна Воронина</a><div class="item-title">Лакан и Хайдеггер</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">30.10.2022</div></div></article>
+          <article class="card" data-topic="relationships" data-year="2024"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-yuriy-anisimov.png" alt="">Михаил Орлов</a><div class="item-title">Одиночество как пространство внутреннего диалога</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">18.04.2024</div></div></article>
+          <article class="card" data-topic="psychoanalysis" data-year="2023"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-dmitry-sokolov.png" alt="">Дмитрий Соколов</a><div class="item-title">От cogito к Воображаемому: лакановская критика картезианского субъекта</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">04.11.2023</div></div></article>
+          <article class="card" data-topic="practice" data-year="2022"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-artem-kravtsov.png" alt="">Павел Левин</a><div class="item-title">Перенос в терапевтической встрече</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">16.12.2022</div></div></article>
+          <article class="card" data-topic="psychoanalysis" data-year="2022"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-elena-mayer.png" alt="">Елена Майер</a><div class="item-title">Проблема воображаемого</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">18.06.2022</div></div></article>
+          <article class="card" data-topic="stress" data-year="2023"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/expert-anna.jpg" alt="">Наталья Строк</a><div class="item-title">Психосоматика стресса: как тело говорит то, что молчит разум</div></div><div class="card-bottom"><a href="psychosomatics-stress.html" class="link-underline">Читать статью</a><div class="publish-date">08.12.2023 г.</div></div></article>
+          <article class="card" data-topic="subjectivity" data-year="2023"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-darya-belova.png" alt="">Елена Миронова</a><div class="item-title">Свобода выбора и границы ответственности</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">02.08.2023</div></div></article>
+          <article class="card" data-topic="psychoanalysis" data-year="2023"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-ekaterina-nesterova.png" alt="">Ольга Иванова</a><div class="item-title">Символический порядок</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">14.09.2023</div></div></article>
+          <article class="card" data-topic="psychoanalysis" data-year="2021"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-sofya-morozova.png" alt="">Наталья Колесникова</a><div class="item-title">Стадия зеркала</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">05.05.2021</div></div></article>
+          <article class="card" data-topic="stress" data-year="2024"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-irina-chernova.png" alt="">Ирина Чернова</a><div class="item-title">Тревога как сигнал: что можно услышать за симптомом</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">21.05.2024</div></div></article>
+          <article class="card" data-topic="emotions" data-year="2021"><div><a href="#" class="author-name"><img class="author-avatar" src="assets/specialist-yulia-romanova.png" alt="">Юлия Романова</a><div class="item-title">Эмоциональная регуляция в повседневной практике</div></div><div class="card-bottom"><a href="#" class="link-underline">Читать статью</a><div class="publish-date">23.07.2021</div></div></article>
+        </div>
+        <div id="pagination" class="pagination-container"></div>
+      </main>
+    </div>
+  </div>
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+  <script src="script.js?v=20260422-11"></script>
+  <script src="library.js?v=20260422-3"></script>
+</body>
+</html>

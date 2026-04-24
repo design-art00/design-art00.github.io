@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шкала тревоги Бека</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="library.css?v=20260423-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div id="test-root">
+    <div class="breadcrumbs"><a href="index.html#top">Главная</a><span>/</span><span>Шкала тревоги Бека</span></div>
+    <main class="test-area">
+      <section class="page-intro" aria-label="Заголовок страницы">
+        <h1 class="page-title">Шкала тревоги Бека</h1>
+        <p class="page-desc">Шкала тревоги Бека предложена американским психиатром Аароном Т. Беком (Aaron T. Beck). Методика разработана на основе клинических наблюдений, позволивших выявить ограниченный набор наиболее релевантных и значимых симптомов тревоги и наиболее часто предъявляемых пациентами жалоб.<br>Это скрининг, а не медицинский диагноз.</p>
+      </section>
+      <form id="anxietyTestForm">
+        <section class="question-card"><div class="question-title">1. Как часто вы чувствовали усталость без понятной причины?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q1" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q1" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q1" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q1" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q1" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">2. Как часто вы чувствовали нервозность?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q2" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q2" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q2" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q2" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q2" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">3. Как часто вы чувствовали такую сильную нервозность, что вам было трудно успокоиться?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q3" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q3" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q3" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q3" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q3" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">4. Как часто вы чувствовали безнадёжность?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q4" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q4" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q4" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q4" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q4" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">5. Как часто вы чувствовали внутреннюю суетливость или беспокойство в теле?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q5" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q5" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q5" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q5" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q5" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">6. Как часто вы чувствовали такую неусидчивость, что было трудно спокойно сидеть на месте?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q6" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q6" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q6" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q6" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q6" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">7. Как часто вы чувствовали подавленность?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q7" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q7" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q7" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q7" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q7" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">8. Как часто вам казалось, что всё требует слишком больших усилий?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q8" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q8" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q8" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q8" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q8" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">9. Как часто вы чувствовали такую сильную грусть, что вас было трудно ободрить?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q9" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q9" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q9" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q9" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q9" value="5">Почти всегда</label></div></div></section>
+        <section class="question-card"><div class="question-title">10. Как часто вы чувствовали себя никчёмным или недостаточно ценным?</div><div class="answers-list"><div class="answer-option"><label><input type="radio" name="q10" value="1">Никогда</label></div><div class="answer-option"><label><input type="radio" name="q10" value="2">Редко</label></div><div class="answer-option"><label><input type="radio" name="q10" value="3">Иногда</label></div><div class="answer-option"><label><input type="radio" name="q10" value="4">Часто</label></div><div class="answer-option"><label><input type="radio" name="q10" value="5">Почти всегда</label></div></div></section>
+        <div class="actions-row"><button type="button" class="result-btn" id="showResultBtn">Результат</button><button type="reset" class="reset-btn" id="resetBtn">Сбросить</button></div>
+        <div class="error-text" id="errorText">Пожалуйста, ответьте на все 10 вопросов.</div>
+      </form>
+      <section class="result-box" id="resultBox"><div class="result-kicker">Ваш результат</div><div class="result-score" id="resultScore">0 баллов</div><div class="result-title" id="resultTitle">Описание результата</div><div class="result-description" id="resultDescription"></div><div class="result-note">Интерпретация основана на шкале K10. Это скрининговый результат, а не медицинский диагноз.</div></section>
+    </main>
+  </div>
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+  <script src="script.js?v=20260422-11"></script>
+  <script src="test.js"></script>
+</body>
+</html>

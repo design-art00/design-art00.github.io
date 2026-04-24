@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календарь мероприятий — Le Collectif</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="calendar.css?v=20260422-8">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html" aria-current="page">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main class="calendar-page">
+    <nav class="calendar-breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html#top">Главная</a>
+      <span>/</span>
+      <span>Календарь мероприятий</span>
+    </nav>
+
+    <section class="calendar-hero reveal" aria-labelledby="calendarTitle">
+      <div class="calendar-hero-title">
+        <h1 id="calendarTitle">Календарь мероприятий</h1>
+        <p class="calendar-hero-subtitle">Лекции, супервизии и закрытые семинары для специалистов и тех, кому близка мысль о психике как о пространстве встречи.</p>
+      </div>
+    </section>
+
+    <section class="calendar-filter-panel reveal" aria-label="Фильтры календаря">
+      <div class="calendar-filter-group">
+        <span class="calendar-filter-title">Формат</span>
+        <div class="calendar-category-buttons" id="calendarCategories"></div>
+      </div>
+    </section>
+
+    <section class="calendar-layout reveal" aria-label="Календарь и афиша">
+      <div class="calendar-board">
+        <div class="calendar-month-bar">
+          <h2><em id="calendarMonthName">Май</em> <span id="calendarYear">2026</span></h2>
+          <div class="calendar-month-controls">
+            <button type="button" class="calendar-arrow slider-arrow slider-arrow--prev" id="calendarPrev" aria-label="Предыдущий месяц"><span class="slider-arrow-icon" aria-hidden="true">‹</span></button>
+            <button type="button" class="calendar-arrow slider-arrow slider-arrow--next" id="calendarNext" aria-label="Следующий месяц"><span class="slider-arrow-icon" aria-hidden="true">›</span></button>
+          </div>
+        </div>
+        <div class="calendar-grid" id="calendarGrid" aria-live="polite"></div>
+      </div>
+
+      <aside class="calendar-events-panel">
+        <div class="calendar-events-head">
+          <h2><em>Афиша</em></h2>
+          <button type="button" class="calendar-reset-date" id="calendarResetDate" hidden>← все события</button>
+        </div>
+        <p class="calendar-selected-date" id="calendarSelectedDate" hidden></p>
+        <div class="calendar-events-list" id="calendarEventsList" aria-live="polite"></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+
+  <script src="script.js?v=20260422-11"></script>
+  <script src="calendar.js?v=20260422-7"></script>
+</body>
+</html>

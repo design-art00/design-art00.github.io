@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-label="Сертификат">
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer>
+    </filter>
+    <style>
+      .paper{fill:#fffbf8}.line{stroke:#445799;stroke-width:2;opacity:.38}.accent{fill:#445799}.ink{fill:#26397a}.muted{fill:#777}.title{font-family:Georgia,serif;font-size:54px;font-weight:400}.org{font-family:Georgia,serif;font-size:34px;font-weight:400}.body{font-family:Arial,sans-serif;font-size:24px;fill:#535353}.small{font-family:Arial,sans-serif;font-size:18px;fill:#777}.seal{fill:none;stroke:#b18284;stroke-width:3;opacity:.75}.sig{font-family:Georgia,serif;font-size:30px;font-style:italic;fill:#26397a}
+    </style>
+  </defs>
+  <rect width="1120" height="760" class="paper"/>
+  <rect width="1120" height="760" filter="url(#paper)" opacity=".9"/>
+  <rect x="48" y="48" width="1024" height="664" fill="none" class="line"/>
+  <path d="M90 135H1030" class="line"/>
+  <text x="90" y="112" class="small">Документ об образовании</text>
+  <text x="90" y="220" class="title ink">Сертификат</text>
+  <text x="90" y="294" class="org ink">Сибирский Государственный медицинский университет</text>
+  <text x="90" y="365" class="body">Программа: психология</text>
+  <text x="90" y="403" class="body">Степень: интернатура</text>
+  <text x="90" y="441" class="body">Год: 2024</text>
+  <path d="M90 610H360" class="line"/>
+  <text x="90" y="650" class="sig">Анна Воронина</text>
+  <text x="90" y="680" class="small">условный пример документа для макета</text>
+  <circle cx="900" cy="602" r="78" class="seal"/>
+  <circle cx="900" cy="602" r="58" class="seal"/>
+  <text x="900" y="594" text-anchor="middle" class="small"></text>
+  <text x="900" y="624" text-anchor="middle" class="small">ДОКУМЕНТ</text>
+</svg>

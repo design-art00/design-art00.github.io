@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека знаний — Глоссарий</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="library.css?v=20260423-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div id="library-root" data-library-page>
+    <div class="breadcrumbs"><a href="index.html#top">Главная</a><span>/</span><span>Глоссарий</span></div>
+    <div class="main-container">
+      <aside class="sidebar"><div class="filters-plate"><nav class="nav-menu">
+        <a href="articles.html" class="filter-btn"><img src="assets/icons/articles.svg" class="cat-icon" alt="Статьи"><span class="cat-name">Статьи</span></a>
+        <a href="glossary.html" class="filter-btn active"><img src="assets/icons/glossary.svg" class="cat-icon" alt="Глоссарий"><span class="cat-name">Глоссарий</span></a>
+        <a href="literature.html" class="filter-btn"><img src="assets/icons/literature.svg" class="cat-icon" alt="Подборки литературы"><span class="cat-name">Подборки литературы</span></a>
+        <a href="podcasts.html" class="filter-btn"><img src="assets/icons/podcasts.svg" class="cat-icon" alt="Подкасты"><span class="cat-name">Подкасты</span></a>
+        <a href="tests.html" class="filter-btn"><img src="assets/icons/tests.svg" class="cat-icon" alt="Банк тестов"><span class="cat-name">Банк тестов</span></a>
+      </nav></div></aside>
+      <main class="content-area">
+        <section class="page-intro" aria-label="Заголовок страницы">
+          <h1 class="page-title">Глоссарий</h1>
+          <p class="page-desc">Короткие определения терминов психологии и психоанализа.<br>Фильтруйте по теме или выбирайте букву для быстрого поиска.</p>
+        </section>
+        <div class="top-toolbar">
+          <div class="mini-filter" id="topicFilter"><button type="button" class="mini-filter-btn" id="topicFilterBtn">Тема</button><div class="mini-filter-dropdown"><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="psychology">Психология</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="analysis">Психоанализ</label><div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearTopicBtn">Сбросить</button></div></div></div>
+          <div class="search-wrapper"><input class="search-input" type="text" id="searchInput" placeholder="Поиск.."><div class="search-icon-holder"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div></div>
+        </div>
+        <div class="glossary-letters" id="glossaryLetters">
+          <button type="button" class="letter-btn active" data-letter="all">Все</button><button type="button" class="letter-btn" data-letter="а">А</button><button type="button" class="letter-btn" data-letter="б">Б</button><button type="button" class="letter-btn" data-letter="в">В</button><button type="button" class="letter-btn" data-letter="г">Г</button><button type="button" class="letter-btn" data-letter="д">Д</button><button type="button" class="letter-btn" data-letter="и">И</button><button type="button" class="letter-btn" data-letter="к">К</button><button type="button" class="letter-btn" data-letter="л">Л</button><button type="button" class="letter-btn" data-letter="м">М</button><button type="button" class="letter-btn" data-letter="н">Н</button><button type="button" class="letter-btn" data-letter="о">О</button><button type="button" class="letter-btn" data-letter="п">П</button><button type="button" class="letter-btn" data-letter="р">Р</button><button type="button" class="letter-btn" data-letter="с">С</button><button type="button" class="letter-btn" data-letter="т">Т</button><button type="button" class="letter-btn" data-letter="ф">Ф</button><button type="button" class="letter-btn" data-letter="х">Х</button><button type="button" class="letter-btn" data-letter="э">Э</button>
+        </div>
+        <div class="items-grid" id="itemsGrid">
+          <article class="card glossary-card" data-topic="psychology" data-full="Рабочий альянс — это качество сотрудничества между специалистом и клиентом: общее понимание целей, согласие относительно способов работы и ощущение безопасности в контакте. В терапии альянс часто становится условием, при котором человек может говорить о сложном опыте без страха оценки." data-source="Bordin E. S. The generalizability of the psychoanalytic concept of the working alliance. Psychotherapy, 1979." data-articles="Психосоматика стресса|psychosomatics-stress.html;Как работает терапевтический контакт|articles.html"><div><div class="item-title">Альянс</div><p class="item-description">Доверительные и совместные отношения между специалистом и клиентом.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="analysis" data-full="Бессознательное описывает психические процессы, которые влияют на переживания, выбор и поведение, но не представлены напрямую в осознанном опыте. В психоаналитической традиции это не просто “забытое”, а активная область желаний, конфликтов, защит и повторяющихся сценариев." data-source="Freud S. The Interpretation of Dreams. 1900." data-articles="Почему мы повторяем сценарии|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Бессознательное</div><p class="item-description">Часть психики, которая содержит скрытые желания, воспоминания и импульсы.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Валидация — это признание внутреннего опыта другого человека как имеющего смысл в его обстоятельствах. Она не означает согласие со всеми действиями, но помогает снизить стыд, напряжение и ощущение одиночества в переживании." data-source="Linehan M. M. Cognitive-Behavioral Treatment of Borderline Personality Disorder. Guilford Press, 1993." data-articles="Психосоматика стресса|psychosomatics-stress.html;Границы в отношениях без чувства вины|articles.html"><div><div class="item-title">Валидация</div><p class="item-description">Признание эмоционального состояния без обесценивания и осуждения.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Гештальт обращает внимание на то, как человек переживает себя здесь-и-сейчас: что чувствует, как дышит, где прерывает контакт, какие потребности остаются незавершенными. Важная задача подхода — восстановить способность замечать себя и выбирать действие." data-source="Perls F., Hefferline R., Goodman P. Gestalt Therapy. 1951." data-articles="Психосоматика стресса|psychosomatics-stress.html;Личные границы и контакт|articles.html"><div><div class="item-title">Гештальт</div><p class="item-description">Направление психотерапии, фокусирующееся на осознании момента.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Дифференциация помогает человеку сохранять контакт с собой в близких отношениях: замечать, где заканчивается его собственное переживание и начинается влияние другого. Это важный навык для устойчивости, границ и принятия решений без слияния или резкого отдаления." data-source="Bowen M. Family Therapy in Clinical Practice. Jason Aronson, 1978." data-articles="Личные границы|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Дифференциация</div><p class="item-description">Способность отделять собственные чувства, мысли и желания от ожиданий окружающих.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="analysis" data-full="Интерпретация — это терапевтическое предположение о скрытой связи между словами, чувствами, действиями и симптомами. Хорошая интерпретация не навязывает смысл, а помогает клиенту увидеть возможный внутренний конфликт или повторяющийся способ защиты." data-source="Laplanche J., Pontalis J.-B. The Language of Psychoanalysis. 1967." data-articles="От cogito к Воображаемому|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Интерпретация</div><p class="item-description">Объяснение скрытых смыслов поведения, речи или симптомов.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="analysis" data-full="Контрперенос описывает чувства, фантазии и телесные отклики терапевта, возникающие в контакте с клиентом. В современной практике он рассматривается не только как помеха, но и как важный источник понимания отношений, которые разворачиваются в терапии." data-source="Heimann P. On Counter-Transference. International Journal of Psychoanalysis, 1950." data-articles="Почему мы повторяем сценарии|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Контрперенос</div><p class="item-description">Эмоциональные реакции специалиста на клиента, которые возникают в процессе работы.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Ментализация позволяет видеть за действиями человека мысли, чувства, намерения и потребности. Когда эта способность ослабевает из-за стресса, люди чаще воспринимают поведение других как угрозу или отвержение, не замечая более сложного контекста." data-source="Fonagy P., Target M. Attachment and Reflective Function. Development and Psychopathology, 1997." data-articles="Границы в отношениях|articles.html;Как распознавать выгорание|articles.html"><div><div class="item-title">Ментализация</div><p class="item-description">Способность понимать свое и чужое поведение через внутренние состояния.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="analysis" data-full="Перенос — это процесс, при котором опыт ранних значимых отношений начинает окрашивать восприятие текущей ситуации. Человек может реагировать не только на реального собеседника, но и на знакомый внутренний сценарий близости, ожидания, страха или защиты." data-source="Freud S. The Dynamics of Transference. 1912." data-articles="От cogito к Воображаемому|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Перенос</div><p class="item-description">Переживание прошлых отношений в актуальном контакте с терапевтом или другим человеком.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Привязанность описывает то, как человек ищет близость, поддержку и безопасность. Ранний опыт отношений влияет на то, насколько легко просить помощи, выдерживать дистанцию, доверять и не воспринимать каждую неопределенность как угрозу." data-source="Bowlby J. Attachment and Loss. Basic Books, 1969." data-articles="Какой у вас тип привязанности?|tests.html;Границы в отношениях|articles.html"><div><div class="item-title">Привязанность</div><p class="item-description">Эмоциональная связь, формирующая чувство безопасности и способ быть в отношениях.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="analysis" data-full="Регрессия может проявляться как потребность в большей поддержке, сниженная способность к самостоятельности, импульсивность или стремление спрятаться от сложности. В терапии это не всегда негативный процесс: иногда временная регрессия позволяет приблизиться к уязвимому опыту и переработать его." data-source="Laplanche J., Pontalis J.-B. The Language of Psychoanalysis. 1967." data-articles="Психосоматика стресса|psychosomatics-stress.html;Почему мы повторяем сценарии|articles.html"><div><div class="item-title">Регрессия</div><p class="item-description">Возврат к более ранним способам реагирования в ситуации напряжения.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Саморегуляция — это способность замечать изменение внутреннего состояния и выбирать способы восстановления: дыхание, паузу, обращение за поддержкой, изменение нагрузки или границ. Это не жесткий контроль над эмоциями, а более гибкая настройка контакта с собой и средой." data-source="Siegel D. J. The Developing Mind. Guilford Press, 1999." data-articles="Психосоматика стресса|psychosomatics-stress.html;Как распознавать эмоциональное выгорание|articles.html"><div><div class="item-title">Саморегуляция</div><p class="item-description">Умение управлять эмоциональным состоянием и напряжением.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Тревожность связана с повышенной готовностью организма к возможной угрозе. Она может помогать замечать риски, но при высокой интенсивности сужает внимание, усиливает телесное напряжение и мешает восстанавливаться после нагрузки." data-source="Spielberger C. D. Anxiety: Current Trends in Theory and Research. Academic Press, 1972." data-articles="Психосоматика стресса|psychosomatics-stress.html;Тест уровня тревожности|anxiety-test.html"><div><div class="item-title">Тревожность</div><p class="item-description">Склонность переживать напряжение и ожидание угрозы даже без явной опасности.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Фрустрация появляется, когда желание, цель или потребность сталкиваются с препятствием. Она может вызывать злость, бессилие, стыд или уход от действия. В работе с фрустрацией важно не только снизить напряжение, но и понять, какая потребность за ним стоит." data-source="Rosenzweig S. An Outline of Frustration Theory. 1938." data-articles="Границы в отношениях|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Фрустрация</div><p class="item-description">Состояние напряжения, возникающее при невозможности удовлетворить значимую потребность.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="analysis" data-full="Холдинг описывает не только физическое удерживание, но и эмоциональную среду, где переживания человека могут быть приняты и постепенно осмыслены. В терапии это проявляется в надежности, ритме, внимании и способности специалиста оставаться рядом со сложным материалом." data-source="Winnicott D. W. The Maturational Processes and the Facilitating Environment. 1965." data-articles="Психосоматика стресса|psychosomatics-stress.html;Как работает терапевтический контакт|articles.html"><div><div class="item-title">Холдинг</div><p class="item-description">Поддерживающая среда, в которой человек может выдерживать сложные переживания.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+          <article class="card glossary-card" data-topic="psychology" data-full="Эмпатия помогает быть в контакте с переживанием другого, не растворяясь в нем полностью. В профессиональной практике она требует не только чувствительности, но и границ: специалисту важно понимать клиента, сохраняя способность мыслить и поддерживать процесс." data-source="Rogers C. R. A Way of Being. Houghton Mifflin, 1980." data-articles="Как работает терапевтический контакт|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Эмпатия</div><p class="item-description">Способность распознавать и понимать эмоциональное состояние другого человека.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
+        </div>
+        <div id="pagination" class="pagination-container"></div>
+      </main>
+    </div>
+  </div>
+
+  <div class="glossary-modal" id="glossaryModal" aria-hidden="true">
+    <div class="glossary-modal__backdrop" data-glossary-close></div>
+    <section class="glossary-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="glossaryModalTitle">
+      <button class="glossary-modal__close" type="button" data-glossary-close aria-label="Закрыть">×</button>
+      <p class="glossary-modal__label">термин глоссария</p>
+      <h2 id="glossaryModalTitle">Термин</h2>
+      <p class="glossary-modal__text" id="glossaryModalText"></p>
+      <div class="glossary-modal__source">
+        <span>Источник</span>
+        <p id="glossaryModalSource"></p>
+      </div>
+      <div class="glossary-modal__articles">
+        <span>Встречается в статьях</span>
+        <div id="glossaryModalArticles"></div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+  <script src="script.js?v=20260422-11"></script>
+  <script src="library.js?v=20260422-3"></script>
+</body>
+</html>

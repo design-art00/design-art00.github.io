@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Collectif</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">v</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="#about">О проекте</a>
+    <a href="#authors">Авторы</a>
+    <a href="specialists.html">Специалисты</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero section cream-section">
+      <div class="hero-left reveal">
+        <h1>Профессиональное <span class="hand-underline">сообщество</span><br><em>психологов, психотерапевтов,</em><br><em>и психоаналитиков</em></h1>
+        <div class="hero-buttons">
+          <a class="button primary" href="contacts.html">Присоединиться</a>
+          <a class="button ghost" href="specialists.html">Найти специалиста</a>
+        </div>
+        <div class="members">
+          <div class="avatar-stack" aria-hidden="true">
+            <img src="assets/avatar-woman.jpg" alt="">
+            <img src="assets/avatar-man.jpg" alt="">
+            <img src="assets/avatar-window.jpg" alt="">
+            <img src="assets/avatar-room.jpg" alt="">
+          </div>
+          <p><strong class="hand-circle">&gt;1000 чел.</strong><span>к нам уже присоединились</span></p>
+        </div>
+      </div>
+
+      <div class="hero-right reveal">
+        <blockquote class="quote-slider" aria-live="polite">
+          <span class="quote-viewport">
+            <span class="quote-track">
+              <span class="quote-slide">«Когда мы начинаем лучше понимать себя, у нас появляется выбор»</span>
+            </span>
+          </span>
+        </blockquote>
+        <p>Мы создаём пространство для специалистов в области психологии, психотерапии и психоанализа, где ценятся диалог и уважение.</p>
+        <p>Платформа объединяет практикующих специалистов и авторов, позволяя публиковать работы, изучать материалы коллег.</p>
+        <p>Сообщество формируется вокруг идей осознанной практики, профессионального роста и обмена опытом.</p>
+        <img class="hero-group" src="assets/hero-group.jpg" alt="Участники профессионального сообщества">
+      </div>
+    </section>
+
+    <section class="section blue-section about" id="about">
+      <div class="section-label">{ О проекте }</div>
+      <div class="section-content reveal">
+        <h2>Пространство для <em class="about-hand-underline">диалога, обучения</em> и профессионального роста</h2>
+        <div class="about-layout">
+          <p class="about-text about-text-primary">Проект объединяет психологов, психотерапевтов и психоаналитиков в профессиональное комьюнити, где ценятся диалог, поддержка и глубина работы.</p>
+          <p class="about-text about-text-secondary">Платформа предназначена как для начинающих специалистов, так и для практиков с большим стажем.</p>
+          <p class="about-text about-text-tertiary">Сегодня платформа предоставляет возможность публиковать свои работы, изучать материалы и находить нужных специалистов. Пользователи могут легко находить коллег для сотрудничества, получать вдохновение и расширять профессиональные горизонты.</p>
+          <p class="about-text about-text-goal">Наша цель — поддерживать живое профессиональное сообщество, в котором знания не накапливаются в одиночку, а становятся частью общего процесса.</p>
+
+          <img class="about-image about-image-team-left" src="assets/hero-group.jpg" alt="Участники сообщества">
+          <img class="about-image about-image-notes" src="assets/about-notes.jpg" alt="Рабочие записи специалиста">
+          <img class="about-image about-image-team-right" src="assets/hero-group.jpg" alt="Участники сообщества">
+          <img class="about-image about-image-audience" src="assets/about-audience.jpg" alt="Образовательное мероприятие">
+
+          <div class="timeline">
+            <article>
+              <strong>2012</strong>
+              <span>старт первых профессиональных встреч и сотрудничества</span>
+            </article>
+            <article>
+              <strong>2015</strong>
+              <span>запуск образовательных и супервизионных форматов</span>
+            </article>
+            <article>
+              <strong>2026</strong>
+              <span>расширение аудитории и развитие современных форматов взаимодействия</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream-section authors" id="authors">
+      <div class="section-label">{ библиотека знаний }</div>
+      <div class="section-content reveal">
+        <div class="section-topline">
+            <h2>
+            У нас есть библиотека знаний, где собраны 
+            <span class="highlight hand-underline">полезные материалы</span> 
+            для специалистов
+          </h2>
+          <a class="button primary" href="articles.html">Узнать подробнее</a>
+        </div>
+        <p class="lead library-lead">Еженедельно публикуются авторские статьи, исследования и профессиональные размышления в профессиональной области.</p>
+
+        <div class="library-grid">
+          <div class="quote-card">
+            <p>Мы собираем и структурируем полезные материалы, чтобы у специалистов был удобный доступ к знаниям, опыту коллег и актуальным темам современной практики.</p>
+            <p>Чтобы опубликовать свои материалы, свяжитесь с нами.</p>
+          </div>
+          <a class="library-card image-card article-preview" href="literature.html" aria-label="Открыть подборку ТОП 10 книг по саморазвитию">
+            <h3>ТОП 10 книг<br>по саморазвитию</h3>
+            <span class="library-card-arrow" aria-hidden="true">↗</span>
+          </a>
+          <article class="library-card library-card--practice">
+            <img src="assets/icons/practic.png" alt="" aria-hidden="true">
+            <h3>Собираем лучшие практики</h3>
+          </article>
+          <article class="library-card library-card--discussion">
+            <img src="assets/icons/Icon_4.png" alt="" aria-hidden="true">
+            <h3>Обсуждаем самые последние темы</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream-section experts" id="experts">
+      <div class="section-label">{ специалисты }</div>
+      <div class="section-content reveal">
+        <div class="section-topline">
+          <h2 class="experts-title">
+  На нашей платформе публикуют уже 
+  <span class="highlight hand-circle hand-circle--soft">более 100 специалистов</span>
+</h2>
+          <a class="button primary" href="specialists.html">Узнать подробнее</a>
+        </div>
+        <div class="expert-list">
+          <article class="expert-card">
+            <img src="assets/expert-anna.jpg" alt="Анна Воронина">
+            <h3>Анна Воронина</h3>
+            <a href="anna-voronina.html">Подробнее</a>
+          </article>
+          <article class="expert-card">
+            <img src="assets/expert-dmitry.jpg" alt="Дмитрий Соколов">
+            <h3>Дмитрий Соколов</h3>
+            <a href="specialists.html">Подробнее</a>
+          </article>
+          <article class="expert-card">
+            <img src="assets/expert-ekaterina.jpg" alt="Екатерина Свердловская">
+            <h3>Екатерина Свердловская</h3>
+            <a href="specialists.html">Подробнее</a>
+          </article>
+          <article class="expert-card">
+            <img src="assets/expert-natalia.jpg" alt="Наталья Колесникова">
+            <h3>Наталья Колесникова</h3>
+            <a href="specialists.html">Подробнее</a>
+          </article>
+          <article class="expert-card">
+            <img src="assets/expert-sergey.jpg" alt="Сергей Волковский">
+            <h3>Сергей Волковский</h3>
+            <a href="specialists.html">Подробнее</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue-section publications" id="publications">
+      <div class="section-label">{ статьи }</div>
+      <div class="section-content reveal">
+        <div class="section-topline">
+          <h2>Последние публикации</h2>
+          <a class="button light" href="articles.html">Смотреть все</a>
+        </div>
+        <div class="publication-list">
+          <article>
+            <div>
+              <h3><a class="publication-author-link" href="specialists.html">Дмитрий Соколов</a></h3>
+              <p><a class="publication-title-link" href="articles.html">Границы специалиста: почему забота о себе становится частью этичной терапевтической работы</a></p>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+          <article>
+            <div>
+              <h3><a class="publication-author-link" href="specialists.html">Наталья Колесникова</a></h3>
+              <p><a class="publication-title-link" href="articles.html">Супервизия без оценки: как разбор случая становится пространством для профессионального роста</a></p>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+          <article>
+            <div>
+              <h3><a class="publication-author-link" href="specialists.html">Екатерина Свердловская</a></h3>
+              <p><a class="publication-title-link" href="articles.html">Работа с тревогой в долгосрочной терапии: от симптома к вниманию к внутреннему опыту</a></p>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+          <article>
+            <div>
+              <h3><a class="publication-author-link" href="anna-voronina.html">Анна Воронина</a></h3>
+              <p><a class="publication-title-link" href="articles.html">Как профессиональное сообщество помогает выдерживать сложные случаи и сохранять устойчивость в практике</a></p>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream-section finder">
+      <div class="section-label">{ подборка терапевтов }</div>
+      <div class="section-content reveal">
+        <div class="section-topline">
+          <h2>Наши специалисты также проводят консультации и работают с различными запросами</h2>
+          <a class="button primary" href="specialists.html">Подобрать специалиста</a>
+        </div>
+        <div class="topic-grid">
+          <article><img class="topic-icon" src="assets/icons/Icon_1.png" alt=""><h3>Страхи: тревоги, апатии, панические атаки</h3></article>
+          <article><img class="topic-icon" src="assets/icons/Icon_2.png" alt=""><h3>Помочь самооценку и научиться ставить границы</h3></article>
+          <article><img class="topic-icon" src="assets/icons/Icon_3.png" alt=""><h3>Преодолеть выгорание, усталость и потерю мотивации</h3></article>
+          <article><img class="topic-icon" src="assets/icons/Icon_4.png" alt=""><h3>Наладить отношения с партнёром, родными или детьми</h3></article>
+          <article><img class="topic-icon" src="assets/icons/Icon5.png" alt=""><h3>Поддержать подростка в сложной ситуации взросления</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream-section events" id="events">
+      <div class="section-label">{ календарь мероприятий }</div>
+      <div class="section-content reveal">
+        <h2>Ближайшие мероприятия</h2>
+        <div class="event-list">
+          <article class="event-row">
+            <time datetime="2026-04-08"><strong>08.04.</strong><span>Суббота</span></time>
+            <div>
+              <h3><span class="hand-underline">Как работает психотерапия?</span></h3>
+              <p>Мы знаем, что обратиться к психологу может быть сложно: страшно нарваться на плохого специалиста, разные подходы путают.</p>
+            </div>
+            <dl>
+              <dt>Формат</dt>
+              <dd>Онлайн-вебинар</dd>
+            </dl>
+            <a class="button ghost" href="contacts.html">Зарегистрироваться</a>
+          </article>
+          <article class="event-row">
+            <time datetime="2026-04-13"><strong>13.04.</strong><span>Суббота</span></time>
+            <div>
+              <h3>Как работает психотерапия?</h3>
+              <p>Мы знаем, что обратиться к психологу может быть сложно: страшно нарваться на плохого специалиста, разные подходы путают.</p>
+            </div>
+            <dl>
+              <dt>Формат</dt>
+              <dd>Онлайн-вебинар</dd>
+            </dl>
+            <a class="button ghost" href="contacts.html">Зарегистрироваться</a>
+          </article>
+          <article class="event-row">
+            <time datetime="2026-04-15"><strong>15.04.</strong><span>Суббота</span></time>
+            <div>
+              <h3>Как работает психотерапия?</h3>
+              <p>Мы знаем, что обратиться к психологу может быть сложно: страшно нарваться на плохого специалиста, разные подходы путают.</p>
+            </div>
+            <dl>
+              <dt>Формат</dt>
+              <dd>Онлайн-вебинар</dd>
+            </dl>
+            <a class="button ghost" href="contacts.html">Зарегистрироваться</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-invite" data-parallax-section>
+      <div class="photo-invite__bg" data-parallax-layer data-speed="-0.42" aria-hidden="true"></div>
+      <div class="photo-invite__content">
+        <img class="photo-invite__photo" src="assets/hero-group.jpg" alt="Участники профессионального сообщества" data-parallax-layer data-speed="0.05">
+        <div class="invite-card reveal">
+          <p>Присоединяйтесь к нам</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section blue-section contacts" id="contacts">
+      <div class="section-label">{ контакты }</div>
+      <div class="section-content reveal">
+        <div class="contacts-grid">
+          <div>
+            <h2>Есть вопросы или предложения?</h2>
+            <p>Если у вас есть вопросы или предложения о работе платформы, вы можете связаться с нами или заполнить форму.</p>
+            <div class="contact-links">
+              <a href="mailto:resourses@gmail.com">Почта по общим вопросам<br><strong>resourses@gmail.com</strong></a>
+              <a href="mailto:pr@gmail.com">Сотрудничество<br><strong>pr@gmail.com</strong></a>
+            </div>
+            <p class="socials">Социальные сети <span>TG</span> <span>VK</span></p>
+          </div>
+          <form class="contact-form" action="#" novalidate>
+            <div class="form-row">
+              <label>
+                <input name="name" type="text" autocomplete="name" placeholder="Имя" required>
+              </label>
+              <label>
+                <input name="telegram" type="text" autocomplete="off" placeholder="Telegram" required>
+              </label>
+            </div>
+            <label>
+              <textarea name="message" rows="5" placeholder="Сообщение" required></textarea>
+            </label>
+            <label class="checkbox">
+              <input name="policy" type="checkbox" required>
+              <span>Я даю согласие на обработку персональных данных в соответствии с Политикой конфиденциальности</span>
+            </label>
+            <button class="button light wide" type="submit">Отправить</button>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+
+  <script src="script.js?v=20260422-11"></script>
+</body>
+</html>

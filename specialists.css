@@ -1,0 +1,645 @@
+.sidebar-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #282828;
+}
+
+[data-specialists-page] .page-intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.page-intro-copy {
+  min-width: 0;
+}
+
+.specialists-search {
+  margin-top: 6px;
+}
+
+.filter-group {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 10px;
+}
+
+.filter-header {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 18px;
+  color: #282828;
+  text-align: left;
+  font-weight: 400;
+}
+
+.filter-header::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid #535353;
+  border-bottom: 1.5px solid #535353;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-right: 4px;
+}
+
+.filter-group.active .filter-header::after {
+  transform: rotate(-135deg);
+}
+
+.filter-content {
+  display: none;
+  padding-bottom: 15px;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group.active .filter-content {
+  display: flex;
+}
+
+.filter-radio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.price-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.price-input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #d1d1d1;
+  background: #fff;
+  color: #535353;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  outline: none;
+  padding: 0 12px;
+}
+
+.price-input::placeholder {
+  color: #9a9a9a;
+}
+
+.price-input:focus {
+  border-color: var(--accent-color, #445799);
+}
+
+.nested-group {
+  position: relative;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+
+.f-range {
+  width: 100%;
+  appearance: none;
+  height: 2px;
+  background: #e0e0e0;
+  outline: none;
+}
+
+.f-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-color, #445799);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: none;
+  position: relative;
+  z-index: 5;
+}
+
+.age-cap {
+  position: absolute;
+  top: 0;
+  font-size: 11px;
+  color: var(--accent-color, #445799);
+  font-weight: 700;
+}
+
+.cap-min {
+  left: 0;
+}
+
+.cap-max {
+  right: 0;
+  color: #777;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #777777;
+  cursor: pointer;
+}
+
+.checkbox-item input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d1d1d1;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+  background: var(--accent-color, #445799);
+  border-color: var(--accent-color, #445799);
+}
+
+.checkbox-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-item input[type="radio"] {
+  border-radius: 50%;
+}
+
+.checkbox-item input[type="radio"]:checked {
+  border-color: var(--accent-color, #445799);
+  background: transparent;
+}
+
+.checkbox-item input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--accent-color, #445799);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 30px;
+  row-gap: 60px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: transparent;
+}
+
+.specialist-card {
+  padding: 0;
+  min-height: 0;
+}
+
+.spec-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.spec-name {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #282828;
+  font-weight: 500;
+  min-height: 1.5em;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 16px;
+}
+
+.tag-pill {
+  font-size: 12px;
+  color: #777;
+  background: none;
+  padding: 6px 12px;
+  border-radius: 30px;
+  border: 1px solid #c5c5c5;
+}
+
+.card-link {
+  margin-top: auto;
+  font-size: var(--button-font-size, 16px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--accent-color, #445799) !important;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid var(--accent-color, #445799);
+  padding: var(--button-padding-y, 12px) var(--button-padding-x, 20px);
+  border-radius: 40px;
+  text-align: center;
+  transition: var(--button-transition, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease);
+}
+
+.card-link:hover {
+  background-color: var(--accent-color, #445799);
+  color: #fff !important;
+}
+
+.clear-filter-btn {
+  display: none;
+  width: 100%;
+  min-height: 0;
+  background: transparent;
+  border: 1px solid var(--accent-color, #445799);
+  color: var(--accent-color, #445799);
+  font-size: var(--button-font-size, 16px);
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--button-padding-y, 12px) var(--button-padding-x, 20px);
+  transition: var(--button-transition, background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease);
+}
+
+.clear-filter-btn:hover {
+  background: var(--accent-color, #445799);
+  color: #fff;
+}
+
+:where(
+  .filters-plate,
+  .filter-header,
+  .clear-filter-btn,
+  .tag-pill,
+  .card-link,
+  .spec-photo,
+  .search-input,
+  .page-btn,
+  .price-inputs input
+) {
+  border-radius: 0 !important;
+}
+
+/* Tags and small pills stay rounded. */
+.tag-pill,
+.checkbox-item input[type="radio"] {
+  border-radius: 999px !important;
+}
+
+/* Age filter follows the same scale as the rest of the filter controls. */
+.nested-group {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px 12px;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 0;
+}
+
+.age-cap {
+  position: static;
+  color: #777777;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.cap-min {
+  left: auto;
+}
+
+.cap-max {
+  right: auto;
+  color: #777777;
+  font-size: 16px;
+}
+
+#ageVal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  border: 1px solid var(--accent-color, #445799);
+  border-radius: 50% !important;
+  color: var(--accent-color, #445799);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  vertical-align: 1px;
+}
+
+.f-range {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+}
+
+.f-range::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--accent-color, #445799);
+  background: transparent;
+  box-shadow: none;
+}
+
+.f-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--accent-color, #445799);
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Match specialists page to the homepage background. */
+body {
+  background: #f3ede7;
+}
+
+/* Age range: plain text value and clear slider thumb. */
+#ageVal {
+  display: inline;
+  width: auto;
+  height: auto;
+  margin-left: 4px;
+  border: 0;
+  border-radius: 0 !important;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.f-range {
+  height: 3px;
+  background: rgba(68, 87, 153, 0.18);
+  border-radius: 999px;
+}
+
+.f-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--accent-color, #445799);
+  border-radius: 50%;
+  background: var(--accent-color, #445799);
+  cursor: pointer;
+}
+
+.f-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--accent-color, #445799);
+  border-radius: 50%;
+  background: var(--accent-color, #445799);
+  cursor: pointer;
+}
+/* Responsive polish for specialists. Desktop above 1200px is unchanged. */
+@media (max-width: 1200px) {
+  [data-specialists-page] .page-intro {
+    gap: 24px;
+  }
+
+  .specialists-search {
+    flex: 0 0 260px;
+  }
+
+  [data-specialists-page] .items-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 30px;
+    row-gap: 60px;
+  }
+
+  .spec-name {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 960px) {
+  [data-specialists-page] .page-intro {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .specialists-search,
+  .specialists-search .search-wrapper {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  [data-specialists-page] .items-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 60px;
+  }
+
+  .filter-header {
+    font-size: 17px;
+  }
+
+  .price-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  [data-specialists-page] .items-grid {
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+  }
+
+  .sidebar-title {
+    font-size: 19px;
+  }
+
+  .filter-header,
+  .checkbox-item {
+    font-size: 16px;
+  }
+
+  .price-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .spec-name {
+    font-size: 23px;
+  }
+
+  .tag-pill {
+    font-size: 12px;
+  }
+
+  .card-link,
+  .clear-filter-btn {
+    width: 100%;
+  }
+}
+
+
+.spec-name {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.spec-name-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.spec-title {
+  min-width: 0;
+}
+
+.spec-city {
+  color: #777777;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.spec-rating {
+  flex: 0 0 auto;
+  padding-top: 4px;
+  color: #445799;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .spec-rating {
+    font-size: 14px;
+  }
+}
+
+/* Keep specialists page background identical to the main header/home background. */
+body,
+#library-root,
+[data-specialists-page] {
+  background: #f2efe8 !important;
+}
+
+/* Consistency audit pass: specialists page. */
+body, #library-root, [data-specialists-page] { background: var(--background, #f2efe8) !important; }
+.filters-plate { padding: 30px !important; background: #fffbf8 !important; }
+.filter-header, .age-cap, .cap-max, .price-field input {
+  color: #535353 !important;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+}
+.filter-header {
+  color: #282828 !important;
+}
+.checkbox-item input[type="checkbox"], .checkbox-item input[type="radio"] {
+  width: 16px !important; height: 16px !important; min-width: 16px !important; background: transparent !important;
+}
+.checkbox-item input[type="checkbox"] { border-radius: 0 !important; }
+.checkbox-item input[type="radio"] { border-radius: 50% !important; }
+.items-grid { column-gap: 30px !important; row-gap: 60px !important; }
+.specialist-card { padding: 0 !important; background: transparent !important; border-radius: 0 !important; }
+.spec-name {
+  color: #26397a !important;
+  font-family: "Playfair Display", serif !important;
+  font-size: 24px !important;
+  line-height: 1.18 !important;
+  font-weight: 500 !important;
+}
+.spec-city {
+  color: #777777 !important;
+  font-family: "Inter Tight", sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.3 !important;
+  font-weight: 400 !important;
+}
+.spec-rating { color: #445799 !important; font-family: "Inter Tight", sans-serif !important; font-size: 15px !important; font-weight: 500 !important; }
+.tag-pill { border-radius: 999px !important; color: #777777 !important; font-size: 13px !important; }
+.card-link, .clear-filter-btn {
+  min-height: 44px !important;
+  padding: var(--button-padding-y, 12px) var(--button-padding-x, 20px) !important;
+  border-radius: 999px !important;
+  font-size: var(--button-font-size, 16px) !important;
+  line-height: 1.2 !important;
+}
+
+/* Specialists filters: restore visible checkmarks after final consistency pass. */
+.checkbox-item input[type="checkbox"]:checked {
+  background: var(--accent-color, #445799) !important;
+  border-color: var(--accent-color, #445799) !important;
+}
+
+.checkbox-item input[type="checkbox"]:checked::after {
+  content: "" !important;
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-item input[type="radio"]:checked {
+  border-color: var(--accent-color, #445799) !important;
+  background: transparent !important;
+}
+
+.checkbox-item input[type="radio"]:checked::after {
+  content: "" !important;
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-color, #445799);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека знаний — Подкасты</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="library.css?v=20260423-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div id="library-root" data-library-page>
+    <div class="breadcrumbs"><a href="index.html#top">Главная</a><span>/</span><span>Подкасты</span></div>
+    <div class="main-container">
+      <aside class="sidebar"><div class="filters-plate"><nav class="nav-menu">
+        <a href="articles.html" class="filter-btn"><img src="assets/icons/articles.svg" class="cat-icon" alt="Статьи"><span class="cat-name">Статьи</span></a>
+        <a href="glossary.html" class="filter-btn"><img src="assets/icons/glossary.svg" class="cat-icon" alt="Глоссарий"><span class="cat-name">Глоссарий</span></a>
+        <a href="literature.html" class="filter-btn"><img src="assets/icons/literature.svg" class="cat-icon" alt="Подборки литературы"><span class="cat-name">Подборки литературы</span></a>
+        <a href="podcasts.html" class="filter-btn active"><img src="assets/icons/podcasts.svg" class="cat-icon" alt="Подкасты"><span class="cat-name">Подкасты</span></a>
+        <a href="tests.html" class="filter-btn"><img src="assets/icons/tests.svg" class="cat-icon" alt="Банк тестов"><span class="cat-name">Банк тестов</span></a>
+      </nav></div></aside>
+      <main class="content-area">
+        <section class="page-intro" aria-label="Заголовок страницы">
+          <h1 class="page-title">Подкасты</h1>
+          <p class="page-desc">Короткие выпуски о практике, терапии и профессиональных темах.<br>Выберите направление и слушайте прямо на странице.</p>
+        </section>
+        <div class="top-toolbar"><div class="mini-filter" id="topicFilter"><button type="button" class="mini-filter-btn" id="topicFilterBtn">Тема</button><div class="mini-filter-dropdown"><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="psychology">Психология</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="philosophy">Философия</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="analysis">Психоанализ</label><div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearTopicBtn">Сбросить</button></div></div></div><div class="search-wrapper"><input class="search-input" type="text" id="searchInput" placeholder="Поиск.."><div class="search-icon-holder"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div></div></div>
+        <div class="items-grid" id="itemsGrid">
+          <article class="card" data-topic="analysis"><div><a href="#" class="author-name">Ирина Чернова</a><div class="item-title">Бессознательное в повседневной жизни</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" data-title="Бессознательное в повседневной жизни" data-author="Ирина Чернова">Слушать</button><div class="publish-date">17.01.2022</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Алиса Виноградова</a><div class="item-title">Близость без растворения в другом</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" data-title="Близость без растворения в другом" data-author="Алиса Виноградова">Слушать</button><div class="publish-date">11.04.2024</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Лидия Маркова</a><div class="item-title">Где заканчивается усталость и начинается выгорание</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" data-title="Где заканчивается усталость и начинается выгорание" data-author="Лидия Маркова">Слушать</button><div class="publish-date">08.09.2024</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Ольга Белова</a><div class="item-title">Границы в отношениях без чувства вины</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" data-title="Границы в отношениях без чувства вины" data-author="Ольга Белова">Слушать</button><div class="publish-date">03.08.2024</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Наталья Ройтман</a><div class="item-title">Как пережить отказ и не обесценить себя</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" data-title="Как пережить отказ и не обесценить себя" data-author="Наталья Ройтман">Слушать</button><div class="publish-date">26.02.2024</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Мария Соколова</a><div class="item-title">Как распознавать эмоциональное выгорание</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="Как распознавать эмоциональное выгорание" data-author="Мария Соколова">Слушать</button><div class="publish-date">22.02.2024</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Элеонора Симнер</a><div class="item-title">О сравнении себя с другими</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" data-title="О сравнении себя с другими" data-author="Элеонора Симнер">Слушать</button><div class="publish-date">12.06.2024</div></div></article>
+          <article class="card" data-topic="philosophy"><div><a href="#" class="author-name">Дмитрий Орлов</a><div class="item-title">Ответственность и забота о себе</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" data-title="Ответственность и забота о себе" data-author="Дмитрий Орлов">Слушать</button><div class="publish-date">06.09.2021</div></div></article>
+          <article class="card" data-topic="analysis"><div><a href="#" class="author-name">Павел Левин</a><div class="item-title">Перенос: почему терапевт становится важной фигурой</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" data-title="Перенос: почему терапевт становится важной фигурой" data-author="Павел Левин">Слушать</button><div class="publish-date">19.02.2023</div></div></article>
+          <article class="card" data-topic="analysis"><div><a href="#" class="author-name">Андрей Лавров</a><div class="item-title">Почему мы повторяем одни и те же сценарии</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="Почему мы повторяем одни и те же сценарии" data-author="Андрей Лавров">Слушать</button><div class="publish-date">09.11.2023</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Виктор Серов</a><div class="item-title">Почему нам так трудно просить о помощи</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" data-title="Почему нам так трудно просить о помощи" data-author="Виктор Серов">Слушать</button><div class="publish-date">18.10.2024</div></div></article>
+          <article class="card" data-topic="analysis"><div><a href="#" class="author-name">Ирина Чернова</a><div class="item-title">Почему сопротивление — не враг терапии</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" data-title="Почему сопротивление — не враг терапии" data-author="Ирина Чернова">Слушать</button><div class="publish-date">15.05.2023</div></div></article>
+          <article class="card" data-topic="psychology"><div><a href="#" class="author-name">Юлия Романова</a><div class="item-title">Саморегуляция без насилия над собой</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" data-title="Саморегуляция без насилия над собой" data-author="Юлия Романова">Слушать</button><div class="publish-date">30.01.2024</div></div></article>
+          <article class="card" data-topic="philosophy"><div><a href="#" class="author-name">Дмитрий Орлов</a><div class="item-title">Свобода выбора и тревога ответственности</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" data-title="Свобода выбора и тревога ответственности" data-author="Дмитрий Орлов">Слушать</button><div class="publish-date">28.06.2021</div></div></article>
+          <article class="card" data-topic="philosophy"><div><a href="#" class="author-name">Марина Петрова</a><div class="item-title">Смысл, выбор и усталость от решений</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" data-title="Смысл, выбор и усталость от решений" data-author="Марина Петрова">Слушать</button><div class="publish-date">04.10.2022</div></div></article>
+          <article class="card" data-topic="philosophy"><div><a href="#" class="author-name">Елена Миронова</a><div class="item-title">Экзистенциальная тревога и чувство свободы</div></div><div class="card-bottom"><button type="button" class="link-underline podcast-btn" data-audio="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-title="Экзистенциальная тревога и чувство свободы" data-author="Елена Миронова">Слушать</button><div class="publish-date">14.05.2023</div></div></article>
+        </div>
+        <div id="pagination" class="pagination-container"></div>
+      </main>
+    </div>
+  </div>
+  <div class="mini-player" id="miniPlayer"><div class="mini-player-top"><div><div class="mini-player-label">Сейчас играет</div><div class="mini-player-title" id="miniPlayerTitle">Название подкаста</div><div class="mini-player-author" id="miniPlayerAuthor">Автор</div></div><button type="button" class="mini-player-close" id="miniPlayerClose">×</button></div><audio id="podcastAudio" controls></audio></div>
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+  <script src="script.js?v=20260422-11"></script>
+  <script src="library.js?v=20260422-3"></script>
+</body>
+</html>

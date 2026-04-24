@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека знаний — Банк тестов</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="library.css?v=20260423-1">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div id="library-root" data-library-page>
+    <div class="breadcrumbs"><a href="index.html#top">Главная</a><span>/</span><span>Банк тестов</span></div>
+    <div class="main-container">
+      <aside class="sidebar"><div class="filters-plate"><nav class="nav-menu">
+        <a href="articles.html" class="filter-btn"><img src="assets/icons/articles.svg" class="cat-icon" alt="Статьи"><span class="cat-name">Статьи</span></a>
+        <a href="glossary.html" class="filter-btn"><img src="assets/icons/glossary.svg" class="cat-icon" alt="Глоссарий"><span class="cat-name">Глоссарий</span></a>
+        <a href="literature.html" class="filter-btn"><img src="assets/icons/literature.svg" class="cat-icon" alt="Подборки литературы"><span class="cat-name">Подборки литературы</span></a>
+        <a href="podcasts.html" class="filter-btn"><img src="assets/icons/podcasts.svg" class="cat-icon" alt="Подкасты"><span class="cat-name">Подкасты</span></a>
+        <a href="tests.html" class="filter-btn active"><img src="assets/icons/tests.svg" class="cat-icon" alt="Банк тестов"><span class="cat-name">Банк тестов</span></a>
+      </nav></div></aside>
+      <main class="content-area">
+        <section class="page-intro" aria-label="Заголовок страницы">
+          <h1 class="page-title">Банк тестов</h1>
+          <p class="page-desc">Короткие опросники для самонаблюдения и первичной оценки состояния.<br>Выберите тему и пройдите тест онлайн.</p>
+        </section>
+        <div class="top-toolbar"><div class="mini-filter" id="topicFilter"><button type="button" class="mini-filter-btn" id="topicFilterBtn">Тема</button><div class="mini-filter-dropdown"><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="psychology">Психология</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="relationships">Отношения</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="stress">Стресс</label><div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearTopicBtn">Сбросить</button></div></div></div><div class="search-wrapper"><input class="search-input" type="text" id="searchInput" placeholder="Поиск.."><div class="search-icon-holder"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div></div></div>
+        <div class="items-grid" id="itemsGrid">
+          <article class="card" data-topic="stress"><div><div class="item-title">Индекс восстановленности</div><p class="item-description">Оцените, хватает ли вам отдыха и ресурсов.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="relationships"><div><div class="item-title">Какой у вас тип привязанности?</div><p class="item-description">Тест на особенности эмоциональной близости в отношениях.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="relationships"><div><div class="item-title">Комфортная дистанция</div><p class="item-description">Насколько легко вам сохранять близость и автономию.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="relationships"><div><div class="item-title">Личные границы</div><p class="item-description">Насколько уверенно вы защищаете своё пространство.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="psychology"><div><div class="item-title">Опросник эмоциональной устойчивости</div><p class="item-description">Помогает заметить, какие способы поддержки уже доступны.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="psychology"><div><div class="item-title">Профиль саморегуляции</div><p class="item-description">Какие стратегии помогают вам справляться с напряжением.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="stress"><div><div class="item-title">Реакция на стресс</div><p class="item-description">Как вы обычно реагируете на напряжение и давление.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="relationships"><div><div class="item-title">Стиль общения в конфликте</div><p class="item-description">Короткая самопроверка привычных реакций в споре.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="stress"><div><div class="item-title">Тест признаков перегрузки</div><p class="item-description">Первичная оценка накопленного напряжения.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="psychology"><div><div class="item-title">Уровень самооценки</div><p class="item-description">Понимание отношения к себе и степени внутренней опоры.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="psychology"><div><div class="item-title">Шкала тревоги Бека</div><p class="item-description">Методика Аарона Т. Бека для оценки наиболее значимых симптомов тревоги.</p></div><a href="anxiety-test.html" class="link-underline">Пройти тест</a></article>
+          <article class="card" data-topic="stress"><div><div class="item-title">Шкала эмоционального выгорания</div><p class="item-description">Оценка признаков усталости, истощения и потери мотивации.</p></div><a href="#" class="link-underline">Пройти тест</a></article>
+        </div>
+        <div id="pagination" class="pagination-container"></div>
+      </main>
+    </div>
+  </div>
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+  <script src="script.js?v=20260422-11"></script>
+  <script src="library.js?v=20260422-3"></script>
+</body>
+</html>

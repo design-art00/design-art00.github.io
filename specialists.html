@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Специалисты</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="library.css?v=20260422-16">
+  <link rel="stylesheet" href="specialists.css?v=20260423-3">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <div id="library-root" data-specialists-page>
+    <div class="breadcrumbs"><a href="index.html#top">Главная</a><span>/</span><span>Специалисты</span></div>
+
+    <div class="main-container">
+      <aside class="sidebar">
+        <div class="filters-plate">
+          <h3 class="sidebar-title">Критерии подбора</h3>
+
+          <div class="filter-group active">
+            <button type="button" class="filter-header">Вид терапии</button>
+            <div class="filter-content">
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="therapy" value="individual"> Индивидуальная</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="therapy" value="couple"> Парная</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button type="button" class="filter-header">Какой специалист нужен?</button>
+            <div class="filter-content">
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="type" value="psyc"> Психолог</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="type" value="ther"> Психотерапевт</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="type" value="psyc_an"> Психоаналитик</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button type="button" class="filter-header">Стоимость</button>
+            <div class="filter-content">
+              <div class="price-fields">
+                <input type="number" id="priceMin" class="price-input" min="0" inputmode="numeric" placeholder="от">
+                <input type="number" id="priceMax" class="price-input" min="0" inputmode="numeric" placeholder="до">
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button type="button" class="filter-header">О чем хотите поговорить?</button>
+            <div class="filter-content">
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="find_self"> Поиск себя</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="sleep"> Проблемы со сном</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="insecure"> Неуверенность в себе</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="emotions"> Непонятные эмоции</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="burnout"> Прокрастинация и выгорание</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="other"> Другое</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button type="button" class="filter-header">Что важно в специалисте</button>
+            <div class="filter-content">
+              <div class="filter-radio-stack">
+                <label class="checkbox-item"><input type="radio" name="sex" value="all" checked class="f-radio" data-filter="sex"> Любой пол</label>
+                <label class="checkbox-item"><input type="radio" name="sex" value="female" class="f-radio" data-filter="sex"> Женский</label>
+                <label class="checkbox-item"><input type="radio" name="sex" value="male" class="f-radio" data-filter="sex"> Мужской</label>
+              </div>
+
+              <div class="nested-group">
+                <span class="age-cap cap-min">Возраст: <span id="ageVal">25</span></span>
+                <span class="age-cap cap-max">макс.65</span>
+                <input type="range" min="25" max="65" value="25" id="ageRange" class="f-range">
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button type="button" class="filter-header">Психологический подход</button>
+            <div class="filter-content">
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="method" value="gest"> Гештальт-терапия</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="method" value="cbt"> КПТ</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="method" value="ps_an"> Психоаналитическая терапия</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="method" value="exis"> Экзистенциальная психотерапия</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="method" value="art"> Арт-терапия</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="method" value="int"> Интегративный подход</label>
+            </div>
+          </div>
+
+          <button type="button" class="clear-filter-btn" id="resetBtn">Очистить фильтр</button>
+        </div>
+      </aside>
+
+      <main class="content-area">
+        <section class="page-intro" aria-label="Заголовок страницы">
+          <div class="page-intro-copy">
+            <h1 class="page-title">Специалисты</h1>
+            <p class="page-desc">Подберите специалиста по теме, подходу и дополнительным критериям.<br>Фильтры слева помогут сузить выбор.</p>
+          </div>
+          <div class="search-wrapper specialists-search">
+            <input class="search-input" type="text" id="specialistsSearchInput" placeholder="Поиск..">
+            <div class="search-icon-holder">
+              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+            </div>
+          </div>
+        </section>
+
+        <div class="items-grid" id="specsGrid">
+          <article class="card specialist-card" data-type="psyc" data-topic="emotions" data-sex="female" data-method="art" data-age="31" data-therapy="individual" data-price="3200">
+            <img src="assets/specialist-alina-safonova.png" class="spec-photo" alt="Алина Сафонова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Алина Сафонова</span><span class="spec-city">г. Самара</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Арт-терапия</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="find_self" data-sex="female" data-method="gest" data-age="32" data-therapy="individual" data-price="3500">
+            <img src="assets/expert-anna.jpg" class="spec-photo" alt="Анна Воронина">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Анна Воронина</span><span class="spec-city">г. Санкт-Петербург</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Гештальт</span></div>
+            <a href="anna-voronina.html" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="find_self" data-sex="male" data-method="gest" data-age="42" data-therapy="individual" data-price="4500">
+            <img src="assets/specialist-artem-kravtsov.png" class="spec-photo" alt="Артем Кравцов">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Артем Кравцов</span><span class="spec-city">г. Казань</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Гештальт</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="sleep" data-sex="female" data-method="cbt" data-age="34" data-therapy="individual" data-price="3900">
+            <img src="assets/specialist-photo-03.png" class="spec-photo" alt="Виктория Павлова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Виктория Павлова</span><span class="spec-city">г. Екатеринбург</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc_an" data-topic="other" data-sex="female" data-method="ps_an" data-age="41" data-therapy="individual couple" data-price="5400">
+            <img src="assets/specialist-darya-belova.png" class="spec-photo" alt="Дарья Белова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Дарья Белова</span><span class="spec-city">г. Нижний Новгород</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психоаналитик</span><span class="tag-pill">Психоанализ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="other" data-sex="male" data-method="cbt" data-age="45" data-therapy="individual couple" data-price="5000">
+            <img src="assets/specialist-dmitry-sokolov.png" class="spec-photo" alt="Дмитрий Соколов">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Дмитрий Соколов</span><span class="spec-city">г. Новосибирск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="burnout" data-sex="female" data-method="int" data-age="47" data-therapy="couple" data-price="6200">
+            <img src="assets/specialist-ekaterina-nesterova.png" class="spec-photo" alt="Екатерина Нестерова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Екатерина Нестерова</span><span class="spec-city">г. Краснодар</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">Интегративный</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="insecure" data-sex="female" data-method="gest" data-age="28" data-therapy="individual" data-price="3000">
+            <img src="assets/specialist-elena-mayer.png" class="spec-photo" alt="Елена Майер">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Елена Майер</span><span class="spec-city">г. Ростов-на-Дону</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Гештальт</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc_an" data-topic="emotions" data-sex="female" data-method="ps_an" data-age="39" data-therapy="individual" data-price="4800">
+            <img src="assets/specialist-irina-chernova.png" class="spec-photo" alt="Ирина Чернова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Ирина Чернова</span><span class="spec-city">г. Воронеж</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психоаналитик</span><span class="tag-pill">Психоанализ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="find_self" data-sex="female" data-method="cbt" data-age="50" data-therapy="couple" data-price="6500">
+            <img src="assets/specialist-marina-petrova.png" class="spec-photo" alt="Марина Петрова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Марина Петрова</span><span class="spec-city">г. Пермь</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc_an" data-topic="find_self" data-sex="female" data-method="ps_an" data-age="52" data-therapy="individual" data-price="7000">
+            <img src="assets/specialist-mikhail-orlov.png" class="spec-photo" alt="Мария Орлова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Мария Орлова</span><span class="spec-city">г. Уфа</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психоаналитик</span><span class="tag-pill">Психоанализ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="other" data-sex="female" data-method="cbt" data-age="30" data-therapy="individual couple" data-price="5200">
+            <img src="assets/specialist-photo-11.png" class="spec-photo" alt="Наталья Копылова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Наталья Копылова</span><span class="spec-city">г. Челябинск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="other" data-sex="female" data-method="cbt" data-age="30" data-therapy="couple" data-price="6000">
+            <img src="assets/specialist-photo-12.png" class="spec-photo" alt="Наталья Колесникова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Наталья Колесникова</span><span class="spec-city">г. Тюмень</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="other" data-sex="male" data-method="gest" data-age="35" data-therapy="individual" data-price="4000">
+            <img src="assets/specialist-photo-13.png" class="spec-photo" alt="Олег Иванов">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Олег Иванов</span><span class="spec-city">г. Красноярск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Гештальт</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="burnout" data-sex="male" data-method="exis" data-age="36" data-therapy="individual" data-price="4200">
+            <img src="assets/specialist-photo-01.png" class="spec-photo" alt="Павел Лебедев">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Павел Лебедев</span><span class="spec-city">г. Омск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Экзистенциальный</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="insecure" data-sex="male" data-method="cbt" data-age="48" data-therapy="individual couple" data-price="5500">
+            <img src="assets/specialist-photo-02.png" class="spec-photo" alt="Сергей Волков">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Сергей Волков</span><span class="spec-city">г. Владивосток</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="sleep" data-sex="female" data-method="gest" data-age="44" data-therapy="individual couple" data-price="5800">
+            <img src="assets/specialist-sofya-morozova.png" class="spec-photo" alt="Софья Морозова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Софья Морозова</span><span class="spec-city">г. Ярославль</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">Гештальт</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+          <article class="card specialist-card" data-type="psyc" data-topic="find_self" data-sex="female" data-method="cbt" data-age="29" data-therapy="individual" data-price="3600">
+            <img src="assets/specialist-photo-04.png" class="spec-photo" alt="Вероника Астахова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Вероника Астахова</span><span class="spec-city">г. Калининград</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="emotions" data-sex="female" data-method="int" data-age="43" data-therapy="individual couple" data-price="5900">
+            <img src="assets/specialist-photo-05.png" class="spec-photo" alt="Галина Ермакова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Галина Ермакова</span><span class="spec-city">г. Сочи</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">Интегративный</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="burnout" data-sex="female" data-method="cbt" data-age="38" data-therapy="individual" data-price="4100">
+            <img src="assets/specialist-photo-06.png" class="spec-photo" alt="Ирина Демина">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Ирина Демина</span><span class="spec-city">г. Волгоград</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc_an" data-topic="other" data-sex="male" data-method="ps_an" data-age="46" data-therapy="individual" data-price="6100">
+            <img src="assets/specialist-photo-07.png" class="spec-photo" alt="Кирилл Мельник">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Кирилл Мельник</span><span class="spec-city">г. Томск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психоаналитик</span><span class="tag-pill">Психоанализ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="sleep" data-sex="male" data-method="gest" data-age="40" data-therapy="individual couple" data-price="5700">
+            <img src="assets/specialist-photo-08.png" class="spec-photo" alt="Лев Захаров">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Лев Захаров</span><span class="spec-city">г. Иркутск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">Гештальт</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="insecure" data-sex="female" data-method="art" data-age="33" data-therapy="individual" data-price="3700">
+            <img src="assets/specialist-photo-09.png" class="spec-photo" alt="Полина Журавлева">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Полина Журавлева</span><span class="spec-city">г. Тула</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Арт-терапия</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="find_self" data-sex="female" data-method="exis" data-age="37" data-therapy="individual" data-price="5300">
+            <img src="assets/specialist-photo-10.png" class="spec-photo" alt="Татьяна Осипова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Татьяна Осипова</span><span class="spec-city">г. Саратов</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">Экзистенциальный</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc_an" data-topic="emotions" data-sex="male" data-method="ps_an" data-age="49" data-therapy="individual" data-price="6800">
+            <img src="assets/specialist-yuriy-anisimov.png" class="spec-photo" alt="Юрий Анисимов">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Юрий Анисимов</span><span class="spec-city">г. Хабаровск</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психоаналитик</span><span class="tag-pill">Психоанализ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+        </div>
+
+        <div id="pagination" class="pagination-container"></div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+  </footer>
+
+  <script src="script.js?v=20260422-11"></script>
+  <script src="specialists.js?v=20260423-1"></script>
+</body>
+</html>

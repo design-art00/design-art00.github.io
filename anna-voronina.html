@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анна Воронина</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+  <link rel="stylesheet" href="author.css?v=20260423-2">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main class="author-page">
+    <nav class="author-tabs" aria-label="Навигация по странице специалиста">
+      <a href="#education">Образование</a>
+      <a href="#projects">Проекты</a>
+      <a href="#publications">Публикации</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#author-contacts">Контакты</a>
+    </nav>
+
+    <section class="author-hero">
+      <div class="author-hero-copy">
+        <h1>Анна Воронина</h1>
+        <p class="author-location">г. Казань · зарегистрирована на платформе 2 года</p>
+        <div class="author-tags" aria-label="Подходы специалиста">
+          <span data-tooltip="Поможет восстановить контакт с самим собой, найти мотивацию. Научит справляться с тревогами, найти ресурсы и ответ, где искать цель и смысл жизни."><i aria-hidden="true"></i>Арт-терапия</span>
+          <span data-tooltip="Помогает замечать свои чувства и потребности в настоящем моменте, выстраивать границы и возвращать себе устойчивость в отношениях."><i aria-hidden="true"></i>Гештальт</span>
+          <span data-tooltip="Подходит для работы с вопросами выбора, свободы, одиночества, смысла и личной ответственности в сложные периоды жизни."><i aria-hidden="true"></i>Экзистенциальная терапия</span>
+        </div>
+        <p>Психолог-терапевт с более чем 10-летним опытом. Работаю в рамках гештальт-терапии, поддерживая клиентов в поиске баланса между внутренними потребностями и внешними обстоятельствами.</p>
+        <p>Мой подход интегративный. Это означает, что я использую только то, что действительно работает, и подбираю индивидуальный путь для каждого клиента.</p>
+        <div class="author-stats" aria-label="Статистика специалиста">
+          <div><strong>3000+</strong><span>часов практики</span></div>
+          <div><strong>10+</strong><span>лет опыта</span></div>
+          <div><strong>20+</strong><span>научных работ</span></div>
+        </div>
+      </div>
+      <div class="author-hero-media">
+        <img src="assets/expert-anna.jpg" alt="Анна Воронина">
+        <a class="button primary author-hero-button" href="#" data-specialist-contact-open>Связаться со специалистом</a>
+      </div>
+    </section>
+
+    <section class="author-education blue-author-section" id="education">
+      <div class="author-container">
+        <h2>Образование</h2>
+        <div class="education-grid">
+          <article>
+            <time>2024</time>
+            <div>
+              <h3>Сибирский Государственный медицинский университет</h3>
+              <p><strong>Программа:</strong> клиническая психология и основы консультирования</p>
+              <p><strong>Сфера деятельности:</strong> психологическое сопровождение взрослых</p>
+              <p><strong>Продолжительность:</strong> 320 часов</p>
+            </div>
+            <button type="button" class="document-button" data-diploma-open data-diploma-src="assets/certificate-medical-university.svg" data-diploma-title="Сертификат об образовании">Документ</button>
+          </article>
+          <article>
+            <time>2024</time>
+            <div>
+              <h3>ФГАОУ ВО Национальный исследовательский Томский государственный университет</h3>
+              <p><strong>Программа:</strong> профессиональная переподготовка «Психолог-консультант: с нуля до первого клиента»</p>
+              <p><strong>Сфера деятельности:</strong> психолог-консультант</p>
+              <p><strong>Продолжительность:</strong> 256 часов</p>
+            </div>
+            <button type="button" class="document-button" data-diploma-open data-diploma-src="assets/certificate-tomsk-consultant.svg" data-diploma-title="Сертификат Томского государственного университета">Документ</button>
+          </article>
+          <article>
+            <time>2025</time>
+            <div>
+              <h3>Институт практической психологии и супервизии</h3>
+              <p><strong>Программа:</strong> гештальт-терапия в индивидуальной практике</p>
+              <p><strong>Сфера деятельности:</strong> терапевтическая работа с запросом клиента</p>
+              <p><strong>Продолжительность:</strong> 180 часов</p>
+            </div>
+            <button type="button" class="document-button" data-diploma-open data-diploma-src="assets/certificate-supervision.svg" data-diploma-title="Удостоверение о повышении квалификации">Документ</button>
+          </article>
+          <article>
+            <time>2025</time>
+            <div>
+              <h3>Центр арт-терапевтических практик</h3>
+              <p><strong>Программа:</strong> арт-терапия в индивидуальной и групповой работе</p>
+              <p><strong>Сфера деятельности:</strong> работа с эмоциями и образным мышлением</p>
+              <p><strong>Продолжительность:</strong> 144 часа</p>
+            </div>
+            <button type="button" class="document-button" data-diploma-open data-diploma-src="assets/certificate-art-therapy.svg" data-diploma-title="Сертификат по арт-терапии">Документ</button>
+          </article>
+          <article>
+            <time>2026</time>
+            <div>
+              <h3>ООО «Институт семейной психологии»</h3>
+              <p><strong>Программа:</strong> индивидуальное психологическое консультирование</p>
+              <p><strong>Сфера деятельности:</strong> семейные отношения и личные границы</p>
+              <p><strong>Продолжительность:</strong> 256 часов</p>
+            </div>
+            <button type="button" class="document-button" data-diploma-open data-diploma-src="assets/certificate-family-psychology.svg" data-diploma-title="Диплом о профессиональной переподготовке">Документ</button>
+          </article>
+          <article>
+            <time>2026</time>
+            <div>
+              <h3>Международная академия экспертизы и оценки</h3>
+              <p><strong>Программа:</strong> психотерапия и экспертная оценка практики</p>
+              <p><strong>Сфера деятельности:</strong> супервизия и профессиональная рефлексия</p>
+              <p><strong>Продолжительность:</strong> 216 часов</p>
+            </div>
+            <button type="button" class="document-button" data-diploma-open data-diploma-src="assets/certificate-expertise-academy.svg" data-diploma-title="Сертификат об обучении">Документ</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-projects" id="projects">
+      <div class="author-container">
+        <div class="author-section-head">
+          <h2>Принимаю участие и веду проекты<br>в различных направлениях деятельности</h2>
+          <div class="slider-arrows" data-slider-controls="projects"><button type="button" class="slider-arrow slider-arrow--prev" data-slider-prev aria-label="Предыдущие проекты"><span class="slider-arrow-icon" aria-hidden="true">‹</span></button><button type="button" class="slider-arrow slider-arrow--next" data-slider-next aria-label="Следующие проекты"><span class="slider-arrow-icon" aria-hidden="true">›</span></button></div>
+        </div>
+        <div class="author-slider-viewport" data-slider="projects">
+          <div class="project-grid author-slider-track">
+            <article>
+              <span>2019 - 2021 гг.</span>
+              <h3>Список конференций при Музее концепций Фрейда</h3>
+              <p>Список конференций при Музее сновидений Фрейда, регулярные встречи и обсуждения.</p>
+              <a href="#">Узнать подробнее</a>
+            </article>
+            <article>
+              <span>2020 - 2022 гг.</span>
+              <h3>Семинары по современной клинической практике</h3>
+              <p>Регулярные группы чтения и профессиональные обсуждения для специалистов.</p>
+              <a href="#">Узнать подробнее</a>
+            </article>
+            <article>
+              <span>2021 - 2023 гг.</span>
+              <h3>Супервизионная группа для начинающих специалистов</h3>
+              <p>Встречи для разбора практических случаев и развития профессиональной опоры.</p>
+              <a href="#">Узнать подробнее</a>
+            </article>
+            <article>
+              <span>2022 - 2024 гг.</span>
+              <h3>Исследовательский проект о терапевтическом альянсе</h3>
+              <p>Работа с материалами наблюдений и обсуждение терапевтических процессов.</p>
+              <a href="#">Узнать подробнее</a>
+            </article>
+            <article>
+              <span>2023 - 2025 гг.</span>
+              <h3>Лекторий о границах и профессиональной этике</h3>
+              <p>Открытый цикл встреч о бережной коммуникации и устойчивости специалиста.</p>
+              <a href="#">Узнать подробнее</a>
+            </article>
+            <article>
+              <span>2024 - 2026 гг.</span>
+              <h3>Практикум по работе с тревожными состояниями</h3>
+              <p>Проект объединяет клинические наблюдения, статьи и прикладные упражнения.</p>
+              <a href="#">Узнать подробнее</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-publications" id="publications">
+      <div class="author-container">
+        <h2>Последние публикации на нашей платформе</h2>
+        <div class="author-list">
+          <article>
+            <div>
+              <span>Анна Воронина</span>
+              <h3>Терапевтический альянс: как доверие становится частью изменений</h3>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+          <article>
+            <div>
+              <span>Анна Воронина</span>
+              <h3>Тревога выбора: почему свобода требует внутренней опоры</h3>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+          <article>
+            <div>
+              <span>Анна Воронина</span>
+              <h3>Границы в терапии: как специалист помогает вернуть контакт с собой</h3>
+            </div>
+            <a href="articles.html">Читать статью</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-reviews" id="reviews">
+      <div class="author-container">
+        <div class="author-section-head">
+          <h2>Отзывы на работу специалиста<br>от клиентов</h2>
+          <div class="slider-arrows" data-slider-controls="reviews"><button type="button" class="slider-arrow slider-arrow--prev" data-slider-prev aria-label="Предыдущие отзывы"><span class="slider-arrow-icon" aria-hidden="true">‹</span></button><button type="button" class="slider-arrow slider-arrow--next" data-slider-next aria-label="Следующие отзывы"><span class="slider-arrow-icon" aria-hidden="true">›</span></button></div>
+        </div>
+        <div class="author-slider-viewport" data-slider="reviews">
+          <div class="review-grid author-slider-track">
+            <article>
+              <p>«Обращалась к психологу с запросом, связанным с тревожностью и внутренним напряжением. Работа проходила в комфортной и доверительной атмосфере. Специалист внимательно относится к деталям, помогает структурировать мысли и постепенно находить...»</p>
+              <div><button type="button" class="review-more" data-review-open data-review-year="2026 г." data-review-image="assets/review-telegram.svg" data-review-text="Обращалась к психологу с запросом, связанным с тревожностью и внутренним напряжением. Работа проходила в комфортной и доверительной атмосфере. Специалист внимательно относится к деталям, помогает структурировать мысли и постепенно находить опору в себе. После нескольких встреч стало легче замечать тревогу и не спорить с собой.">Читать подробнее</button><span>2026 г.</span></div>
+            </article>
+            <article>
+              <p>«Очень рада, что попала именно к этому психологу. С первой встречи почувствовала, что меня действительно слышат и понимают. Не было ощущения давления или оценивания — наоборот, появилось чувство безопасности.»</p>
+              <div><button type="button" class="review-more" data-review-open data-review-year="2025 г." data-review-text="Очень рада, что попала именно к этому психологу. С первой встречи почувствовала, что меня действительно слышат и понимают. Не было ощущения давления или оценивания — наоборот, появилось чувство безопасности и больше ясности в собственных решениях.">Читать подробнее</button><span>2025 г.</span></div>
+            </article>
+            <article>
+              <p>«Обращалась к психологу с запросом, связанным с тревожностью и внутренним напряжением. Работа проходила в комфортной и доверительной атмосфере. Специалист внимательно относится к деталям, помогает...»</p>
+              <div><button type="button" class="review-more" data-review-open data-review-year="2019 - 2021 гг." data-review-text="Обращалась к психологу с запросом, связанным с тревожностью и внутренним напряжением. Работа помогла бережно увидеть повторяющиеся сценарии и постепенно перестать действовать только из привычной защиты. Очень ценно, что процесс был спокойным и понятным.">Читать подробнее</button><span>2019 - 2021 гг.</span></div>
+            </article>
+            <article>
+              <p>«После нескольких встреч стало легче замечать собственные реакции и не проваливаться в привычную тревогу. Очень ценю спокойный темп и внимательность к деталям.»</p>
+              <div><button type="button" class="review-more" data-review-open data-review-year="2024 г." data-review-text="После нескольких встреч стало легче замечать собственные реакции и не проваливаться в привычную тревогу. Очень ценю спокойный темп и внимательность к деталям. В работе появилось ощущение, что можно двигаться без насилия над собой.">Читать подробнее</button><span>2024 г.</span></div>
+            </article>
+            <article>
+              <p>«Работа помогла лучше понять, где заканчиваются ожидания других людей и начинаются мои собственные желания. Было спокойно, бережно и очень профессионально.»</p>
+              <div><button type="button" class="review-more" data-review-open data-review-year="2023 г." data-review-text="Работа помогла лучше понять, где заканчиваются ожидания других людей и начинаются мои собственные желания. Было спокойно, бережно и очень профессионально. Особенно помогли вопросы, которые возвращали внимание к себе.">Читать подробнее</button><span>2023 г.</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="author-contact blue-author-section" id="author-contacts">
+      <div class="author-container">
+        <h2>Контакты специалиста</h2>
+        <div class="author-contact-grid">
+          <div>
+            <span>Телефон</span>
+            <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+          </div>
+          <div>
+            <span>E-mail</span>
+            <a href="mailto:anna_voronina@mail.ru">anna_voronina@mail.ru</a>
+          </div>
+          <div>
+            <span>Социальные сети</span>
+            <a class="social-button" href="#">Вконтакте</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="diploma-modal" id="diplomaModal" aria-hidden="true">
+    <div class="diploma-modal__backdrop" data-diploma-close></div>
+    <div class="diploma-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="diplomaModalTitle">
+      <button type="button" class="diploma-modal__close" data-diploma-close aria-label="Закрыть">×</button>
+      <h2 id="diplomaModalTitle">Документ об образовании</h2>
+      <img id="diplomaModalImage" src="assets/certificate-tomsk-consultant.svg" alt="Пример документа об образовании">
+    </div>
+  </div>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+
+  <div class="specialist-contact-modal" id="specialistContactModal" aria-hidden="true">
+    <div class="specialist-contact-modal__backdrop" data-specialist-contact-close></div>
+    <section class="specialist-contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="specialistContactModalTitle">
+      <button type="button" class="specialist-contact-modal__close" data-specialist-contact-close aria-label="Закрыть">×</button>
+      <p class="specialist-contact-modal__label">Связаться со специалистом</p>
+      <h2 id="specialistContactModalTitle">Анна Воронина</h2>
+      <div class="specialist-contact-modal__links">
+        <a href="tel:+79213542309"><span>Телефон</span><strong>+7 (921) 354-23-09</strong></a>
+        <a href="mailto:anna.voronina@example.com"><span>Почта</span><strong>anna.voronina@example.com</strong></a>
+        <a href="https://vk.com" target="_blank" rel="noopener"><span>Вконтакте</span><strong>vk.com/anna.voronina</strong></a>
+      </div>
+    </section>
+  </div>
+
+  <div class="review-modal" id="reviewModal" aria-hidden="true">
+    <div class="review-modal__backdrop" data-review-close></div>
+    <section class="review-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
+      <button type="button" class="review-modal__close" data-review-close aria-label="Закрыть">×</button>
+      <div class="review-modal__copy">
+        <p class="review-modal__label">Отзыв клиента</p>
+        <h2 id="reviewModalTitle">Опыт работы со специалистом</h2>
+        <p id="reviewModalText"></p>
+        <span id="reviewModalYear"></span>
+      </div>
+      <figure class="review-modal__image" id="reviewModalImageWrap" hidden>
+        <img id="reviewModalImage" src="" alt="Скриншот отзыва из чата">
+      </figure>
+    </section>
+  </div>
+
+  <script src="script.js?v=20260422-11"></script>
+  <script src="author.js?v=20260423-5"></script>
+</body>
+</html>

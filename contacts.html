@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Le Collectif</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260423-3">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html" aria-current="page">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main class="contacts-page">
+    <nav class="contacts-breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html#top">Главная</a>
+      <span>/</span>
+      <span>Контакты</span>
+    </nav>
+
+    <section class="contacts-page-grid" aria-labelledby="contactsTitle">
+      <div class="contacts-page-info reveal">
+        <h1 id="contactsTitle">Остались вопросы или предложения?</h1>
+        <p class="contacts-page-lead">Вы можете заполнить форму или связаться с нами удобным для вас способом.</p>
+
+        <div class="contacts-info-row" aria-label="Электронная почта">
+          <a class="contact-card" href="mailto:resourses@gmail.com">
+            <span>Почта по общим вопросам</span>
+            <strong>resourses@gmail.com</strong>
+          </a>
+          <a class="contact-card" href="mailto:pr@gmail.com">
+            <span>Сотрудничество</span>
+            <strong>pr@gmail.com</strong>
+          </a>
+        </div>
+
+        <div class="contact-socials" aria-label="Социальные сети">
+          <span>Социальные сети</span>
+          <div class="contact-socials-list">
+            <a href="#">Telegram</a>
+            <a href="#">ВКонтакте</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form contacts-page-form reveal" action="#" novalidate>
+        <label>
+          <input name="name" type="text" autocomplete="name" placeholder="Ваше имя" required>
+        </label>
+        <div class="contact-method-field" role="group" aria-label="Способ связи">
+          <span class="contact-method-title">Способ связи</span>
+          <div class="contact-method-options">
+            <label><input type="radio" name="contactMethod" value="phone" checked><span>Телефон</span></label>
+            <label><input type="radio" name="contactMethod" value="email"><span>Почта</span></label>
+          </div>
+        </div>
+        <label class="contact-channel-field" data-contact-channel="phone">
+          <input name="phone" type="tel" autocomplete="tel" placeholder="Телефон" required>
+        </label>
+        <label class="contact-channel-field" data-contact-channel="email" hidden>
+          <input name="email" type="email" autocomplete="email" placeholder="Почта">
+        </label>
+        <label>
+          <textarea name="message" rows="6" placeholder="Ваш вопрос" required></textarea>
+        </label>
+        <label class="checkbox">
+          <input name="policy" type="checkbox" required>
+          <span>Я даю согласие на обработку персональных данных в соответствии с Политикой конфиденциальности</span>
+        </label>
+        <button class="button primary" type="submit">Отправить</button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav aria-label="Нижняя навигация">
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav aria-label="Материалы">
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
+      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+  </footer>
+
+  <script src="script.js?v=20260422-11"></script>
+</body>
+</html>
