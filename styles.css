@@ -2741,6 +2741,32 @@ main#top .finder {
   }
 }
 
+@media (min-width: 961px) and (max-width: 1200px) {
+  .logo {
+    width: 150px;
+  }
+
+  .desktop-nav {
+    gap: 14px;
+  }
+
+  .desktop-nav a,
+  .nav-dropdown-toggle {
+    font-size: 14px;
+  }
+
+  .site-search {
+    flex: 0 0 150px;
+    width: 150px;
+  }
+
+  .site-search input {
+    padding-right: 34px;
+    padding-left: 12px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 900px) {
   :root {
     --site-side-padding: 22px;
