@@ -14,11 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const priceMaxInput = root.querySelector('#priceMax');
   const searchInput = root.querySelector('#specialistsSearchInput');
   const resetBtn = root.querySelector('#resetBtn');
-  const cards = Array.from(root.querySelectorAll('.card'));
+  const cardsGrid = root.querySelector('#specsGrid');
+  const cards = Array.from(root.querySelectorAll('.card')).sort((first, second) => {
+    const firstName = first.querySelector('.spec-title')?.textContent.trim() || '';
+    const secondName = second.querySelector('.spec-title')?.textContent.trim() || '';
+    return firstName.localeCompare(secondName, 'ru');
+  });
   const paginationContainer = root.querySelector('#pagination');
 
   let currentPage = 1;
   const itemsPerPage = 12;
+
+  cards.forEach((card) => cardsGrid?.appendChild(card));
 
   const checkedValues = (selector) => Array.from(root.querySelectorAll(selector))
     .filter((el) => el.checked)

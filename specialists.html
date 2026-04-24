@@ -132,7 +132,7 @@
         <section class="page-intro" aria-label="Заголовок страницы">
           <div class="page-intro-copy">
             <h1 class="page-title">Специалисты</h1>
-            <p class="page-desc">Подберите специалиста по теме, подходу и дополнительным критериям.<br>Фильтры слева помогут сузить выбор.</p>
+            <p class="page-desc">Подберите специалиста по теме, подходу и дополнительным критериям.<br>Фильтры слева помогут сузить выбор.<br>Все карточки расставлены по алфавиту.</p>
           </div>
           <div class="search-wrapper specialists-search">
             <input class="search-input" type="text" id="specialistsSearchInput" placeholder="Поиск..">
@@ -143,6 +143,34 @@
         </section>
 
         <div class="items-grid" id="specsGrid">
+          <article class="card specialist-card" data-type="psyc" data-topic="emotions" data-sex="female" data-method="art" data-age="35" data-therapy="individual" data-price="4100">
+            <img src="assets/expert-ekaterina.jpg" class="spec-photo" alt="Аделина Морозова">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Аделина Морозова</span><span class="spec-city">г. Вологда</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">Арт-терапия</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="ther" data-topic="insecure" data-sex="female" data-method="int" data-age="39" data-therapy="individual couple" data-price="5600">
+            <img src="assets/specialist-yulia-romanova.png" class="spec-photo" alt="Александра Фомина">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Александра Фомина</span><span class="spec-city">г. Рязань</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психотерапевт</span><span class="tag-pill">Интегративный</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc_an" data-topic="find_self" data-sex="male" data-method="ps_an" data-age="44" data-therapy="individual" data-price="6200">
+            <img src="assets/expert-dmitry.jpg" class="spec-photo" alt="Алексей Романов">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Алексей Романов</span><span class="spec-city">г. Калуга</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психоаналитик</span><span class="tag-pill">Психоанализ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
+          <article class="card specialist-card" data-type="psyc" data-topic="burnout" data-sex="male" data-method="cbt" data-age="37" data-therapy="individual" data-price="4300">
+            <img src="assets/expert-sergey.jpg" class="spec-photo" alt="Андрей Сафронов">
+            <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Андрей Сафронов</span><span class="spec-city">г. Липецк</span></div><span class="spec-rating">★ 5.0</span></div>
+            <div class="tags-container"><span class="tag-pill">Психолог</span><span class="tag-pill">КПТ</span></div>
+            <a href="#" class="card-link">Подробнее</a>
+          </article>
+
           <article class="card specialist-card" data-type="psyc" data-topic="emotions" data-sex="female" data-method="art" data-age="31" data-therapy="individual" data-price="3200">
             <img src="assets/specialist-alina-safonova.png" class="spec-photo" alt="Алина Сафонова">
             <div class="spec-name"><div class="spec-name-copy"><span class="spec-title">Алина Сафонова</span><span class="spec-city">г. Самара</span></div><span class="spec-rating">★ 5.0</span></div>
@@ -354,6 +382,6 @@
   </footer>
 
   <script src="script.js?v=20260424-1"></script>
-  <script src="specialists.js?v=20260423-1"></script>
+  <script src="specialists.js?v=20260424-1"></script>
 </body>
 </html>
