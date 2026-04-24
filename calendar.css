@@ -522,6 +522,10 @@
   letter-spacing: 0;
 }
 
+#calendarMonthName {
+  font-style: normal;
+}
+
 .calendar-day-number {
   font-size: 22px;
   font-weight: 500;
