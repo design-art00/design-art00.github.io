@@ -4062,3 +4062,14 @@ main#top .contacts .contact-form textarea:focus {
     line-height: 1.1;
   }
 }
+
+/* Slightly lower the homepage hero text without shifting the whole first screen. */
+main#top .hero-left {
+  padding-top: 24px;
+}
+
+@media (max-width: 960px) {
+  main#top .hero-left {
+    padding-top: 0;
+  }
+}
