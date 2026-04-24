@@ -1456,3 +1456,26 @@
   color: #f4f0ea !important;
   font-weight: 600 !important;
 }
+
+/* Specialist contacts stay light on the blue author section. */
+.author-contact.blue-author-section,
+.author-contact.blue-author-section h2,
+.author-contact.blue-author-section .author-contact-grid span,
+.author-contact.blue-author-section .author-contact-grid a {
+  color: #f4f0ea !important;
+}
+
+.author-contact.blue-author-section .author-contact-grid span {
+  color: rgba(244, 240, 234, 0.72) !important;
+}
+
+.author-contact.blue-author-section .social-button {
+  border-color: rgba(244, 240, 234, 0.78) !important;
+  color: #f4f0ea !important;
+}
+
+.author-contact.blue-author-section .social-button:hover {
+  background: #f4f0ea !important;
+  border-color: #f4f0ea !important;
+  color: #26397a !important;
+}
