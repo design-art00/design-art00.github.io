@@ -33,10 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc"><span>По дате публикации</span></label>
       </div>`;
 
-    const filters = root.querySelector('.toolbar-filters');
     const search = root.querySelector('.search-wrapper');
-    if (filters) filters.appendChild(sortFilter);
-    else topToolbar.insertBefore(sortFilter, search || null);
+    topToolbar.insertBefore(sortFilter, search || null);
   }
 
   const sortRadios = root.querySelectorAll('.sort-radio');
