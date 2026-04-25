@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!root) return;
 
   const cards = Array.from(root.querySelectorAll('.card'));
+  const cardsGrid = root.querySelector('#itemsGrid');
   const pagination = root.querySelector('#pagination');
   const input = root.querySelector('#searchInput');
   const topicChecks = root.querySelectorAll('.topic-check');
@@ -18,6 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const miniAuthor = document.querySelector('#miniPlayerAuthor');
   const miniClose = document.querySelector('#miniPlayerClose');
   const podcastButtons = root.querySelectorAll('.podcast-btn');
+
+  const topToolbar = root.querySelector('.top-toolbar');
+  if (topToolbar && cards.length > 1 && !root.querySelector('#sortFilter')) {
+    const sortFilter = document.createElement('div');
+    sortFilter.className = 'mini-filter sort-filter';
+    sortFilter.id = 'sortFilter';
+    sortFilter.innerHTML = `
+      <button type="button" class="mini-filter-btn" id="sortFilterBtn">Сортировка</button>
+      <div class="mini-filter-dropdown">
+        <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc" checked><span>От А до Я</span></label>
+        <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc"><span>От Я до А</span></label>
+        <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc"><span>По дате публикации</span></label>
+      </div>`;
+
+    const filters = root.querySelector('.toolbar-filters');
+    const search = root.querySelector('.search-wrapper');
+    if (filters) filters.appendChild(sortFilter);
+    else topToolbar.insertBefore(sortFilter, search || null);
+  }
+
+  const sortRadios = root.querySelectorAll('.sort-radio');
+  const sortBtn = root.querySelector('#sortFilterBtn');
 
   let currentPage = 1;
   let activeLetter = 'all';
@@ -38,6 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     therapy: 'Терапия и психоанализ',
     therapy_process: 'Терапевтический процесс',
     attachment: 'Отношения и привязанность',
+    'title-asc': 'От А до Я',
+    'title-desc': 'От Я до А',
+    'date-desc': 'По дате публикации',
     2026: '2026',
     2025: '2025',
     2024: '2024',
@@ -47,6 +73,36 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const checkedValues = (nodes) => Array.from(nodes).filter((node) => node.checked).map((node) => node.value);
+  const collator = new Intl.Collator('ru', { sensitivity: 'base' });
+
+  const getCardTitle = (card) => card.querySelector('.item-title')?.textContent.trim() || '';
+
+  const getCardDate = (card) => {
+    const dateText = card.querySelector('.publish-date')?.textContent.trim() || '';
+    const match = dateText.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+    if (match) {
+      const [, day, month, year] = match;
+      return new Date(Number(year), Number(month) - 1, Number(day)).getTime();
+    }
+    if (card.dataset.year) return new Date(Number(card.dataset.year), 0, 1).getTime();
+    return Number.NEGATIVE_INFINITY;
+  };
+
+  const getSortValue = () => root.querySelector('.sort-radio:checked')?.value || 'title-asc';
+
+  const sortCards = (items) => {
+    const sortValue = getSortValue();
+    return [...items].sort((first, second) => {
+      const firstTitle = getCardTitle(first);
+      const secondTitle = getCardTitle(second);
+      if (sortValue === 'title-desc') return collator.compare(secondTitle, firstTitle);
+      if (sortValue === 'date-desc') {
+        const dateDiff = getCardDate(second) - getCardDate(first);
+        if (dateDiff !== 0) return dateDiff;
+      }
+      return collator.compare(firstTitle, secondTitle);
+    });
+  };
 
   const updateButtonText = (button, values, fallback) => {
     if (!button) return;
@@ -86,25 +142,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const topics = checkedValues(topicChecks);
     const years = checkedValues(yearChecks);
 
-    const filtered = cards.filter((card) => {
+    const filtered = sortCards(cards.filter((card) => {
       const title = card.querySelector('.item-title')?.textContent.trim().toLowerCase() || '';
       const matchesSearch = card.innerText.toLowerCase().includes(searchValue);
       const matchesTopic = topics.length === 0 || topics.includes(card.dataset.topic);
       const matchesYear = years.length === 0 || years.includes(card.dataset.year);
       const matchesLetter = activeLetter === 'all' || title.charAt(0) === activeLetter;
       return matchesSearch && matchesTopic && matchesYear && matchesLetter;
-    });
+    }));
 
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
     if (currentPage > totalPages) currentPage = 1;
 
     cards.forEach((card) => { card.style.display = 'none'; });
+    filtered.forEach((card) => cardsGrid?.appendChild(card));
     filtered.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).forEach((card) => {
       card.style.display = 'flex';
     });
 
     updateButtonText(topicBtn, topics, 'Тема');
     updateButtonText(yearBtn, years, 'Год');
+    updateButtonText(sortBtn, [getSortValue()], 'Сортировка');
     renderPagination(totalPages);
   }
 
@@ -125,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   topicChecks.forEach((check) => check.addEventListener('change', () => { currentPage = 1; updateUI(); }));
   yearChecks.forEach((check) => check.addEventListener('change', () => { currentPage = 1; updateUI(); }));
+  sortRadios.forEach((radio) => radio.addEventListener('change', () => { currentPage = 1; updateUI(); }));
   input?.addEventListener('input', () => { currentPage = 1; updateUI(); });
   clearTopicBtn?.addEventListener('click', () => {
     topicChecks.forEach((check) => { check.checked = false; });

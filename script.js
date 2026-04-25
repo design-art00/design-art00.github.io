@@ -303,6 +303,17 @@ if (form && statusNode) {
           <button class="button primary wide" type="submit">Войти</button>
         </form>
         <form class="auth-modal-form" data-auth-form="register">
+          <fieldset class="auth-role-field">
+            <legend>Выберите роль</legend>
+            <label class="auth-role-option">
+              <input type="radio" name="accountRole" value="specialist" checked>
+              <span><strong>Специалист</strong><small>размещение анкет дипломированных специалистов</small></span>
+            </label>
+            <label class="auth-role-option">
+              <input type="radio" name="accountRole" value="user">
+              <span><strong>Пользователь</strong><small>получение консультаций, оставление комментариев</small></span>
+            </label>
+          </fieldset>
           <label><span>Имя</span><input type="text" placeholder="Анна"></label>
           <label><span>Email</span><input type="email" placeholder="mail@example.com"></label>
           <label><span>Пароль</span><input type="password" placeholder="Придумайте пароль"></label>
@@ -353,7 +364,7 @@ if (form && statusNode) {
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('auth-modal-open');
-    requestAnimationFrame(() => modal.querySelector('input')?.focus());
+    requestAnimationFrame(() => modal.querySelector('[data-auth-form].is-active input')?.focus());
   };
 
   const closeAuthModal = () => {

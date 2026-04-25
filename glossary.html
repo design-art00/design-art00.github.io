@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260423-3">
-  <link rel="stylesheet" href="library.css?v=20260423-1">
+  <link rel="stylesheet" href="styles.css?v=20260424-2">
+  <link rel="stylesheet" href="library.css?v=20260425-1">
 </head>
 <body>
   <header class="site-header">
@@ -60,7 +60,7 @@
       <main class="content-area">
         <section class="page-intro" aria-label="Заголовок страницы">
           <h1 class="page-title">Глоссарий</h1>
-          <p class="page-desc">Короткие определения терминов психологии и психоанализа.<br>Фильтруйте по теме или выбирайте букву для быстрого поиска.<br>Все карточки расставлены по алфавиту.</p>
+          <p class="page-desc">Короткие определения терминов психологии и психоанализа.<br>Фильтруйте по теме или выбирайте букву для быстрого поиска.<br>По умолчанию карточки расставлены по алфавиту.</p>
         </section>
         <div class="top-toolbar">
           <div class="mini-filter" id="topicFilter"><button type="button" class="mini-filter-btn" id="topicFilterBtn">Тема</button><div class="mini-filter-dropdown"><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="therapy_process">Терапевтический процесс</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="analysis">Психоанализ</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="attachment">Отношения и привязанность</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="emotions">Эмоции и саморегуляция</label><div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearTopicBtn">Сбросить</button></div></div></div>
@@ -69,6 +69,7 @@
         <div class="glossary-letters" id="glossaryLetters">
           <button type="button" class="letter-btn active" data-letter="all">Все</button><button type="button" class="letter-btn" data-letter="а">А</button><button type="button" class="letter-btn" data-letter="б">Б</button><button type="button" class="letter-btn" data-letter="в">В</button><button type="button" class="letter-btn" data-letter="г">Г</button><button type="button" class="letter-btn" data-letter="д">Д</button><button type="button" class="letter-btn" data-letter="и">И</button><button type="button" class="letter-btn" data-letter="к">К</button><button type="button" class="letter-btn" data-letter="л">Л</button><button type="button" class="letter-btn" data-letter="м">М</button><button type="button" class="letter-btn" data-letter="н">Н</button><button type="button" class="letter-btn" data-letter="о">О</button><button type="button" class="letter-btn" data-letter="п">П</button><button type="button" class="letter-btn" data-letter="р">Р</button><button type="button" class="letter-btn" data-letter="с">С</button><button type="button" class="letter-btn" data-letter="т">Т</button><button type="button" class="letter-btn" data-letter="ф">Ф</button><button type="button" class="letter-btn" data-letter="х">Х</button><button type="button" class="letter-btn" data-letter="э">Э</button>
         </div>
+        <p class="items-order-note">По умолчанию карточки расставлены по алфавиту.</p>
         <div class="items-grid" id="itemsGrid">
           <article class="card glossary-card" data-topic="therapy_process" data-full="Рабочий альянс — это качество сотрудничества между специалистом и клиентом: общее понимание целей, согласие относительно способов работы и ощущение безопасности в контакте. В терапии альянс часто становится условием, при котором человек может говорить о сложном опыте без страха оценки." data-source="Bordin E. S. The generalizability of the psychoanalytic concept of the working alliance. Psychotherapy, 1979." data-articles="Психосоматика стресса|psychosomatics-stress.html;Как работает терапевтический контакт|articles.html"><div><div class="item-title">Альянс</div><p class="item-description">Доверительные и совместные отношения между специалистом и клиентом.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
           <article class="card glossary-card" data-topic="analysis" data-full="Бессознательное описывает психические процессы, которые влияют на переживания, выбор и поведение, но не представлены напрямую в осознанном опыте. В психоаналитической традиции это не просто “забытое”, а активная область желаний, конфликтов, защит и повторяющихся сценариев." data-source="Freud S. The Interpretation of Dreams. 1900." data-articles="Почему мы повторяем сценарии|articles.html;Психосоматика стресса|psychosomatics-stress.html"><div><div class="item-title">Бессознательное</div><p class="item-description">Часть психики, которая содержит скрытые желания, воспоминания и импульсы.</p></div><button type="button" class="link-underline glossary-open">Подробнее</button></article>
@@ -133,7 +134,7 @@
     <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
     <a class="policy" href="contacts.html">Политика конфиденциальности</a>
   </footer>
-  <script src="script.js?v=20260424-1"></script>
-  <script src="library.js?v=20260424-1"></script>
+  <script src="script.js?v=20260424-2"></script>
+  <script src="library.js?v=20260425-1"></script>
 </body>
 </html>
