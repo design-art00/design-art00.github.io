@@ -1300,6 +1300,13 @@ body, #library-root, #test-root { background: var(--background, #f2efe8) !import
 }
 @media (max-width: 1200px) { #library-root, #test-root { padding-right: 28px !important; padding-left: 28px !important; } }
 @media (max-width: 640px) { #library-root, #test-root { padding: calc(var(--fixed-header-offset, 70px) + 24px) 18px 70px !important; } }
+@media (min-width: 1920px) {
+  #library-root,
+  #test-root {
+    padding-left: max(var(--site-side-padding, 60px), calc((100vw - var(--site-container-max, 1800px)) / 2)) !important;
+    padding-right: max(var(--site-side-padding, 60px), calc((100vw - var(--site-container-max, 1800px)) / 2)) !important;
+  }
+}
 
 /* Library dropdown filters: keep the checkmark visible after later overrides. */
 .mini-checkbox-item input:checked {

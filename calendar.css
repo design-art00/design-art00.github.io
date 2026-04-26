@@ -861,6 +861,12 @@ body.calendar-modal-open {
 .calendar-modal__dialog { background: #fffbf8 !important; box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12) !important; }
 @media (max-width: 1200px) { .calendar-page { padding-right: 28px !important; padding-left: 28px !important; } }
 @media (max-width: 640px) { .calendar-page { padding-right: 18px !important; padding-left: 18px !important; } }
+@media (min-width: 1920px) {
+  .calendar-page {
+    padding-left: max(var(--site-side-padding, 60px), calc((100vw - var(--site-container-max, 1800px)) / 2)) !important;
+    padding-right: max(var(--site-side-padding, 60px), calc((100vw - var(--site-container-max, 1800px)) / 2)) !important;
+  }
+}
 
 
 /* Calendar month controls: same arrow style as author sliders. */

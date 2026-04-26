@@ -1479,3 +1479,12 @@
   border-color: #f4f0ea !important;
   color: #26397a !important;
 }
+
+@media (min-width: 1920px) {
+  .author-container,
+  .author-hero,
+  .author-tabs {
+    padding-left: max(var(--site-side-padding, 60px), calc((100vw - var(--site-container-max, 1800px)) / 2)) !important;
+    padding-right: max(var(--site-side-padding, 60px), calc((100vw - var(--site-container-max, 1800px)) / 2)) !important;
+  }
+}

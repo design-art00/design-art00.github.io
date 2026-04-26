@@ -14,6 +14,7 @@
   --fixed-header-offset: 90px;
   --app-height: 100%;
   --site-side-padding: 60px;
+  --site-container-max: 1800px;
   --button-padding-y: 12px;
   --button-padding-x: 20px;
   --button-font-size: 16px;
@@ -4135,6 +4136,29 @@ main#top .contacts .contact-form textarea:focus {
 /* Slightly lower the homepage hero text without shifting the whole first screen. */
 main#top .hero-left {
   padding-top: 24px;
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --site-wide-gutter: max(var(--site-side-padding), calc((100vw - var(--site-container-max)) / 2));
+  }
+
+  .site-header,
+  .footer,
+  .contacts-page {
+    padding-left: var(--site-wide-gutter) !important;
+    padding-right: var(--site-wide-gutter) !important;
+  }
+
+  .section:not(.hero) {
+    grid-template-columns: var(--section-label-width) minmax(0, calc(var(--site-container-max) - var(--section-label-width) - var(--section-gap)));
+    justify-content: center;
+  }
+
+  .hero.section {
+    grid-template-columns: minmax(0, 1038px) minmax(320px, 692px);
+    justify-content: center;
+  }
 }
 
 @media (max-width: 960px) {
