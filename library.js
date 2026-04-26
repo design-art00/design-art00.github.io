@@ -135,10 +135,26 @@ document.addEventListener('DOMContentLoaded', () => {
       pagination.appendChild(button);
     };
 
+    const createDots = () => {
+      const dots = document.createElement('span');
+      dots.className = 'page-dots';
+      dots.textContent = '...';
+      pagination.appendChild(dots);
+    };
+
+    const getVisiblePages = () => {
+      if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1);
+
+      const pages = new Set([1, 2, 3, 4, totalPages - 1, totalPages]);
+      if (currentPage > 4 && currentPage < totalPages - 1) pages.add(currentPage);
+      return [...pages].sort((first, second) => first - second);
+    };
+
     createButton('‹', Math.max(1, currentPage - 1), { disabled: currentPage === 1 });
-    for (let i = 1; i <= totalPages; i += 1) {
-      createButton(String(i), i, { active: i === currentPage });
-    }
+    getVisiblePages().forEach((page, index, pages) => {
+      if (index > 0 && page - pages[index - 1] > 1) createDots();
+      createButton(String(page), page, { active: page === currentPage });
+    });
     createButton('›', Math.min(totalPages, currentPage + 1), { disabled: currentPage === totalPages });
   };
 

@@ -473,6 +473,17 @@ a {
   border-color: var(--accent-color);
 }
 
+.page-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-main);
+  font-size: 12px;
+  line-height: 1;
+}
+
 .letter-btn {
   border: 0;
   background: transparent;
