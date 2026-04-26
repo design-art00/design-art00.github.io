@@ -1307,3 +1307,18 @@ body, #library-root, #test-root { background: var(--background, #f2efe8) !import
   border-width: 0 1.5px 1.5px 0;
   transform: rotate(45deg);
 }
+
+.mini-checkbox-item .sort-radio {
+  border-radius: 50% !important;
+}
+
+.mini-checkbox-item .sort-radio:checked::after {
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+}
