@@ -282,28 +282,6 @@ a {
   transform: rotate(45deg);
 }
 
-.mini-sort-item {
-  display: block;
-  padding: 8px 10px;
-  color: #282828;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.24s ease, color 0.24s ease;
-}
-
-.mini-sort-item:hover,
-.mini-sort-item:has(input:checked) {
-  background: rgba(68, 87, 153, 0.08);
-  color: #26397a;
-}
-
-.mini-sort-item input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .mini-filter-actions {
   display: flex;
   justify-content: flex-end;

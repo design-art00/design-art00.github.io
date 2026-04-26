@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sortFilter.className = 'mini-filter sort-filter';
     sortFilter.id = 'sortFilter';
     sortFilter.innerHTML = `
-      <button type="button" class="mini-filter-btn" id="sortFilterBtn">Сортировка</button>
+      <button type="button" class="mini-filter-btn" id="sortFilterBtn">По умолчанию</button>
       <div class="mini-filter-dropdown">
-        <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc" checked><span>От А до Я</span></label>
-        <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc"><span>От Я до А</span></label>
-        <label class="mini-sort-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc"><span>По дате публикации</span></label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc" checked>По умолчанию</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc">От Я до А</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате публикации</label>
       </div>`;
 
     const search = root.querySelector('.search-wrapper');
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     therapy: 'Терапия и психоанализ',
     therapy_process: 'Терапевтический процесс',
     attachment: 'Отношения и привязанность',
-    'title-asc': 'От А до Я',
+    'title-asc': 'По умолчанию',
     'title-desc': 'От Я до А',
     'date-desc': 'По дате публикации',
     2026: '2026',
