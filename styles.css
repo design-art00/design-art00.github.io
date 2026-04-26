@@ -1566,6 +1566,14 @@ color:#445799;
   color: #445799;
 }
 
+.authors .section-topline .hand-underline::after {
+  left: -0.12em;
+  right: -0.12em;
+  bottom: -0.22em;
+  height: 0.42em;
+  min-height: 18px;
+}
+
 .library-card.image-card.article-preview {
   position: relative;
   overflow: hidden;
