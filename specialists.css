@@ -101,6 +101,64 @@
   border-color: var(--accent-color, #445799);
 }
 
+.city-filter-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 8px;
+}
+
+.city-filter-wrap.is-hidden {
+  display: none !important;
+}
+
+.city-select-label {
+  color: #777777;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.city-select-shell {
+  position: relative;
+}
+
+.city-select-shell::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: calc(50% - 4px);
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid #535353;
+  border-bottom: 1.5px solid #535353;
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+}
+
+.city-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+  border: 1px solid #d1d1d1;
+  background-color: #ffffff;
+  color: #535353;
+  font-family: "Inter Tight", sans-serif;
+  font-size: 14px;
+  outline: none;
+  padding: 0 34px 0 14px;
+}
+
+.city-select::-ms-expand {
+  display: none;
+}
+
+.city-select:focus {
+  border-color: var(--accent-color, #445799);
+}
+
 .nested-group {
   position: relative;
   margin-top: 10px;

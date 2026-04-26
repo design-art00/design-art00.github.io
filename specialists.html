@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260424-2">
   <link rel="stylesheet" href="library.css?v=20260422-16">
-  <link rel="stylesheet" href="specialists.css?v=20260424-1">
+  <link rel="stylesheet" href="specialists.css?v=20260426-4">
 </head>
 <body>
   <header class="site-header">
@@ -61,6 +61,22 @@
             <div class="filter-content">
               <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="therapy" value="individual"> Индивидуальная</label>
               <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="therapy" value="couple"> Парная</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button type="button" class="filter-header">Формат консультации</button>
+            <div class="filter-content">
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="format" value="offline"> Личная консультация</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="format" value="online"> Онлайн</label>
+              <div class="city-filter-wrap is-hidden" id="cityFilterWrap">
+                <label class="city-select-label" for="citySelect">Город</label>
+                <div class="city-select-shell">
+                  <select class="city-select" id="citySelect">
+                    <option value="">Любой город</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -382,6 +398,6 @@
   </footer>
 
   <script src="script.js?v=20260424-2"></script>
-  <script src="specialists.js?v=20260424-1"></script>
+  <script src="specialists.js?v=20260426-1"></script>
 </body>
 </html>

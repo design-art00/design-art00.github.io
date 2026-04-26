@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const priceMinInput = root.querySelector('#priceMin');
   const priceMaxInput = root.querySelector('#priceMax');
   const searchInput = root.querySelector('#specialistsSearchInput');
+  const citySelect = root.querySelector('#citySelect');
+  const cityFilterWrap = root.querySelector('#cityFilterWrap');
   const resetBtn = root.querySelector('#resetBtn');
   const cardsGrid = root.querySelector('#specsGrid');
   const cards = Array.from(root.querySelectorAll('.card')).sort((first, second) => {
@@ -30,6 +32,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkedValues = (selector) => Array.from(root.querySelectorAll(selector))
     .filter((el) => el.checked)
     .map((el) => el.value);
+
+  const normalizeCity = (value) => value.replace(/^г\.\s*/i, '').trim();
+  const cardCity = (card) => normalizeCity(card.querySelector('.spec-city')?.textContent || '');
+
+  if (citySelect) {
+    const cities = [...new Set(cards.map(cardCity).filter(Boolean))]
+      .sort((first, second) => first.localeCompare(second, 'ru'));
+    cities.forEach((city) => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    });
+  }
+
+  function syncCityFilterVisibility() {
+    const isOfflineSelected = root.querySelector('[data-filter="format"][value="offline"]')?.checked;
+    cityFilterWrap?.classList.toggle('is-hidden', !isOfflineSelected);
+    if (!isOfflineSelected && citySelect) citySelect.value = '';
+  }
 
   function renderPaginationButtons(totalPages) {
     if (!paginationContainer) return;
@@ -77,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyFilters() {
     const activeTypes = checkedValues('[data-filter="type"]:checked');
     const activeTherapy = checkedValues('[data-filter="therapy"]:checked');
+    const activeFormats = checkedValues('[data-filter="format"]:checked');
     const activeTopics = checkedValues('[data-filter="topic"]:checked');
     const activeMethods = checkedValues('[data-filter="method"]:checked');
     const activeSex = root.querySelector('[data-filter="sex"]:checked')?.value || 'all';
@@ -85,13 +108,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxPrice = Number.parseInt(priceMaxInput?.value || '0', 10);
     const searchValue = (searchInput?.value || '').trim().toLowerCase();
     const mainTopics = ['find_self', 'sleep', 'insecure', 'emotions', 'burnout'];
+    syncCityFilterVisibility();
+    const activeCity = normalizeCity(citySelect?.value || '');
 
     const filtered = cards.filter((card) => {
       const cardTherapy = (card.dataset.therapy || '').split(' ');
+      const cardFormats = (card.dataset.format || 'online offline').split(' ');
       const cardPrice = Number.parseInt(card.dataset.price || '0', 10);
       const cardText = card.innerText.toLowerCase();
       const matchType = activeTypes.length === 0 || activeTypes.includes(card.dataset.type);
       const matchTherapy = activeTherapy.length === 0 || activeTherapy.some((value) => cardTherapy.includes(value));
+      const matchFormat = activeFormats.length === 0 || activeFormats.some((value) => {
+        if (!cardFormats.includes(value)) return false;
+        return value !== 'offline' || !activeCity || cardCity(card) === activeCity;
+      });
       const matchTopic = activeTopics.length === 0
         || activeTopics.includes(card.dataset.topic)
         || (activeTopics.includes('other') && !mainTopics.includes(card.dataset.topic));
@@ -101,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const matchMinPrice = !minPrice || cardPrice >= minPrice;
       const matchMaxPrice = !maxPrice || cardPrice <= maxPrice;
       const matchSearch = !searchValue || cardText.includes(searchValue);
-      return matchType && matchTherapy && matchTopic && matchMethod && matchSex && matchAge && matchMinPrice && matchMaxPrice && matchSearch;
+      return matchType && matchTherapy && matchFormat && matchTopic && matchMethod && matchSex && matchAge && matchMinPrice && matchMaxPrice && matchSearch;
     });
 
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
@@ -116,6 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isFiltered = activeTypes.length > 0
       || activeTherapy.length > 0
+      || activeFormats.length > 0
+      || activeCity.length > 0
       || activeTopics.length > 0
       || activeMethods.length > 0
       || activeSex !== 'all'
@@ -132,6 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
       currentPage = 1;
       applyFilters();
     });
+  });
+
+  citySelect?.addEventListener('change', () => {
+    currentPage = 1;
+    applyFilters();
   });
 
   root.querySelectorAll('.price-input').forEach((el) => {
@@ -164,6 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (priceMinInput) priceMinInput.value = '';
     if (priceMaxInput) priceMaxInput.value = '';
     if (searchInput) searchInput.value = '';
+    if (citySelect) citySelect.value = '';
+    syncCityFilterVisibility();
     currentPage = 1;
     applyFilters();
   });
