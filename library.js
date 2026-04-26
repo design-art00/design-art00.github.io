@@ -26,15 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
     sortFilter.className = 'mini-filter sort-filter';
     sortFilter.id = 'sortFilter';
     sortFilter.innerHTML = `
-      <button type="button" class="mini-filter-btn" id="sortFilterBtn">По умолчанию</button>
+      <button type="button" class="mini-filter-btn" id="sortFilterBtn">Сортировать по</button>
       <div class="mini-filter-dropdown">
-        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc" checked>По умолчанию</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc">От А до Я</label>
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc">От Я до А</label>
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате публикации</label>
       </div>`;
 
     const search = root.querySelector('.search-wrapper');
-    topToolbar.insertBefore(sortFilter, search || null);
+    if (search) {
+      const searchGroup = document.createElement('div');
+      searchGroup.className = 'toolbar-search-group';
+      topToolbar.insertBefore(searchGroup, search);
+      searchGroup.append(sortFilter, search);
+    } else {
+      topToolbar.appendChild(sortFilter);
+    }
   }
 
   const sortRadios = root.querySelectorAll('.sort-radio');
@@ -59,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     therapy: 'Терапия и психоанализ',
     therapy_process: 'Терапевтический процесс',
     attachment: 'Отношения и привязанность',
-    'title-asc': 'По умолчанию',
+    'title-asc': 'От А до Я',
     'title-desc': 'От Я до А',
     'date-desc': 'По дате публикации',
     2026: '2026',
@@ -160,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateButtonText(topicBtn, topics, 'Тема');
     updateButtonText(yearBtn, years, 'Год');
-    updateButtonText(sortBtn, [getSortValue()], 'Сортировка');
+    if (sortBtn) sortBtn.textContent = 'Сортировать по';
     renderPagination(totalPages);
   }
 

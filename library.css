@@ -165,6 +165,13 @@ a {
   gap: 12px;
 }
 
+.toolbar-search-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-left: auto;
+}
+
 .mini-filter {
   position: relative;
   width: 250px;
@@ -172,6 +179,11 @@ a {
 
 .mini-filter.year-filter {
   width: 110px;
+}
+
+.sort-filter {
+  width: 180px;
+  flex: 0 0 180px;
 }
 
 .mini-filter-btn,
@@ -704,7 +716,8 @@ a {
   .sidebar,
   .search-wrapper,
   .mini-filter,
-  .mini-filter.year-filter {
+  .mini-filter.year-filter,
+  .toolbar-search-group {
     width: 100%;
   }
 
@@ -992,12 +1005,21 @@ body {
     gap: 12px;
   }
 
+  .toolbar-search-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-left: 0;
+  }
+
   .mini-filter,
   .mini-filter.year-filter,
+  .sort-filter,
   .search-wrapper,
   #topicFilter,
   #yearFilter {
     width: 100%;
+    flex-basis: auto;
   }
 
   .mini-filter-dropdown {
