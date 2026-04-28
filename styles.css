@@ -1232,6 +1232,32 @@ color:#445799;
   accent-color: var(--paper);
 }
 
+main#top .contacts .checkbox input {
+  appearance: none;
+  border: 1px solid rgba(250, 248, 243, 0.58);
+  border-radius: 2px;
+  background: rgba(250, 248, 243, 0.16);
+  accent-color: auto;
+  position: relative;
+}
+
+main#top .contacts .checkbox input:checked {
+  background: rgba(250, 248, 243, 0.74);
+  border-color: rgba(250, 248, 243, 0.74);
+}
+
+main#top .contacts .checkbox input:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #445799;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
 .form-status {
   min-height: 20px;
   font-size: 13px;
@@ -2999,11 +3025,25 @@ main#top .finder {
   .hero-right,
   .about-layout,
   .library-grid,
-  .expert-list,
-  .topic-grid,
   .contacts-grid,
   .footer {
     grid-template-columns: 1fr;
+  }
+
+  main#top .expert-list,
+  main#top .topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  main#top .expert-card img {
+    height: 180px;
+  }
+
+  main#top .expert-card h3,
+  main#top .topic-grid h3 {
+    font-size: 18px;
+    line-height: 1.12;
   }
 
   .hero-right blockquote,
@@ -3030,6 +3070,11 @@ main#top .finder {
   .library-card,
   .topic-grid article {
     min-height: 220px;
+  }
+
+  main#top .topic-grid article,
+  main#top .expert-card {
+    min-height: 0;
   }
 
   .photo-invite {
@@ -3921,6 +3966,12 @@ html, body, .site-header, .menu-panel, .calendar-page, .contacts-page, .article-
   background-color: var(--background) !important;
 }
 .site-header { background: var(--site-header-bg) !important; }
+.menu-panel {
+  background: rgba(38, 54, 111, 0.96) !important;
+}
+.menu-panel a {
+  color: var(--paper) !important;
+}
 .desktop-nav, .desktop-nav a, .nav-dropdown-toggle {
   color: #3f3f3f !important;
   font-weight: 500 !important;
@@ -4180,13 +4231,9 @@ main#top .hero-left {
 }
 
 @media (max-width: 720px) {
-  body {
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 86px);
-  }
-
   .site-header {
     min-height: 64px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
     padding: 12px 18px;
   }
 
@@ -4199,27 +4246,26 @@ main#top .hero-left {
   }
 
   .header-actions {
-    position: fixed !important;
-    top: auto !important;
-    right: 18px !important;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 14px) !important;
-    left: 18px !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: 10px;
-    margin-left: 0;
+    position: static !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    display: flex !important;
+    grid-template-columns: none;
+    gap: 0;
+    margin-left: auto;
     width: auto !important;
-    justify-self: stretch !important;
-    z-index: 10050;
+    justify-self: end !important;
+    z-index: auto;
   }
 
   .site-header .account-button,
   .site-header .menu-button {
     display: inline-flex !important;
-    flex: 1 1 auto !important;
+    flex: 0 0 auto !important;
     justify-content: center;
-    width: 100% !important;
-    min-width: 0 !important;
+    width: auto !important;
+    min-width: 88px !important;
     min-height: 46px !important;
     height: 46px !important;
     padding: 0 14px !important;
@@ -4227,7 +4273,7 @@ main#top .hero-left {
   }
 
   .site-header .account-button {
-    background: #ffffff !important;
+    display: none !important;
   }
 
   .site-header .menu-button {
@@ -4235,11 +4281,12 @@ main#top .hero-left {
     inset: auto !important;
     max-width: none !important;
     background: #ffffff !important;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12) !important;
     color: #26397a !important;
   }
 
   .menu-panel {
-    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 120px);
+    padding-bottom: 48px;
   }
 
   .hero {
@@ -4248,6 +4295,14 @@ main#top .hero-left {
 
   main#top .hero {
     padding-top: 84px !important;
+  }
+
+  main#top .hero-left {
+    min-height: calc(100svh - 120px);
+  }
+
+  .hero-buttons {
+    margin-top: auto;
   }
 
   .hero h1,
@@ -4307,9 +4362,9 @@ main#top .hero-left {
 
 @media (max-width: 640px) {
   .header-actions {
-    right: 14px !important;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 12px) !important;
-    left: 14px !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
   }
 
   .site-header .account-button,
