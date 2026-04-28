@@ -709,6 +709,57 @@ a {
   line-height: 1.6;
 }
 
+@media (max-width: 1200px) {
+  .main-container {
+    gap: 44px;
+    grid-template-columns: minmax(250px, 2.1fr) minmax(0, 9.9fr);
+  }
+
+  .page-title {
+    font-size: 36px;
+  }
+
+  .page-desc {
+    max-width: 640px;
+    font-size: 15px;
+  }
+
+  .top-toolbar {
+    gap: 16px;
+  }
+
+  .toolbar-filters {
+    gap: 10px;
+  }
+
+  .toolbar-search-group {
+    gap: 10px;
+  }
+
+  .mini-filter {
+    width: 220px;
+  }
+
+  .mini-filter.year-filter {
+    width: 100px;
+  }
+
+  .sort-filter {
+    width: 164px;
+    flex: 0 0 164px;
+  }
+
+  .search-wrapper {
+    width: 150px;
+    flex: 0 0 150px;
+  }
+
+  .item-title {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+}
+
 @media (max-width: 960px) {
   #library-root,
   #test-root {
@@ -1154,6 +1205,22 @@ body {
   .search-wrapper {
     flex: 0 1 auto;
     min-height: 42px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-title {
+    font-size: 30px !important;
+    line-height: 1.08;
+  }
+
+  .page-desc {
+    font-size: 15px;
+  }
+
+  .item-title {
+    font-size: 20px !important;
+    line-height: 1.2;
   }
 }
 
