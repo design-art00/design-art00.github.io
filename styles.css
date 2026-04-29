@@ -177,6 +177,7 @@ h3 {
 .desktop-nav a,
 .nav-dropdown-toggle {
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 .desktop-nav a,
@@ -274,6 +275,7 @@ h3 {
   font-size: var(--button-font-size);
   font-weight: 500;
   line-height: 1.2;
+  text-transform: uppercase;
   transition: var(--button-transition);
 }
 
@@ -1446,6 +1448,15 @@ main#top .contacts .checkbox input:checked::after {
 @media (min-width: 1601px) {
   main#top .hero {
     min-height: 700px;
+  }
+
+  main#top .hero h1 {
+    font-size: 62px !important;
+    max-width: none;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    line-height: 1.06;
   }
 
   main#top .hero-left {
@@ -4241,8 +4252,14 @@ main#top .hero-left {
   }
 
   .hero.section {
-    grid-template-columns: minmax(0, 1038px) minmax(320px, 692px);
+    grid-template-columns: minmax(0, 1140px) minmax(320px, 540px);
     justify-content: center;
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1919px) {
+  .hero.section {
+    grid-template-columns: minmax(0, 1.22fr) minmax(320px, 0.54fr);
   }
 }
 
