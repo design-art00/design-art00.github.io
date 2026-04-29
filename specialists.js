@@ -58,42 +58,76 @@ document.addEventListener('DOMContentLoaded', () => {
     paginationContainer.innerHTML = '';
     if (totalPages <= 1) return;
 
-    const prev = document.createElement('button');
-    prev.type = 'button';
-    prev.textContent = '←';
-    prev.className = 'page-btn';
-    prev.disabled = currentPage === 1;
-    prev.addEventListener('click', () => {
-      currentPage = Math.max(1, currentPage - 1);
-      applyFilters();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    paginationContainer.appendChild(prev);
-
-    for (let i = 1; i <= totalPages; i += 1) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.textContent = i;
-      btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-      btn.addEventListener('click', () => {
-        currentPage = i;
+    const createButton = (label, page, options = {}) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = label;
+      button.className = `page-btn ${options.active ? 'active' : ''}`;
+      button.disabled = Boolean(options.disabled);
+      button.addEventListener('click', () => {
+        if (button.disabled) return;
+        currentPage = page;
         applyFilters();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-      paginationContainer.appendChild(btn);
-    }
+      paginationContainer.appendChild(button);
+    };
 
-    const next = document.createElement('button');
-    next.type = 'button';
-    next.textContent = '→';
-    next.className = 'page-btn';
-    next.disabled = currentPage === totalPages;
-    next.addEventListener('click', () => {
-      currentPage = Math.min(totalPages, currentPage + 1);
-      applyFilters();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const createDots = () => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'page-dots page-dots-button';
+      button.textContent = '...';
+      button.setAttribute('aria-label', 'Перейти к странице');
+
+      button.addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '1';
+        input.max = String(totalPages);
+        input.value = String(currentPage);
+        input.className = 'page-jump-input';
+        input.setAttribute('aria-label', 'Введите номер страницы');
+
+        const submitJump = () => {
+          const nextPage = Number.parseInt(input.value, 10);
+          if (!Number.isNaN(nextPage)) {
+            currentPage = Math.min(totalPages, Math.max(1, nextPage));
+            applyFilters();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            paginationContainer.replaceChild(button, input);
+          }
+        };
+
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter') submitJump();
+          if (event.key === 'Escape') paginationContainer.replaceChild(button, input);
+        });
+
+        input.addEventListener('blur', submitJump, { once: true });
+        paginationContainer.replaceChild(input, button);
+        input.focus();
+        input.select();
+      });
+
+      paginationContainer.appendChild(button);
+    };
+
+    const getVisiblePages = () => {
+      if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1);
+
+      const pages = new Set([1, 2, 3, 4, totalPages - 1, totalPages]);
+      if (currentPage > 4 && currentPage < totalPages - 1) pages.add(currentPage);
+      return [...pages].sort((first, second) => first - second);
+    };
+
+    createButton('‹', Math.max(1, currentPage - 1), { disabled: currentPage === 1 });
+    getVisiblePages().forEach((page, index, pages) => {
+      if (index > 0 && page - pages[index - 1] > 1) createDots();
+      createButton(String(page), page, { active: page === currentPage });
     });
-    paginationContainer.appendChild(next);
+    createButton('›', Math.min(totalPages, currentPage + 1), { disabled: currentPage === totalPages });
   }
 
   function applyFilters() {

@@ -654,26 +654,14 @@ body, #library-root, [data-specialists-page] { background: var(--background, #f2
 
 @media (min-width: 961px) {
   [data-specialists-page] .sidebar {
+    position: static;
+    top: auto;
     align-self: start;
   }
 
   [data-specialists-page] .filters-plate {
-    max-height: calc(100svh - var(--fixed-header-offset, 90px) - 28px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;
-  }
-
-  [data-specialists-page] .filters-plate::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  [data-specialists-page] .filters-plate::-webkit-scrollbar-thumb {
-    background: rgba(68, 87, 153, 0.28);
-  }
-
-  [data-specialists-page] .filters-plate::-webkit-scrollbar-track {
-    background: transparent;
+    max-height: none;
+    overflow: visible;
   }
 }
 

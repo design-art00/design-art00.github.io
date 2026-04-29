@@ -136,10 +136,43 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const createDots = () => {
-      const dots = document.createElement('span');
-      dots.className = 'page-dots';
-      dots.textContent = '...';
-      pagination.appendChild(dots);
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'page-dots page-dots-button';
+      button.textContent = '...';
+      button.setAttribute('aria-label', 'Перейти к странице');
+
+      button.addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.min = '1';
+        input.max = String(totalPages);
+        input.value = String(currentPage);
+        input.className = 'page-jump-input';
+        input.setAttribute('aria-label', 'Введите номер страницы');
+
+        const submitJump = () => {
+          const nextPage = Number.parseInt(input.value, 10);
+          if (!Number.isNaN(nextPage)) {
+            currentPage = Math.min(totalPages, Math.max(1, nextPage));
+            updateUI();
+          } else {
+            pagination.replaceChild(button, input);
+          }
+        };
+
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter') submitJump();
+          if (event.key === 'Escape') pagination.replaceChild(button, input);
+        });
+
+        input.addEventListener('blur', submitJump, { once: true });
+        pagination.replaceChild(input, button);
+        input.focus();
+        input.select();
+      });
+
+      pagination.appendChild(button);
     };
 
     const getVisiblePages = () => {
