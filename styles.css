@@ -1676,7 +1676,7 @@ main#top .contacts .checkbox input:checked::after {
   align-self: start;
   max-width: 190px;
   color: #282828;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.05;
   z-index: 1;
 }
