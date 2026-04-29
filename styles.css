@@ -1452,7 +1452,7 @@ main#top .contacts .checkbox input:checked::after {
   }
 
   main#top .hero h1 {
-    font-size: 62px !important;
+    font-size: 63px !important;
     max-width: none;
     overflow-wrap: normal;
     word-break: normal;
