@@ -1742,7 +1742,7 @@ main#top .contacts .checkbox input:checked::after {
 
 .library-card.image-card.article-preview {
   background-size: auto 112%;
-  background-position: right -8px bottom -10px;
+  /* background-position: right -8px bottom -10px; */
 }
 
 /* Softer visual language for homepage cards and photos. */
