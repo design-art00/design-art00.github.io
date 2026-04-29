@@ -805,7 +805,8 @@ h3 {
 .library-card {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 300px;
+  min-height: 200px;
+  max-heigh: 260px;
   padding: 20px 20px;
   color: var(--paper);
   background: rgba(74, 97, 165, 0.78);
