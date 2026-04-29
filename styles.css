@@ -806,7 +806,7 @@ h3 {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 300px;
-  padding: 30px 28px;
+  padding: 20px 20px;
   color: var(--paper);
   background: rgba(74, 97, 165, 0.78);
 }
