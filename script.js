@@ -111,21 +111,46 @@ if (dropdown && dropdownToggle) {
 
 if (quoteSlider) {
   const track = quoteSlider.querySelector('.quote-track');
-  if (track) {
+  const viewport = quoteSlider.querySelector('.quote-viewport');
+  if (track && viewport) {
     const quotes = [
       '«Когда мы начинаем лучше понимать себя, у нас появляется выбор»',
       '«Когда мы учимся слышать себя, у нас появляется возможность выбирать»',
       '«Когда есть диалог и поддержка, становится проще удерживать практику»',
       '«Когда знания разделяют с коллегами, они становятся частью общего процесса»'
     ];
+    const quoteBackgrounds = ['#E3D6C9', '#D6D8E6'];
     let quoteIndex = 0;
+
+    const syncQuoteTheme = () => {
+      quoteSlider.style.setProperty('--quote-slider-bg', quoteBackgrounds[quoteIndex % 2]);
+    };
+
+    const syncQuoteHeight = () => {
+      const measure = document.createElement('span');
+      measure.className = 'quote-slide';
+      measure.style.position = 'absolute';
+      measure.style.visibility = 'hidden';
+      measure.style.pointerEvents = 'none';
+      measure.style.width = `${viewport.clientWidth}px`;
+      viewport.appendChild(measure);
+
+      let maxHeight = 0;
+      quotes.forEach((quote) => {
+        measure.textContent = quote;
+        maxHeight = Math.max(maxHeight, measure.offsetHeight);
+      });
+
+      measure.remove();
+      viewport.style.height = `${maxHeight}px`;
+    };
 
     const nextQuote = () => {
       quoteIndex = (quoteIndex + 1) % quotes.length;
       const next = document.createElement('span');
       next.className = 'quote-slide';
       next.textContent = quotes[quoteIndex];
-      quoteSlider.classList.toggle('quote-slider--alt', quoteIndex % 2 === 1);
+      syncQuoteTheme();
       track.appendChild(next);
 
       // Slide the track left by one "page".
@@ -143,6 +168,9 @@ if (quoteSlider) {
       track.addEventListener('transitionend', onDone);
     };
 
+    syncQuoteHeight();
+    syncQuoteTheme();
+    window.addEventListener('resize', syncQuoteHeight);
     setInterval(nextQuote, 4500);
   }
 }

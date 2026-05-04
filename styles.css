@@ -138,9 +138,10 @@ h3 {
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
+  column-gap: clamp(14px, 1.2vw, 22px);
   padding: 18px var(--site-side-padding);
   background: var(--cream);
   border-bottom: 1px solid #dedbd4;
@@ -153,7 +154,7 @@ h3 {
 
 .logo {
   display: inline-block;
-  width: 196px;
+  width: clamp(150px, 10.8vw, 188px);
   aspect-ratio: 181 / 44;
   flex: 0 0 auto;
   background: url("assets/site-logo.svg") left center / contain no-repeat;
@@ -164,20 +165,25 @@ h3 {
 }
 
 .desktop-nav {
-  position: absolute;
-  left: 50%;
+  position: static;
   display: flex;
   align-items: center;
-  gap: 28px;
+  justify-content: center;
+  min-width: 0;
+  gap: clamp(10px, 0.95vw, 18px);
+  flex-shrink: 0;
+  flex-wrap: nowrap;
   color: #535353;
   font-size: 16px;
-  transform: translateX(-50%);
 }
 
 .desktop-nav a,
 .nav-dropdown-toggle {
   font-weight: 400;
   text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .desktop-nav a,
@@ -267,14 +273,16 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--button-padding-y) var(--button-padding-x);
+  min-width: 0;
+  height: 38px;
+  padding: 0 20px;
   border-radius: 999px;
   color: var(--blue-deep);
   background: rgba(255, 255, 255, 0.78);
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12);
-  font-size: var(--button-font-size);
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1;
   text-transform: uppercase;
   transition: var(--button-transition);
 }
@@ -286,9 +294,12 @@ h3 {
 }
 
 .header-actions {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  justify-self: end;
+  flex: 0 0 auto;
 }
 
 .menu-button {
@@ -570,17 +581,21 @@ h3 {
   font-family: var(--serif);
   font-size: 16px;
   line-height: 1.2;
-  background: rgba(226, 219, 207, 0.74);
+  background: #e3d6c9;
+  transition: background-color 0.35s ease;
 }
 
 .quote-viewport {
-  display: block;
+  display: flex;
+  align-items: stretch;
   overflow: hidden;
+  width: 100%;
 }
 
 .quote-track {
   display: flex;
   transform: translateX(0);
+  width: 100%;
 }
 
 .quote-track.is-animating {
@@ -589,7 +604,9 @@ h3 {
 
 .quote-slide {
   flex: 0 0 100%;
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 100%;
 }
 
 .hero-right p {
@@ -831,7 +848,7 @@ h3 {
   max-width: 360px;
   margin: 0;
   color: #535353;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.45;
 }
 
@@ -1455,39 +1472,6 @@ main#top .contacts .checkbox input:checked::after {
   }
 }
 
-@media (min-width: 1601px) {
-  main#top .hero {
-    min-height: 800px;
-  }
-
-  main#top .hero h1 {
-    font-size: 64px !important;
-    max-width: none;
-    overflow-wrap: normal;
-    word-break: normal;
-    hyphens: none;
-    line-height: 1.06;
-  }
-
-  main#top .hero-left {
-    min-height: auto;
-  }
-
-  main#top .members {
-    margin-top: auto;
-  }
-
-  main#top .hero-right {
-    grid-template-rows: auto auto auto auto auto;
-    align-content: start;
-    gap: 28px;
-  }
-
-  main#top .hero-group {
-    align-self: start;
-  }
-}
-
 @media (max-width: 720px) {
   .site-header {
     width: 100vw;
@@ -1554,7 +1538,6 @@ main#top .contacts .checkbox input:checked::after {
   }
 
   .hero-right,
-  .hero-bottom,
   .about-layout,
   .expert-list,
   .topic-grid,
@@ -1653,8 +1636,8 @@ main#top .contacts .checkbox input:checked::after {
   overflow: hidden;
   color: var(--ink);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.1)),
-    #e9e9e6;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.12)),
+    #e9e9e6 url("assets/book.png") right bottom / auto 92% no-repeat;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -1732,8 +1715,8 @@ main#top .contacts .checkbox input:checked::after {
 }
 
 .library-card.image-card.article-preview {
-  background-size: auto;
-  background-position: center;
+  background-size: auto, auto 92%;
+  background-position: center, right bottom;
 }
 
 /* Softer visual language for homepage cards and photos. */
@@ -2370,22 +2353,17 @@ main#top .photo-invite {
 }
 
 /* Inline header search replaces the search modal. */
-.site-search-toggle,
-.site-search-modal {
-  display: none !important;
-}
-
 .site-search {
   position: relative;
-  flex: 0 0 240px;
-  width: 240px;
-  height: 40px;
+  flex: 0 1 clamp(132px, 10vw, 176px);
+  width: clamp(132px, 10vw, 176px);
+  height: 38px;
 }
 
 .site-search input {
   width: 100%;
   height: 100%;
-  padding: 8px 42px 8px 16px;
+  padding: 8px 38px 8px 14px;
   border: 1px solid rgba(83, 83, 83, 0.28);
   border-radius: 999px !important;
   background: transparent;
@@ -2408,10 +2386,10 @@ main#top .photo-invite {
 
 .site-search button {
   position: absolute;
-  right: 13px;
+  right: 12px;
   top: 50%;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   display: grid;
   place-items: center;
   padding: 0;
@@ -2428,8 +2406,8 @@ main#top .photo-invite {
 }
 
 .site-search svg {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   fill: currentColor;
 }
 
@@ -2491,87 +2469,11 @@ main#top .photo-invite {
 }
 
 .site-header {
-  gap: 24px;
-}
-
-.desktop-nav {
-  flex-shrink: 0;
-}
-
-.header-actions {
-  margin-left: auto;
+  column-gap: clamp(14px, 1.2vw, 22px);
 }
 
 .account-button {
   box-shadow: none !important;
-}
-
-@media (min-width: 1061px) {
-  .site-header {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    column-gap: clamp(14px, 1.2vw, 22px);
-  }
-
-  .logo {
-    width: clamp(150px, 10.8vw, 188px);
-  }
-
-  .desktop-nav {
-    position: static;
-    left: auto;
-    transform: none;
-    justify-content: center;
-    min-width: 0;
-    gap: clamp(10px, 0.95vw, 18px);
-    flex-wrap: nowrap;
-  }
-
-  .desktop-nav a,
-  .nav-dropdown-toggle,
-  .site-header .account-button {
-    font-size: clamp(12px, 0.82vw, 15px);
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  .header-actions {
-    margin-left: 0;
-    gap: 8px;
-    justify-self: end;
-    flex: 0 0 auto;
-  }
-
-  .site-search {
-    flex: 0 1 clamp(132px, 10vw, 176px);
-    width: clamp(132px, 10vw, 176px);
-    height: 38px;
-  }
-
-  .site-search input {
-    padding: 8px 38px 8px 14px;
-    font-size: 13px;
-  }
-
-  .site-search button {
-    right: 12px;
-    width: 16px;
-    height: 16px;
-  }
-
-  .site-search svg {
-    width: 15px;
-    height: 15px;
-  }
-
-  .site-header .account-button {
-    flex: 0 0 auto;
-    width: auto;
-    min-width: 0;
-    height: 38px;
-    padding: 0 20px;
-  }
 }
 
 /* Match homepage specialist-card buttons to the specialists page. */
@@ -2896,7 +2798,7 @@ main#top .finder {
   }
 
   main#top .hero {
-    padding-top: 108px !important;
+    padding-top: 12px !important;
   }
 
   .section-topline {
@@ -3265,16 +3167,12 @@ html.js body {
 
 /* Quote slider: guillemets are text now, not decorative pseudo-elements. */
 .hero-right blockquote {
-  background: #eee5dd !important;
+  background: var(--quote-slider-bg, #e3d6c9) !important;
 }
 
 .hero-right blockquote::before,
 .hero-right blockquote::after {
   content: none !important;
-}
-
-.quote-slider--alt {
-  background: #eef1fb !important;
 }
 
 /* Library cards with uploaded icons. */
@@ -4174,7 +4072,7 @@ main#top .contacts .contact-form textarea:focus {
 
 /* Slightly lower the homepage hero text without shifting the whole first screen. */
 main#top .hero-left {
-  padding-top: 24px;
+  padding-top: 40px;
 }
 
 @media (min-width: 1920px) {
@@ -4449,7 +4347,7 @@ main#top .hero-left {
 
   main#top .hero {
     min-height: 800px;
-    padding-top: 126px;
+    padding-top: 150px;
     padding-bottom: 84px;
   }
 
@@ -4471,7 +4369,7 @@ main#top .hero-left {
     grid-template-rows: none;
     align-content: start;
     gap: 22px;
-    padding-top: 10px;
+    padding-top: 40px;
   }
 
   main#top .hero-right blockquote,
@@ -4610,9 +4508,9 @@ main#top .hero-left {
   }
 
   main#top .authors .library-lead {
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 4;
     max-width: none;
-    margin: 18px 0 0;
+    margin: 18px 0 0 calc(-1 * (var(--section-label-width) + var(--section-gap)));
   }
 
   main#top .authors .library-grid {
@@ -4650,5 +4548,34 @@ main#top .hero-left {
   main#top .authors .library-card {
     width: 100%;
     min-height: 210px;
+  }
+}
+
+@media (min-width: 1601px) {
+  main#top .hero h1 {
+    font-size: 64px !important;
+    max-width: none;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    line-height: 1.06;
+  }
+
+  main#top .hero-left {
+    min-height: auto;
+  }
+
+  main#top .members {
+    margin-top: auto;
+  }
+
+  main#top .hero-right {
+    grid-template-rows: auto auto auto auto auto;
+    align-content: start;
+    gap: 28px;
+  }
+
+  main#top .hero-group {
+    align-self: start;
   }
 }
