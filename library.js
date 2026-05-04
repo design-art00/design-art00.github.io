@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="mini-filter-dropdown">
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc">От А до Я</label>
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc">От Я до А</label>
-        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате публикации</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате (сначала новые)</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-asc">По дате (сначала старые)</label>
       </div>`;
 
     const search = root.querySelector('.search-wrapper');
@@ -68,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     attachment: 'Отношения и привязанность',
     'title-asc': 'От А до Я',
     'title-desc': 'От Я до А',
-    'date-desc': 'По дате публикации',
+    'date-desc': 'По дате (сначала новые)',
+    'date-asc': 'По дате (сначала старые)',
     2026: '2026',
     2025: '2025',
     2024: '2024',
@@ -93,6 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return Number.NEGATIVE_INFINITY;
   };
 
+  const getCardYear = (card) => {
+    if (card.dataset.year) return card.dataset.year;
+    const dateText = card.querySelector('.publish-date')?.textContent.trim() || '';
+    const match = dateText.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+    return match ? match[3] : '';
+  };
+
   const getSortValue = () => root.querySelector('.sort-radio:checked')?.value || 'title-asc';
 
   const sortCards = (items) => {
@@ -103,6 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sortValue === 'title-desc') return collator.compare(secondTitle, firstTitle);
       if (sortValue === 'date-desc') {
         const dateDiff = getCardDate(second) - getCardDate(first);
+        if (dateDiff !== 0) return dateDiff;
+      }
+      if (sortValue === 'date-asc') {
+        const dateDiff = getCardDate(first) - getCardDate(second);
         if (dateDiff !== 0) return dateDiff;
       }
       return collator.compare(firstTitle, secondTitle);
@@ -200,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const title = card.querySelector('.item-title')?.textContent.trim().toLowerCase() || '';
       const matchesSearch = card.innerText.toLowerCase().includes(searchValue);
       const matchesTopic = topics.length === 0 || topics.includes(card.dataset.topic);
-      const matchesYear = years.length === 0 || years.includes(card.dataset.year);
+      const matchesYear = years.length === 0 || years.includes(getCardYear(card));
       const matchesLetter = activeLetter === 'all' || title.charAt(0) === activeLetter;
       return matchesSearch && matchesTopic && matchesYear && matchesLetter;
     }));
