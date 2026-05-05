@@ -856,7 +856,7 @@ h3 {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 300px;
-  padding: 30px 28px;
+  padding: 20px;
   color: var(--paper);
   background: rgba(74, 97, 165, 0.78);
 }
@@ -4505,7 +4505,7 @@ main#top .hero-left {
 
   main#top .authors .library-lead {
     grid-column: 1 / span 4;
-    max-width: 1220px;
+    max-width: 820px;
     margin: 18px 0 0 calc(-1 * (var(--section-label-width) + var(--section-gap)));
   }
 
