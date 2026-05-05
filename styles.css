@@ -1636,8 +1636,9 @@ main#top .contacts .checkbox input:checked::after {
   overflow: hidden;
   color: var(--ink);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.12)),
-    #e9e9e6 url("assets/book.png") right bottom / auto 92% no-repeat;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.16)),
+    url("assets/book.png") center center / cover no-repeat;
+  background-color: #e9e9e6;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -1712,11 +1713,6 @@ main#top .contacts .checkbox input:checked::after {
   min-height: 14px;
   bottom: -0.3em;
   background-size: 100% 100%;
-}
-
-.library-card.image-card.article-preview {
-  background-size: auto, auto 92%;
-  background-position: center, right bottom;
 }
 
 /* Softer visual language for homepage cards and photos. */
@@ -4509,7 +4505,7 @@ main#top .hero-left {
 
   main#top .authors .library-lead {
     grid-column: 1 / span 4;
-    max-width: none;
+    max-width: 1220px;
     margin: 18px 0 0 calc(-1 * (var(--section-label-width) + var(--section-gap)));
   }
 
