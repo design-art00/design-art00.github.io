@@ -102,12 +102,12 @@
           <div class="filter-group">
             <button type="button" class="filter-header">О чем хотите поговорить?</button>
             <div class="filter-content">
-              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="find_self"> Поиск себя</label>
-              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="sleep"> Проблемы со сном</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="other"> Другое</label>
               <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="insecure"> Неуверенность в себе</label>
               <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="emotions"> Непонятные эмоции</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="find_self"> Поиск себя</label>
+              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="sleep"> Проблемы со сном</label>
               <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="burnout"> Прокрастинация и выгорание</label>
-              <label class="checkbox-item"><input type="checkbox" class="f-check" data-filter="topic" value="other"> Другое</label>
             </div>
           </div>
 
@@ -150,10 +150,19 @@
             <h1 class="page-title">Специалисты</h1>
             <p class="page-desc">Подберите специалиста по теме, подходу и дополнительным критериям.<br>Фильтры слева помогут сузить выбор.</p>
           </div>
-          <div class="search-wrapper specialists-search">
-            <input class="search-input" type="text" id="specialistsSearchInput" placeholder="Поиск..">
-            <div class="search-icon-holder">
-              <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+          <div class="toolbar-search-group specialists-toolbar-search-group">
+            <div class="mini-filter sort-filter" id="sortFilter">
+              <button type="button" class="mini-filter-btn" id="sortFilterBtn">Сортировать по</button>
+              <div class="mini-filter-dropdown">
+                <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="specialistsSort" value="title-asc" checked> От А до Я</label>
+                <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="specialistsSort" value="title-desc"> От Я до А</label>
+              </div>
+            </div>
+            <div class="search-wrapper specialists-search">
+              <input class="search-input" type="text" id="specialistsSearchInput" placeholder="Поиск..">
+              <div class="search-icon-holder">
+                <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+              </div>
             </div>
           </div>
         </section>
@@ -521,6 +530,10 @@
       <a class="button primary" href="contacts.html">Связаться с нами</a>
     </div>
     <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <div class="footer-policies">
+      <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+      <a class="policy" href="contacts.html">Политика в отношении обработки персональных данных</a>
+    </div>
   </footer>
 
   <script src="script.js?v=20260424-2"></script>

@@ -17,15 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const cityFilterWrap = root.querySelector('#cityFilterWrap');
   const resetBtn = root.querySelector('#resetBtn');
   const cardsGrid = root.querySelector('#specsGrid');
-  const cards = Array.from(root.querySelectorAll('.card')).sort((first, second) => {
-    const firstName = first.querySelector('.spec-title')?.textContent.trim() || '';
-    const secondName = second.querySelector('.spec-title')?.textContent.trim() || '';
-    return firstName.localeCompare(secondName, 'ru');
-  });
+  const cards = Array.from(root.querySelectorAll('.card'));
   const paginationContainer = root.querySelector('#pagination');
+  const sortBtn = root.querySelector('#sortFilterBtn');
+  const sortRadios = root.querySelectorAll('.sort-radio');
 
   let currentPage = 1;
   const itemsPerPage = 12;
+  const collator = new Intl.Collator('ru', { sensitivity: 'base' });
+
+  const getCardName = (card) => card.querySelector('.spec-title')?.textContent.trim() || '';
+  const getSortValue = () => root.querySelector('.sort-radio:checked')?.value || 'title-asc';
+
+  const sortCards = (items) => {
+    const sortValue = getSortValue();
+    return [...items].sort((first, second) => {
+      const firstName = getCardName(first);
+      const secondName = getCardName(second);
+      if (sortValue === 'title-desc') return collator.compare(secondName, firstName);
+      return collator.compare(firstName, secondName);
+    });
+  };
 
   cards.forEach((card) => cardsGrid?.appendChild(card));
 
@@ -130,6 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
     createButton('›', Math.min(totalPages, currentPage + 1), { disabled: currentPage === totalPages });
   }
 
+  root.querySelectorAll('.mini-filter-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.closest('.mini-filter');
+      const isOpen = filter?.classList.contains('open');
+      root.querySelectorAll('.mini-filter').forEach((node) => node.classList.remove('open'));
+      if (!isOpen) filter?.classList.add('open');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.mini-filter')) {
+      root.querySelectorAll('.mini-filter').forEach((node) => node.classList.remove('open'));
+    }
+  });
+
   function applyFilters() {
     const activeTypes = checkedValues('[data-filter="type"]:checked');
     const activeTherapy = checkedValues('[data-filter="therapy"]:checked');
@@ -145,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
     syncCityFilterVisibility();
     const activeCity = normalizeCity(citySelect?.value || '');
 
-    const filtered = cards.filter((card) => {
+    const filtered = sortCards(cards.filter((card) => {
       const cardTherapy = (card.dataset.therapy || '').split(' ');
       const cardFormats = (card.dataset.format || 'online offline').split(' ');
       const cardPrice = Number.parseInt(card.dataset.price || '0', 10);
@@ -166,15 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const matchMaxPrice = !maxPrice || cardPrice <= maxPrice;
       const matchSearch = !searchValue || cardText.includes(searchValue);
       return matchType && matchTherapy && matchFormat && matchTopic && matchMethod && matchSex && matchAge && matchMinPrice && matchMaxPrice && matchSearch;
-    });
+    }));
 
     const totalPages = Math.ceil(filtered.length / itemsPerPage);
     if (currentPage > totalPages) currentPage = 1;
 
     cards.forEach((card) => { card.style.display = 'none'; });
+    filtered.forEach((card) => cardsGrid?.appendChild(card));
     filtered
       .slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
       .forEach((card) => { card.style.display = 'flex'; });
+
+    if (sortBtn) sortBtn.textContent = 'Сортировать по';
 
     renderPaginationButtons(totalPages);
 
@@ -217,6 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
     applyFilters();
   });
 
+  sortRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      currentPage = 1;
+      applyFilters();
+    });
+  });
+
   if (ageSlider && ageVal) {
     ageSlider.addEventListener('input', (e) => {
       ageVal.textContent = e.target.value;
@@ -236,6 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (priceMaxInput) priceMaxInput.value = '';
     if (searchInput) searchInput.value = '';
     if (citySelect) citySelect.value = '';
+    const defaultSort = root.querySelector('.sort-radio[value="title-asc"]');
+    if (defaultSort) defaultSort.checked = true;
     syncCityFilterVisibility();
     currentPage = 1;
     applyFilters();

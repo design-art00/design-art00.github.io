@@ -17,8 +17,14 @@
   min-width: 0;
 }
 
+.specialists-toolbar-search-group {
+  align-self: flex-start;
+  margin-top: 58px;
+  gap: 8px;
+}
+
 .specialists-search {
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .filter-group {
