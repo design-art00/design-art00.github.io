@@ -413,7 +413,6 @@ a {
   cursor: pointer;
 }
 
-.link-underline::before,
 .link-underline::after {
   content: "";
   position: absolute;
@@ -423,17 +422,13 @@ a {
   background: currentColor;
 }
 
-.link-underline::before {
-  right: 0;
-  opacity: 0.38;
-}
-
 .link-underline::after {
   width: 0;
   transition: width 0.35s ease;
 }
 
-.link-underline:hover::after {
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
   width: 100%;
 }
 
