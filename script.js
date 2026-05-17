@@ -463,6 +463,7 @@ if (form && statusNode) {
         message.classList.remove('is-error');
         refreshAccountButtons();
         closeAuthModal();
+        window.location.href = 'account.html';
       } else {
         message.textContent = 'Введите Анна Воронина и пароль 1111.';
         message.classList.add('is-error');

@@ -611,8 +611,6 @@
   .author-hero-button,
   .document-button,
   .project-grid article,
-  .review-card,
-  .author-contact-card,
   .diploma-modal__dialog,
   .diploma-modal__close
 ) {
@@ -1223,34 +1221,6 @@
   line-height: 1.45 !important;
 }
 
-.author-breadcrumbs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  width: min(100%, calc(100vw - (2 * var(--site-side-padding, 60px))));
-  margin: 0 auto 34px;
-  color: #777;
-  font-size: 14px;
-  line-height: 1.3;
-}
-
-.author-breadcrumbs a:hover {
-  color: #445799;
-}
-
-@media (max-width: 1200px) {
-  .author-breadcrumbs {
-    width: calc(100% - 56px);
-  }
-}
-
-@media (max-width: 640px) {
-  .author-breadcrumbs {
-    width: calc(100% - 36px);
-    margin-bottom: 24px;
-  }
-}
-
 /* Consistency audit pass: author page. */
 .author-page {
   --author-paper: var(--background, #f2efe8);
@@ -1271,7 +1241,7 @@
   line-height: 1.55 !important;
 }
 .author-location { margin-top: 10px !important; font-size: 14px !important; color: #777777 !important; }
-.author-tags span, .author-stats div, .project-grid article, .review-grid article, .author-contact-card,
+.author-tags span, .author-stats div, .project-grid article, .review-grid article,
 .review-modal__dialog, .specialist-contact-modal__dialog, .diploma-modal__dialog { border-radius: 0 !important; }
 .author-tags span, .tag-pill { border-radius: 999px !important; }
 .document-button, .author-hero-button, .social-button {

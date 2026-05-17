@@ -341,12 +341,6 @@
   border: 1px solid rgba(68, 87, 153, 0.12);
 }
 
-.article-sources__label {
-  margin-bottom: 10px;
-  color: #777;
-  font-size: 14px;
-}
-
 .article-sources h2 {
   max-width: none;
   margin-bottom: 18px;
@@ -536,10 +530,6 @@
   margin-bottom: 20px;
 }
 
-.article-sources--plain .article-sources__label {
-  display: none;
-}
-
 .article-comment,
 .article-comment--reply {
   background: #fff;
@@ -619,8 +609,7 @@
   .article-sources,
   .comment-reply,
   .comment-reaction,
-  .comment-mention,
-  .article-dot-nav a
+  .comment-mention
 ) {
   border-radius: 0 !important;
 }

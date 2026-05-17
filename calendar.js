@@ -141,7 +141,7 @@
   ];
 
   const state = {
-    cursor: new Date(events[0].date.getFullYear(), events[0].date.getMonth(), 1),
+    cursor: new Date(2026, 4, 1),
     activeCategories: new Set(),
     selectedDate: null
   };
