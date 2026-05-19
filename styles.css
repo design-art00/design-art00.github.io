@@ -860,7 +860,7 @@ h3 {
 }
 
 .experts-title {
-  max-width: 640px;
+  max-width: 640px !important;
   line-height: 1.2;
 
 }

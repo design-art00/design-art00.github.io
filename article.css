@@ -532,7 +532,7 @@
 
 .article-comment,
 .article-comment--reply {
-  background: #fff;
+  background: #FCF9F6;
 }
 
 .article-comment {
@@ -597,6 +597,7 @@
   color: #445799;
   background: transparent;
   border-radius: 0;
+  text-decoration: underline;
 }
 
 .article-breadcrumbs {
