@@ -14,7 +14,7 @@
 
 body {
   margin: 0;
-  background: var(--background, #f5f5f5);
+  background: var(--background, #f3ede7);
   color: var(--text-main);
   font-family: "Inter Tight", sans-serif;
   font-size: 16px;
@@ -1332,7 +1332,7 @@ body {
 }
 
 /* Consistency audit pass: library pages. */
-body, #library-root, #test-root { background: var(--background, #f2efe8) !important; }
+body, #library-root, #test-root { background: var(--background, #f3ede7) !important; }
 #library-root, #test-root {
   padding: calc(var(--fixed-header-offset, 90px) + 34px) var(--site-side-padding, 60px) 80px !important;
 }

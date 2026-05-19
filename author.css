@@ -1223,9 +1223,9 @@
 
 /* Consistency audit pass: author page. */
 .author-page {
-  --author-paper: var(--background, #f2efe8);
+  --author-paper: var(--background, #f3ede7);
   --page-side-padding: var(--site-side-padding, 60px);
-  background: var(--background, #f2efe8) !important;
+  background: var(--background, #f3ede7) !important;
 }
 .author-container, .author-hero, .author-tabs { padding-right: var(--page-side-padding) !important; padding-left: var(--page-side-padding) !important; }
 .author-hero h1 {

@@ -141,7 +141,7 @@
   ];
 
   const state = {
-    cursor: new Date(2026, 4, 1),
+    cursor: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
     activeCategories: new Set(),
     selectedDate: null
   };
@@ -159,6 +159,10 @@
   let activeRegistrationEvent = null;
 
   const pad = (value) => String(value).padStart(2, '0');
+  const getToday = () => {
+    const today = new Date();
+    return new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  };
   const getDayKey = (date) => `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
   const isSameDay = (a, b) => a && b && getDayKey(a) === getDayKey(b);
   const formatTime = (date) => date.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
@@ -289,14 +293,16 @@
     yearNode.textContent = state.cursor.getFullYear();
 
     const cells = buildMonthGrid(state.cursor.getFullYear(), state.cursor.getMonth());
+    const today = getToday();
     gridNode.innerHTML = weekdayShort.map((day) => `<div class="calendar-weekday">${day}</div>`).join('') + cells.map((cell) => {
       const key = getDayKey(cell.date);
       const dayEvents = byDay.get(key) || [];
       const selected = state.selectedDate && isSameDay(state.selectedDate, cell.date);
+      const todayDate = cell.inMonth && isSameDay(today, cell.date);
       const snippets = dayEvents.slice(0, 2).map((event) => `<span class="calendar-day-event">· ${event.title}</span>`).join('');
       const more = dayEvents.length > 2 ? `<span class="calendar-day-more">+${dayEvents.length - 2}</span>` : '';
       return `
-        <button type="button" class="calendar-day ${cell.inMonth ? '' : 'is-muted'} ${selected ? 'is-selected' : ''}" data-date="${key}" ${cell.inMonth ? '' : 'tabindex="-1"'}>
+        <button type="button" class="calendar-day ${cell.inMonth ? '' : 'is-muted'} ${selected ? 'is-selected' : ''} ${todayDate ? 'is-today' : ''}" data-date="${key}" ${todayDate ? 'aria-current="date"' : ''} ${cell.inMonth ? '' : 'tabindex="-1"'}>
           <span class="calendar-day-number">${pad(cell.date.getDate())}</span>
           ${dayEvents.length && cell.inMonth ? `<span class="calendar-day-events">${snippets}${more}</span>` : ''}
         </button>

@@ -198,6 +198,10 @@
   background: #eee5dd;
 }
 
+.calendar-day.is-today {
+  background: #f8f4ee;
+}
+
 .calendar-day.is-muted {
   background: rgba(255, 251, 248, 0.3);
   cursor: default;
@@ -220,6 +224,11 @@
 
 .calendar-day.is-selected .calendar-day-number {
   color: var(--blue-deep);
+}
+
+.calendar-day.is-today .calendar-day-number {
+  color: var(--blue-deep);
+  font-weight: 600;
 }
 
 .calendar-day-events {
@@ -719,7 +728,7 @@ body.calendar-modal-open {
 .calendar-page {
   --calendar-line: rgba(177, 130, 132, 0.34);
   --calendar-line-soft: rgba(177, 130, 132, 0.18);
-  --calendar-warm: #f2efe8;
+  --calendar-warm: #f3ede7;
   --calendar-warm-soft: #f8f4ee;
 }
 
@@ -747,6 +756,10 @@ body.calendar-modal-open {
 
 .calendar-day:hover,
 .calendar-day.is-selected {
+  background: var(--calendar-warm-soft);
+}
+
+.calendar-day.is-today {
   background: var(--calendar-warm-soft);
 }
 
@@ -780,7 +793,7 @@ body.calendar-modal-open {
 
 /* Consistency audit pass: calendar page. */
 .calendar-page {
-  background: var(--background, #f2efe8) !important;
+  background: var(--background, #f3ede7) !important;
   padding-right: var(--site-side-padding, 60px) !important;
   padding-left: var(--site-side-padding, 60px) !important;
 }
@@ -800,12 +813,21 @@ body.calendar-modal-open {
   line-height: 1.55 !important;
 }
 .calendar-filter-title, .calendar-event-meta, .calendar-weekday, .calendar-reset-date { color: #777777 !important; }
-.calendar-filter-button, .event-action {
-  min-height: 44px !important;
-  padding: var(--button-padding-y, 12px) var(--button-padding-x, 20px) !important;
+.calendar-filter-button {
+  min-height: 38px !important;
+  padding: 8px 18px !important;
   border-radius: 999px !important;
   font-size: 16px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
+}
+
+.event-action {
+  min-height: 44px !important;
+  padding: 12px 24px !important;
+  border-radius: 999px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
 }
 .event-action.primary { background: var(--blue) !important; border-color: var(--blue) !important; color: #ffffff !important; }
 .event-action.primary:hover { background: var(--blue-deep) !important; border-color: var(--blue-deep) !important; }

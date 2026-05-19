@@ -636,11 +636,11 @@ a.spec-title:hover {
 body,
 #library-root,
 [data-specialists-page] {
-  background: #f2efe8 !important;
+  background: #f3ede7 !important;
 }
 
 /* Consistency audit pass: specialists page. */
-body, #library-root, [data-specialists-page] { background: var(--background, #f2efe8) !important; }
+body, #library-root, [data-specialists-page] { background: var(--background, #f3ede7) !important; }
 .filters-plate { padding: 30px !important; background: #fffbf8 !important; }
 .filter-header, .age-cap, .cap-max, .price-field input {
   color: #535353 !important;

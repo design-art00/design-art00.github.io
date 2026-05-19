@@ -481,7 +481,7 @@
 
 /* Consistency audit pass: account page. */
 .account-page {
-  background: var(--background, #f2efe8) !important;
+  background: var(--background, #f3ede7) !important;
   padding-right: var(--site-side-padding, 60px) !important;
   padding-left: var(--site-side-padding, 60px) !important;
 }
