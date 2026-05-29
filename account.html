@@ -58,46 +58,108 @@
             <img src="assets/expert-anna.jpg" alt="Анна Воронина">
             <div>
               <strong>Анна Воронина</strong>
-              <span>Участник сообщества</span>
+              <span>Специалист</span>
             </div>
           </div>
-          <nav role="tablist" aria-label="Разделы личного кабинета">
-            <a class="is-active" href="#publications" data-account-tab="publications" role="tab" aria-selected="true">Мои публикации</a>
-            <a href="#profile" data-account-tab="profile" role="tab" aria-selected="false">Мой профиль</a>
-            <a href="#comments" data-account-tab="comments" role="tab" aria-selected="false">Мои комментарии</a>
+          <nav class="account-sidebar__nav" role="tablist" aria-label="Разделы личного кабинета">
+            <a href="#dashboard" data-account-tab="dashboard" role="tab" aria-selected="true">Мой кабинет</a>
+            <p>Мои публикации</p>
+            <a href="#articles" data-account-tab="articles" role="tab" aria-selected="false">Статьи</a>
+            <a href="#podcasts" data-account-tab="podcasts" role="tab" aria-selected="false">Подкасты</a>
+            <p>Профиль</p>
+            <a href="#profile" data-account-tab="profile" role="tab" aria-selected="false">Моя страница</a>
+            <a href="#comments" data-account-tab="comments" role="tab" aria-selected="false">Сохраненные материалы</a>
           </nav>
+          <button class="account-sidebar__logout" type="button" data-auth-logout>
+            <img src="assets/icons/bitcoin-icons_exit-outline.svg" alt="" aria-hidden="true">
+            <span>Выйти из аккаунта</span>
+          </button>
+        </div>
+        <div class="account-sidebar__help">
+          <p>Есть вопрос или предложение о работе платформы?</p>
+          <a href="contacts.html">Задать вопрос</a>
         </div>
       </aside>
 
       <section class="account-content">
-        <section class="account-topbar" aria-label="Сводка личного кабинета">
-          <div>
-            <p>Профиль пользователя</p>
+        <section class="account-dashboard is-active" aria-label="Сводка личного кабинета" data-account-panel="dashboard">
+          <div class="account-topbar">
             <h1>Личный кабинет</h1>
-            <span>Управление публикациями, профилем и комментариями пользователя.</span>
+            <span>Управление публикациями, профилем и комментариями пользователя</span>
+          </div>
+          <div class="account-dashboard-grid">
+            <a class="account-dashboard-card" href="#articles" data-account-tab="articles">
+              <span class="account-dashboard-card__icon" aria-hidden="true"><img src="assets/icons/articles.svg" alt=""></span>
+              <h2>Мои статьи</h2>
+              <p>На этой странице собраны все ваши статьи и возможность отправить новые статьи</p>
+            </a>
+            <a class="account-dashboard-card" href="#profile" data-account-tab="profile">
+              <span class="account-dashboard-card__icon" aria-hidden="true"><img src="assets/icons/famicons_person-outline.svg" alt=""></span>
+              <h2>Мой профиль</h2>
+              <p>Здесь вы можете отредактировать свою анкету и отправить новые данные на публикацию</p>
+            </a>
+            <a class="account-dashboard-card" href="#comments" data-account-tab="comments">
+              <span class="account-dashboard-card__icon" aria-hidden="true"><img src="assets/icons/glyphs_bookmarks.svg" alt=""></span>
+              <h2>Сохраненные материалы</h2>
+              <p>Здесь собраны все ваши сохраненные публикации на нашем сайте</p>
+            </a>
+            <a class="account-dashboard-card" href="#comments" data-account-tab="comments">
+              <span class="account-dashboard-card__icon" aria-hidden="true"><img src="assets/icons/iconamoon_eye-thin.svg" alt=""></span>
+              <h2>Просмотренное</h2>
+              <p>Вы можете просмотреть все публикации и материалы, которые просматривали ранее за последний месяц</p>
+            </a>
           </div>
         </section>
 
-        <section class="account-stats is-active" aria-label="Статистика аккаунта" data-account-panel="publications">
-          <article>
-            <span>Публикации</span>
-            <strong>2</strong>
-          </article>
-          <article>
-            <span>Комментарии</span>
-            <strong>12</strong>
-          </article>
+        <section class="account-section account-publications-section" id="articles" data-account-panel="articles" hidden>
+          <div class="account-publications-head">
+            <div>
+              <h2>Статьи</h2>
+              <p>На этой странице собраны все ваши публикации, отредактировать публикации и возможность отправить новые публикации</p>
+            </div>
+            <a class="button ghost account-publications-add" href="account-article-edit.html">Добавить новую статью</a>
+          </div>
+          <div class="account-publications-table" role="table" aria-label="Мои статьи">
+            <div class="account-publications-table__row account-publications-table__row--head" role="row">
+              <span>№</span>
+              <span>Название</span>
+              <span>Дата</span>
+              <span>Статус</span>
+              <span></span>
+            </div>
+            <div class="account-publications-table__row" role="row">
+              <span class="account-publications-table__number">1</span>
+              <strong>Психосоматика стресса</strong>
+              <time datetime="2026-05-02">02.05.2026</time>
+              <span class="status-pill status-pill--published">Опубликовано</span>
+              <a href="psychosomatics-stress.html">Открыть</a>
+            </div>
+            <div class="account-publications-table__row" role="row">
+              <span class="account-publications-table__number">2</span>
+              <strong>Терапевтический альянс: как доверие становится частью изменений</strong>
+              <time datetime="2026-05-02">02.05.2026</time>
+              <span class="status-pill status-pill--draft">Черновик</span>
+              <a href="account-article-edit.html">Редактировать</a>
+            </div>
+            <div class="account-publications-table__row" role="row">
+              <span class="account-publications-table__number">3</span>
+              <strong>Тревога выбора: почему свобода требует внутренней опоры</strong>
+              <time datetime="2026-05-02">02.05.2026</time>
+              <span class="status-pill status-pill--published">Опубликовано</span>
+              <a href="psychosomatics-stress.html">Открыть</a>
+            </div>
+          </div>
         </section>
 
-        <section class="account-section is-active" id="publications" data-account-panel="publications">
+        <section class="account-section" id="podcasts" data-account-panel="podcasts" hidden>
           <div class="account-section__head">
             <div>
-              <h2>Мои публикации</h2>
-              <p>Черновики и опубликованные материалы пользователя.</p>
+              <h2>Подкасты</h2>
+              <p>Черновики и опубликованные подкасты пользователя</p>
             </div>
-            <button class="button primary" type="button">Добавить публикацию</button>
+            <button class="button primary" type="button">Добавить подкаст</button>
           </div>
-          <div class="account-table" role="table" aria-label="Мои публикации">
+          <div class="account-table" role="table" aria-label="Мои подкасты">
             <div class="account-table__row account-table__row--head" role="row">
               <span>Название</span>
               <span>Статус</span>
@@ -106,21 +168,21 @@
             </div>
             <div class="account-table__row" role="row">
               <div>
-                <strong>Психосоматика стресса</strong>
-                <small>Статья в библиотеке знаний</small>
+                <strong>О сравнении себя с другими</strong>
+                <small>Подкаст в библиотеке знаний</small>
               </div>
               <span class="status-pill status-pill--published">Опубликовано</span>
-              <time datetime="2024-03-12">12.03.2024</time>
-              <a class="link-underline" href="psychosomatics-stress.html">Открыть</a>
+              <time datetime="2026-04-13">13.04.2026</time>
+              <a class="link-underline" href="podcasts.html">Открыть</a>
             </div>
             <div class="account-table__row" role="row">
               <div>
-                <strong>Как формируется терапевтический альянс</strong>
-                <small>Материал сохранен как пример будущей публикации</small>
+                <strong>Как поддерживать профессиональные границы</strong>
+                <small>Аудиоматериал сохранен как черновик</small>
               </div>
               <span class="status-pill status-pill--draft">Черновик</span>
-              <time datetime="2026-04-22">22.04.2026</time>
-              <a class="link-underline" href="#">Редактировать</a>
+              <time datetime="2026-05-02">02.05.2026</time>
+              <a class="link-underline" href="account-article-edit.html">Редактировать</a>
             </div>
           </div>
         </section>
@@ -129,30 +191,33 @@
           <div class="account-section__head">
             <div>
               <h2>Мой профиль</h2>
-              <p>Поля отрисованы как настройки профиля, без сохранения на сервер.</p>
+              <p>Поля отрисованы как настройки профиля, без сохранения на сервер</p>
             </div>
-            <button class="button ghost" type="button">Сохранить</button>
+            <button class="button ghost" type="button" data-profile-edit>Редактировать</button>
           </div>
-          <form class="profile-form">
+          <form class="profile-form" data-profile-form>
             <label>
               <span>Имя</span>
-              <input type="text" value="Анна Воронина">
+              <input type="text" value="Анна Воронина" disabled>
             </label>
             <label>
               <span>Email</span>
-              <input type="email" value="anna.voronina@example.com">
+              <input type="email" value="anna.voronina@example.com" disabled>
             </label>
             <label>
               <span>Роль</span>
-              <input type="text" value="Участник сообщества">
+              <select disabled>
+                <option value="specialist" selected>Специалист</option>
+                <option value="user">Пользователь</option>
+              </select>
             </label>
             <label>
               <span>Интересы</span>
-              <input type="text" value="Психология, статьи, тесты">
+              <input type="text" value="Психология, статьи, тесты" disabled>
             </label>
             <label class="profile-form__wide">
               <span>О себе</span>
-              <textarea>Интересуюсь психосоматикой, терапевтическим контактом и материалами для профессионального развития.</textarea>
+              <textarea disabled>Интересуюсь психосоматикой, терапевтическим контактом и материалами для профессионального развития</textarea>
             </label>
           </form>
         </section>
@@ -161,21 +226,21 @@
           <div class="account-section__head">
             <div>
               <h2>Мои комментарии</h2>
-              <p>Последние ответы и реакции в материалах сайта.</p>
+              <p>Последние ответы и реакции в материалах сайта</p>
             </div>
           </div>
           <div class="account-comments">
             <article>
               <div>
                 <time datetime="2026-04-22">22.04.2026</time>
-                <p>Очень откликнулась мысль о том, что тело не враг, а способ обратной связи.</p>
+                <p>Очень откликнулась мысль о том, что тело не враг, а способ обратной связи</p>
               </div>
               <a class="link-underline" href="psychosomatics-stress.html">К статье</a>
             </article>
             <article>
               <div>
                 <time datetime="2026-04-21">21.04.2026</time>
-                <p>Сохранила термин “саморегуляция”, хочу вернуться к нему позже.</p>
+                <p>Сохранила термин “саморегуляция”, хочу вернуться к нему позже</p>
               </div>
               <a class="link-underline" href="glossary.html">К глоссарию</a>
             </article>
@@ -187,13 +252,16 @@
 
   <footer class="footer cream-section">
     <a class="logo" href="index.html#top">Le Collectif</a>
-    <nav aria-label="Нижняя навигация">
+    <nav class="footer-nav footer-nav--main" aria-label="Нижняя навигация">
+      <p class="footer-heading">Навигация</p>
+      <a href="index.html#top">Главная</a>
       <a href="specialists.html">Специалисты</a>
       <a href="articles.html">Библиотека знаний</a>
       <a href="calendar.html">Календарь мероприятий</a>
       <a href="contacts.html">Контакты</a>
     </nav>
-    <nav aria-label="Материалы">
+    <nav class="footer-nav footer-nav--library" aria-label="Материалы">
+      <p class="footer-heading">Библиотека знаний</p>
       <a href="articles.html">Статьи</a>
       <a href="glossary.html">Глоссарий</a>
       <a href="literature.html">Подборки литературы</a>
@@ -201,15 +269,28 @@
       <a href="tests.html">Банки тестов</a>
     </nav>
     <div class="footer-contact">
-      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
-      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <p class="footer-heading">Контакты</p>
+      <a href="mailto:lecollectif@gmail.com">lecollectif@gmail.com</a>
+      <a href="mailto:pr@gmail.com">pr@gmail.com</a>
+    </div>
+    <div class="footer-socials">
+      <p class="footer-heading">Социальные сети</p>
+      <div class="footer-socials-list">
+        <a href="#" aria-label="VK"><img src="assets/icons/Frame 142.svg" alt=""></a>
+        <a href="#" aria-label="Социальная сеть"><img src="assets/icons/Frame 197.svg" alt=""></a>
+        <a href="#" aria-label="Rutube"><img src="assets/icons/Frame 198.svg" alt=""></a>
+        <a href="#" aria-label="YouTube"><img src="assets/icons/Frame 196.svg" alt=""></a>
+      </div>
+    </div>
+    <div class="footer-action">
       <a class="button primary" href="contacts.html">Связаться с нами</a>
     </div>
-    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены</p>
     <div class="footer-policies">
       <a class="policy" href="contacts.html">Политика конфиденциальности</a>
       <a class="policy" href="contacts.html">Политика в отношении обработки персональных данных</a>
     </div>
+    <p class="footer-legal-name">НКО «Коллектиф» ИНН 782300184</p>
   </footer>
 
   <script src="script.js?v=20260424-2"></script>

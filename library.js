@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const topToolbar = root.querySelector('.top-toolbar');
   if (topToolbar && cards.length > 1 && !root.querySelector('#sortFilter')) {
+    const isGlossaryPage = Boolean(root.querySelector('#glossaryLetters'));
+    const dateSortOptions = isGlossaryPage ? '' : `
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате (сначала новые)</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-asc">По дате (сначала старые)</label>`;
     const sortFilter = document.createElement('div');
     sortFilter.className = 'mini-filter sort-filter';
     sortFilter.id = 'sortFilter';
@@ -30,8 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="mini-filter-dropdown">
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc">От А до Я</label>
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc">От Я до А</label>
-        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате (сначала новые)</label>
-        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-asc">По дате (сначала старые)</label>
+        ${dateSortOptions}
       </div>`;
 
     const search = root.querySelector('.search-wrapper');
@@ -333,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = card.querySelector('.item-title')?.textContent.trim() || 'Термин';
     glossaryTitle.textContent = title;
     glossaryText.textContent = card.dataset.full || card.querySelector('.item-description')?.textContent.trim() || '';
-    glossarySource.textContent = card.dataset.source || 'Источник будет добавлен позже.';
+    glossarySource.textContent = card.dataset.source || 'Источник будет добавлен позже';
     glossaryArticles.innerHTML = '';
 
     const articleLinks = (card.dataset.articles || '').split(';').filter(Boolean);

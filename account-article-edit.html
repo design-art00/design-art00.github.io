@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Редактирование статьи — Le Collectif</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260428-1">
+  <link rel="stylesheet" href="account.css?v=20260426-1">
+</head>
+<body class="account-body">
+  <header class="site-header">
+    <a class="logo" href="index.html#top" aria-label="Le Collectif">Le Collectif</a>
+    <nav class="desktop-nav" aria-label="Основная навигация">
+      <a href="specialists.html">Специалисты</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+          <span>Библиотека знаний</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="articles.html">Статьи</a>
+          <a href="glossary.html">Глоссарий</a>
+          <a href="literature.html">Подборки литературы</a>
+          <a href="podcasts.html">Подкасты</a>
+          <a href="tests.html">Банк тестов</a>
+        </div>
+      </div>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a class="account-button" href="#" data-auth-open="login">Личный кабинет</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span>Меню</span>
+        <i aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-panel" id="site-menu" aria-label="Главная навигация">
+    <a href="specialists.html">Специалисты</a>
+    <a href="articles.html">Библиотека знаний</a>
+    <a href="calendar.html">Календарь</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <main class="account-page">
+    <nav class="account-breadcrumbs" aria-label="Хлебные крошки">
+      <a href="index.html#top">Главная</a>
+      <span>/</span>
+      <a href="account.html#publications">Личный кабинет</a>
+      <span>/</span>
+      <span>Редактирование статьи</span>
+    </nav>
+
+    <div class="account-layout">
+      <aside class="account-sidebar" aria-label="Навигация личного кабинета">
+        <div class="account-sidebar__plate">
+          <div class="account-sidebar__user">
+            <img src="assets/expert-anna.jpg" alt="Анна Воронина">
+            <div>
+              <strong>Анна Воронина</strong>
+              <span>Специалист</span>
+            </div>
+          </div>
+          <nav aria-label="Разделы личного кабинета">
+            <a class="is-active" href="account.html#publications">Мои публикации</a>
+            <a href="account.html#profile">Мой профиль</a>
+            <a href="account.html#comments">Мои комментарии</a>
+          </nav>
+        </div>
+      </aside>
+
+      <section class="account-content">
+        <section class="account-topbar account-editor-topbar" aria-label="Редактирование статьи">
+          <div>
+            <p>Редактор материала</p>
+            <h1>Редактирование статьи</h1>
+            <span>Проверьте заголовок, текст, тему и статус публикации перед отправкой</span>
+          </div>
+          <a class="button ghost" href="account.html#publications">Вернуться</a>
+        </section>
+
+        <section class="account-section account-editor">
+          <div class="account-section__head">
+            <div>
+              <h2>Как формируется терапевтический альянс</h2>
+              <p>Черновик статьи в библиотеке знаний</p>
+            </div>
+            <span class="status-pill status-pill--draft">Черновик</span>
+          </div>
+
+          <form class="article-edit-form">
+            <div class="article-edit-form__main">
+              <label class="article-edit-form__wide">
+                <span>Название статьи</span>
+                <input type="text" value="Как формируется терапевтический альянс">
+              </label>
+
+              <label>
+                <span>Автор</span>
+                <input type="text" value="Анна Воронина">
+              </label>
+
+              <label>
+                <span>Дата публикации</span>
+                <input type="date" value="2026-04-22">
+              </label>
+
+              <label>
+                <span>Раздел</span>
+                <select>
+                  <option selected>Статьи</option>
+                  <option>Глоссарий</option>
+                  <option>Подборки литературы</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Тема</span>
+                <select>
+                  <option selected>Терапевтический процесс</option>
+                  <option>Самооценка и границы</option>
+                  <option>Стресс и выгорание</option>
+                  <option>Отношения</option>
+                </select>
+              </label>
+
+              <label class="article-edit-form__wide">
+                <span>Короткое описание</span>
+                <textarea>Материал о том, как специалист и клиент постепенно договариваются о целях, ритме и способе совместной работы</textarea>
+              </label>
+
+              <label class="article-edit-form__wide">
+                <span>Текст статьи</span>
+                <textarea class="article-edit-form__body">Рабочий альянс формируется не в один момент. Он складывается из ясности, доверия, возможности говорить о сомнениях и ощущения, что обе стороны понимают, зачем они встречаются.
+
+В начале работы особенно важны простые договоренности: с каким запросом приходит человек, как будет устроен процесс, что помогает ему чувствовать безопасность и где возникает напряжение.
+
+Для специалиста альянс становится не формальностью, а живой настройкой контакта. Он помогает замечать, когда клиенту нужно больше структуры, больше паузы или больше пространства для самостоятельного поиска смысла.</textarea>
+              </label>
+
+              <label class="article-edit-form__wide">
+                <span>Источники</span>
+                <textarea>Bordin E. S. The generalizability of the psychoanalytic concept of the working alliance. Psychotherapy, 1979.
+Safran J. D., Muran J. C. Negotiating the Therapeutic Alliance. Guilford Press, 2000.</textarea>
+              </label>
+            </div>
+
+            <aside class="article-edit-panel" aria-label="Параметры публикации">
+              <div class="article-edit-cover">
+                <img src="assets/about-notes.jpg" alt="Обложка статьи">
+                <button class="button ghost" type="button">Заменить фото</button>
+              </div>
+
+              <label>
+                <span>Статус</span>
+                <select>
+                  <option selected>Черновик</option>
+                  <option>Опубликовано</option>
+                  <option>На проверке</option>
+                </select>
+              </label>
+
+              <label>
+                <span>URL материала</span>
+                <input type="text" value="therapy-alliance.html">
+              </label>
+
+              <div class="article-edit-actions">
+                <button class="button primary" type="button">Сохранить черновик</button>
+                <button class="button ghost" type="button">Предпросмотр</button>
+                <button class="button ghost" type="button">Опубликовать</button>
+              </div>
+            </aside>
+          </form>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer cream-section">
+    <a class="logo" href="index.html#top">Le Collectif</a>
+    <nav class="footer-nav footer-nav--main" aria-label="Нижняя навигация">
+      <p class="footer-heading">Навигация</p>
+      <a href="index.html#top">Главная</a>
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <nav class="footer-nav footer-nav--library" aria-label="Материалы">
+      <p class="footer-heading">Библиотека знаний</p>
+      <a href="articles.html">Статьи</a>
+      <a href="glossary.html">Глоссарий</a>
+      <a href="literature.html">Подборки литературы</a>
+      <a href="podcasts.html">Подкасты</a>
+      <a href="tests.html">Банки тестов</a>
+    </nav>
+    <div class="footer-contact">
+      <p class="footer-heading">Контакты</p>
+      <a href="mailto:lecollectif@gmail.com">lecollectif@gmail.com</a>
+      <a href="mailto:pr@gmail.com">pr@gmail.com</a>
+    </div>
+    <div class="footer-socials">
+      <p class="footer-heading">Социальные сети</p>
+      <div class="footer-socials-list">
+        <a href="#" aria-label="VK"><img src="assets/icons/Frame 142.svg" alt=""></a>
+        <a href="#" aria-label="Социальная сеть"><img src="assets/icons/Frame 197.svg" alt=""></a>
+        <a href="#" aria-label="Rutube"><img src="assets/icons/Frame 198.svg" alt=""></a>
+        <a href="#" aria-label="YouTube"><img src="assets/icons/Frame 196.svg" alt=""></a>
+      </div>
+    </div>
+    <div class="footer-action">
+      <a class="button primary" href="contacts.html">Связаться с нами</a>
+    </div>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены</p>
+    <div class="footer-policies">
+      <a class="policy" href="contacts.html">Политика конфиденциальности</a>
+      <a class="policy" href="contacts.html">Политика в отношении обработки персональных данных</a>
+    </div>
+    <p class="footer-legal-name">НКО «Коллектиф» ИНН 782300184</p>
+  </footer>
+
+  <script src="script.js?v=20260424-2"></script>
+  <script src="account.js?v=20260422-1"></script>
+</body>
+</html>

@@ -8,7 +8,6 @@ const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
 const form = document.querySelector('.contact-form');
 const statusNode = document.querySelector('.form-status');
 const quoteSlider = document.querySelector('.quote-slider');
-const parallaxSections = Array.from(document.querySelectorAll('[data-parallax-section]'));
 
 const initSitePreloader = () => {
   if (!document.body || document.querySelector('.site-preloader')) return;
@@ -24,7 +23,7 @@ const initSitePreloader = () => {
         <div class="newtons-cradle__dot"></div>
         <div class="newtons-cradle__dot"></div>
       </div>
-      <div class="site-preloader__text">Загружаем сайт...</div>
+      <div class="site-preloader__text">Загружаем сайт</div>
     </div>
   `;
   document.body.prepend(preloader);
@@ -175,37 +174,6 @@ if (quoteSlider) {
   }
 }
 
-if (parallaxSections.length > 0) {
-  let parallaxFrame = null;
-
-  const updateParallax = () => {
-    parallaxFrame = null;
-    const viewportCenter = window.innerHeight / 2;
-
-    parallaxSections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const sectionCenter = rect.top + rect.height / 2;
-      const progress = (viewportCenter - sectionCenter) / Math.max(window.innerHeight, 1);
-
-      section.querySelectorAll('[data-parallax-layer]').forEach((layer) => {
-        const speed = Number.parseFloat(layer.dataset.speed || '0.08');
-        const offset = progress * speed * 360;
-        const scale = layer.classList.contains("photo-invite__bg") ? " scale(1.08)" : "";
-        layer.style.transform = `translate3d(0, ${offset}px, 0)${scale}`;
-      });
-    });
-  };
-
-  const requestParallaxUpdate = () => {
-    if (parallaxFrame) return;
-    parallaxFrame = requestAnimationFrame(updateParallax);
-  };
-
-  window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
-  window.addEventListener('resize', requestParallaxUpdate);
-  requestParallaxUpdate();
-}
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -251,13 +219,13 @@ if (form && statusNode) {
     event.preventDefault();
 
     if (!form.checkValidity()) {
-      statusNode.textContent = 'Заполните поля и подтвердите согласие на обработку данных.';
+      statusNode.textContent = 'Заполните поля и подтвердите согласие на обработку данных';
       form.reportValidity();
       return;
     }
 
     form.reset();
-    statusNode.textContent = 'Спасибо! Форма готова к подключению к серверу.';
+    statusNode.textContent = 'Спасибо! Форма готова к подключению к серверу';
   });
 }
 
@@ -368,7 +336,8 @@ if (form && statusNode) {
 
   const accountMenuMarkup = () => `
     <div class="account-menu-panel" data-account-menu>
-      <a href="account.html#publications">Мои публикации</a>
+      <a href="account.html#dashboard">Мой кабинет</a>
+      <a href="account.html#articles">Мои публикации</a>
       <a href="account.html#profile">Мой профиль</a>
       <span class="account-menu-panel__line" aria-hidden="true"></span>
       <button type="button" data-auth-logout><span aria-hidden="true">↗</span>Выйти</button>
@@ -413,7 +382,7 @@ if (form && statusNode) {
       button.classList.toggle('account-button--user', loggedIn);
       button.setAttribute('href', loggedIn ? 'account.html' : '#');
       button.innerHTML = loggedIn
-        ? `<img src="${accountAvatar}" alt="${accountName}"><span>${accountShortName}</span>`
+        ? `<span>${accountShortName}</span><img src="${accountAvatar}" alt="${accountName}">`
         : 'Личный кабинет';
 
       if (loggedIn) button.insertAdjacentHTML('afterend', accountMenuMarkup());
@@ -459,20 +428,20 @@ if (form && statusNode) {
       const allowedNames = ['анна воронина', 'anna voronina'];
       if (allowedNames.includes(login) && password === '1111') {
         localStorage.setItem(accountKey, accountName);
-        message.textContent = 'Вы вошли в личный кабинет.';
+        message.textContent = 'Вы вошли в личный кабинет';
         message.classList.remove('is-error');
         refreshAccountButtons();
         closeAuthModal();
         window.location.href = 'account.html';
       } else {
-        message.textContent = 'Введите Анна Воронина и пароль 1111.';
+        message.textContent = 'Введите Анна Воронина и пароль 1111';
         message.classList.add('is-error');
       }
     }
 
     if (registerForm) {
       const message = modal.querySelector('[data-auth-message="register"]');
-      message.textContent = 'Регистрация пока не подключена. Это кликабельный прототип формы.';
+      message.textContent = 'Регистрация пока не подключена. Это кликабельный прототип формы';
       message.classList.remove('is-error');
     }
   });
@@ -490,20 +459,20 @@ if (form && statusNode) {
   if (!headerActions || document.querySelector('.site-search')) return;
 
   const searchIndex = [
-    { title: 'Главная', url: 'index.html#top', excerpt: 'Профессиональное сообщество психологов, психотерапевтов и психоаналитиков.', keywords: 'главная сообщество проект le collectif' },
-    { title: 'Специалисты', url: 'specialists.html', excerpt: 'Подбор специалиста по теме, подходу, стоимости и формату терапии.', keywords: 'психолог психотерапевт психоаналитик терапия консультация' },
-    { title: 'Календарь мероприятий', url: 'calendar.html', excerpt: 'Лекции, супервизии, семинары и воркшопы профессионального сообщества.', keywords: 'календарь мероприятия события лекции супервизии семинары воркшопы афиша' },
-    { title: 'Анна Воронина', url: 'anna-voronina.html', excerpt: 'Психолог-терапевт, гештальт, арт-терапия, экзистенциальная терапия.', keywords: 'анна воронина специалист психолог образование отзывы' },
-    { title: 'Наталья Строк', url: 'natalya-strok.html', excerpt: 'Автор материалов о психосоматике, стрессе и телесной стороне эмоционального опыта.', keywords: 'наталья строк автор психосоматика стресс тело саморегуляция' },
-    { title: 'Статьи', url: 'articles.html', excerpt: 'Авторские материалы, исследования и профессиональные размышления.', keywords: 'статьи публикации библиотека знания' },
-    { title: 'Психосоматика стресса', url: 'psychosomatics-stress.html', excerpt: 'Как тело говорит то, что молчит разум. Статья Натальи Строк.', keywords: 'стресс психосоматика тело тревога статья наталья строк' },
-    { title: 'Глоссарий', url: 'glossary.html', excerpt: 'Термины психологии и психоанализа с подробными описаниями.', keywords: 'глоссарий термины понятия психология психоанализ' },
-    { title: 'Подборки литературы', url: 'literature.html', excerpt: 'Книги и материалы для профессионального развития.', keywords: 'книги литература подборки чтение' },
-    { title: 'Подкасты', url: 'podcasts.html', excerpt: 'Аудиоматериалы и выпуски о психологии, философии и психоанализе.', keywords: 'подкасты аудио слушать' },
-    { title: 'Банк тестов', url: 'tests.html', excerpt: 'Психологические тесты и опросники.', keywords: 'тесты шкала бека тревога опросник' },
-    { title: 'Шкала тревоги Бека', url: 'anxiety-test.html', excerpt: 'Методика Аарона Т. Бека для оценки симптомов тревоги.', keywords: 'beck бека тревога тест шкала' },
-    { title: 'Личный кабинет', url: 'account.html', excerpt: 'Публикации, профиль и комментарии пользователя.', keywords: 'личный кабинет профиль комментарии публикации' },
-    { title: 'Контакты', url: 'contacts.html', excerpt: 'Почта по общим вопросам, сотрудничество, социальные сети и форма связи.', keywords: 'контакты почта сотрудничество форма связь telegram вконтакте' }
+    { title: 'Главная', url: 'index.html#top', excerpt: 'Профессиональное сообщество психологов, психотерапевтов и психоаналитиков', keywords: 'главная сообщество проект le collectif' },
+    { title: 'Специалисты', url: 'specialists.html', excerpt: 'Подбор специалиста по теме, подходу, стоимости и формату терапии', keywords: 'психолог психотерапевт психоаналитик терапия консультация' },
+    { title: 'Календарь мероприятий', url: 'calendar.html', excerpt: 'Лекции, супервизии, семинары и воркшопы профессионального сообщества', keywords: 'календарь мероприятия события лекции супервизии семинары воркшопы афиша' },
+    { title: 'Анна Воронина', url: 'anna-voronina.html', excerpt: 'Психолог-терапевт, гештальт, арт-терапия, экзистенциальная терапия', keywords: 'анна воронина специалист психолог образование отзывы' },
+    { title: 'Наталья Строк', url: 'natalya-strok.html', excerpt: 'Автор материалов о психосоматике, стрессе и телесной стороне эмоционального опыта', keywords: 'наталья строк автор психосоматика стресс тело саморегуляция' },
+    { title: 'Статьи', url: 'articles.html', excerpt: 'Авторские материалы, исследования и профессиональные размышления', keywords: 'статьи публикации библиотека знания' },
+    { title: 'Психосоматика стресса', url: 'psychosomatics-stress.html', excerpt: 'Как тело говорит то, что молчит разум. Статья Натальи Строк', keywords: 'стресс психосоматика тело тревога статья наталья строк' },
+    { title: 'Глоссарий', url: 'glossary.html', excerpt: 'Термины психологии и психоанализа с подробными описаниями', keywords: 'глоссарий термины понятия психология психоанализ' },
+    { title: 'Подборки литературы', url: 'literature.html', excerpt: 'Книги и материалы для профессионального развития', keywords: 'книги литература подборки чтение' },
+    { title: 'Подкасты', url: 'podcasts.html', excerpt: 'Аудиоматериалы и выпуски о психологии, философии и психоанализе', keywords: 'подкасты аудио слушать' },
+    { title: 'Банк тестов', url: 'tests.html', excerpt: 'Психологические тесты и опросники', keywords: 'тесты шкала бека тревога опросник' },
+    { title: 'Шкала тревоги Бека', url: 'anxiety-test.html', excerpt: 'Методика Аарона Т. Бека для оценки симптомов тревоги', keywords: 'beck бека тревога тест шкала' },
+    { title: 'Личный кабинет', url: 'account.html', excerpt: 'Публикации, профиль и комментарии пользователя', keywords: 'личный кабинет профиль комментарии публикации' },
+    { title: 'Контакты', url: 'contacts.html', excerpt: 'Почта по общим вопросам, сотрудничество, социальные сети и форма связи', keywords: 'контакты почта сотрудничество форма связь telegram вконтакте' }
   ];
 
   const markup = `

@@ -60,7 +60,7 @@
       <main class="content-area">
         <section class="page-intro" aria-label="Заголовок страницы">
           <h1 class="page-title">Подкасты</h1>
-          <p class="page-desc">Короткие выпуски о практике, терапии и профессиональных темах.<br>Выберите направление и слушайте прямо на странице.</p>
+          <p class="page-desc">Короткие выпуски о практике, терапии и профессиональных темах<br>Выберите направление и слушайте прямо на странице</p>
         </section>
         <div class="top-toolbar"><div class="toolbar-filters"><div class="mini-filter" id="topicFilter"><button type="button" class="mini-filter-btn" id="topicFilterBtn">Тема</button><div class="mini-filter-dropdown"><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="relationships">Отношения и границы</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="selfworth">Самооценка и опора</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="stress">Тревога и стресс</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="therapy">Терапия и психоанализ</label><label class="mini-checkbox-item"><input type="checkbox" class="topic-check" value="emotions">Эмоции и саморегуляция</label><div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearTopicBtn">Сбросить</button></div></div></div><div class="mini-filter year-filter" id="yearFilter"><button type="button" class="mini-filter-btn" id="yearFilterBtn">Год</button><div class="mini-filter-dropdown"><label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2026">2026</label><label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2025">2025</label><label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2024">2024</label><label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2023">2023</label><label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2022">2022</label><label class="mini-checkbox-item"><input type="checkbox" class="year-check" value="2021">2021</label><div class="mini-filter-actions"><button type="button" class="mini-clear-btn" id="clearYearBtn">Сбросить</button></div></div></div></div><div class="search-wrapper"><input class="search-input" type="text" id="searchInput" placeholder="Поиск.."><div class="search-icon-holder"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div></div></div>
         <div class="items-grid" id="itemsGrid">
@@ -172,13 +172,16 @@
   <div class="mini-player" id="miniPlayer"><div class="mini-player-top"><div><div class="mini-player-label">Сейчас играет</div><div class="mini-player-title" id="miniPlayerTitle">Название подкаста</div><div class="mini-player-author" id="miniPlayerAuthor">Автор</div></div><button type="button" class="mini-player-close" id="miniPlayerClose">×</button></div><audio id="podcastAudio" controls></audio></div>
   <footer class="footer cream-section">
     <a class="logo" href="index.html#top">Le Collectif</a>
-    <nav aria-label="Нижняя навигация">
+    <nav class="footer-nav footer-nav--main" aria-label="Нижняя навигация">
+      <p class="footer-heading">Навигация</p>
+      <a href="index.html#top">Главная</a>
       <a href="specialists.html">Специалисты</a>
       <a href="articles.html">Библиотека знаний</a>
       <a href="calendar.html">Календарь мероприятий</a>
       <a href="contacts.html">Контакты</a>
     </nav>
-    <nav aria-label="Материалы">
+    <nav class="footer-nav footer-nav--library" aria-label="Материалы">
+      <p class="footer-heading">Библиотека знаний</p>
       <a href="articles.html">Статьи</a>
       <a href="glossary.html">Глоссарий</a>
       <a href="literature.html">Подборки литературы</a>
@@ -186,15 +189,28 @@
       <a href="tests.html">Банки тестов</a>
     </nav>
     <div class="footer-contact">
-      <a href="tel:+79213542309">+7 (921) 354-23-09</a>
-      <a href="mailto:resourses@gmail.com">resourses@gmail.com</a>
+      <p class="footer-heading">Контакты</p>
+      <a href="mailto:lecollectif@gmail.com">lecollectif@gmail.com</a>
+      <a href="mailto:pr@gmail.com">pr@gmail.com</a>
+    </div>
+    <div class="footer-socials">
+      <p class="footer-heading">Социальные сети</p>
+      <div class="footer-socials-list">
+        <a href="#" aria-label="VK"><img src="assets/icons/Frame 142.svg" alt=""></a>
+        <a href="#" aria-label="Социальная сеть"><img src="assets/icons/Frame 197.svg" alt=""></a>
+        <a href="#" aria-label="Rutube"><img src="assets/icons/Frame 198.svg" alt=""></a>
+        <a href="#" aria-label="YouTube"><img src="assets/icons/Frame 196.svg" alt=""></a>
+      </div>
+    </div>
+    <div class="footer-action">
       <a class="button primary" href="contacts.html">Связаться с нами</a>
     </div>
-    <p class="copyright">© 2026 "Le collectif". Все права защищены.</p>
+    <p class="copyright">© 2026 "Le collectif". Все права защищены</p>
     <div class="footer-policies">
       <a class="policy" href="contacts.html">Политика конфиденциальности</a>
       <a class="policy" href="contacts.html">Политика в отношении обработки персональных данных</a>
     </div>
+    <p class="footer-legal-name">НКО «Коллектиф» ИНН 782300184</p>
   </footer>
   <script src="script.js?v=20260424-2"></script>
   <script src="library.js?v=20260428-1"></script>

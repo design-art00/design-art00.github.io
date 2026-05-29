@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Опросный лист</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="page">
+      <section class="survey container" aria-labelledby="survey-title">
+        <header class="survey__header">
+          <h1 id="survey-title">Опросный лист для оценки качества пользовательского интерфейса</h1>
+          <div class="survey__intro">
+            <p>
+              Данный опросный лист предназначен для субъективной оценки качества цифрового продукта
+              и выявления эмоциональных, когнитивных и поведенческих реакций пользователей.
+              Вопросы сгруппированы по четырем ключевым категориям, отражающим разные аспекты взаимодействия.
+            </p>
+            <p>
+              При заполнении важно опираться на собственные ощущения, возникшие в процессе использования продукта.
+              Вам будут предложены вопросы, касающиеся понимания информации, сложности действий, удобства интерфейса
+              и эмоционального восприятия.
+            </p>
+            <p>
+              Для каждого утверждения выберите один вариант ответа по шкале от 1 до 5, где 1 - минимальная
+              выраженность качества, а 5 - максимальная.
+            </p>
+            <p>Рядом с каждым вопросом приведено пояснение значений шкалы.</p>
+          </div>
+        </header>
+
+        <form class="survey__form" action="#" method="post">
+          <h2>Заполните анкету</h2>
+
+          <fieldset class="question">
+            <legend>
+              <span>1.</span>
+              Насколько легко вам было понимать информацию, представленную на сайте
+              (тексты, подписи, названия элементов, структуру разделов)?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-1" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Полностью не понимал(а),</strong>
+                <span>информация казалась запутанной или нелогичной</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-1" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее не понимал(а),</strong>
+                <span>часто требовалось время для осмысления</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-1" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>На половину понятны,</strong>
+                <span>50% значений элементов были не понятны</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-1" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее понимал(а),</strong>
+                <span>лишь иногда требовалось дополнительно вникать</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-1" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Полностью понимал(а),</strong>
+                <span>вся информация была ясной и понятной</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>2.</span>
+              Насколько легко вам было принимать решения при работе с сайтом
+              (что нажать, куда перейти, какой элемент выбрать)?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-2" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Очень трудно,</strong>
+                <span>постоянно не понимал(а), что делать</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-2" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее трудно,</strong>
+                <span>решения приходилось принимать с усилием</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-2" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>Умеренно,</strong>
+                <span>иногда возникали затруднения</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-2" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее легко,</strong>
+                <span>большинство решений принимались уверенно</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-2" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Очень легко,</strong>
+                <span>решения были очевидны на каждом шаге</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>3.</span>
+              Насколько сложным вам показался процесс взаимодействия с сайтом в целом?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-3" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Очень сложным,</strong>
+                <span>почти все действия требовали усилий</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-3" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее сложным,</strong>
+                <span>часто возникали трудности</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-3" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>Умеренно сложным,</strong>
+                <span>сложность ощущалась примерно в половине случаев</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-3" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее простым,</strong>
+                <span>большинство действий давались легко</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-3" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Совсем не сложным,</strong>
+                <span>использовать сайт было легко и естественно</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>4.</span>
+              Насколько использование сайта вызывало у вас усталость, напряжение или дискомфорт?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-4" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Очень сильно</strong>
+                <span>вызывало усталость/напряжение</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-4" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее вызывало</strong>
+                <span>дискомфорт</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-4" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>Умеренная нейтральная</strong>
+                <span>нагрузка</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-4" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее не вызывало</strong>
+                <span>дискомфорта</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-4" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Совсем не вызывало,</strong>
+                <span>процесс был легким и комфортным</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>5.</span>
+              Насколько уверенно вы чувствовали себя при выполнении действий на сайте?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-5" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Совсем не уверенно,</strong>
+                <span>постоянно боялся(ась) ошибиться</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-5" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее не уверенно,</strong>
+                <span>часто сомневался(лась)</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-5" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>Частично уверенно,</strong>
+                <span>иногда возникали сомнения</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-5" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее уверенно,</strong>
+                <span>сомнения были редкими</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-5" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Полностью уверенно,</strong>
+                <span>четко понимал(а) каждый шаг</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>6.</span>
+              Как вы оцениваете качество работы сайта (скорость, стабильность)?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-6" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Очень низкое качество,</strong>
+                <span>работа сайта вызывала проблемы</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-6" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее низкое,</strong>
+                <span>регулярно возникали ошибки или задержки</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-6" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>Среднее качество,</strong>
+                <span>часть работы проходила гладко</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-6" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее высокое,</strong>
+                <span>сайт работал хорошо</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-6" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Очень высокое качество,</strong>
+                <span>работа сайта была полностью стабильной</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>7.</span>
+              Выберите наиболее подходящее описание, по вашему мнению, для дизайна сайта
+            </legend>
+            <div class="choice-grid">
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="beautiful">
+                <span class="choice__mark"></span>
+                <span>Красивый</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="elegant">
+                <span class="choice__mark"></span>
+                <span>Элегантный</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="standard">
+                <span class="choice__mark"></span>
+                <span>Стандартный</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="rough">
+                <span class="choice__mark"></span>
+                <span>Грубый</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="unclear">
+                <span class="choice__mark"></span>
+                <span>Непонятный</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="refined">
+                <span class="choice__mark"></span>
+                <span>Изысканный</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="pleasant">
+                <span class="choice__mark"></span>
+                <span>Симпатичный</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="ugly">
+                <span class="choice__mark"></span>
+                <span>Некрасивый</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="chaotic">
+                <span class="choice__mark"></span>
+                <span>Хаотичный</span>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="question-7" value="unusual">
+                <span class="choice__mark"></span>
+                <span>Необычный</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>8.</span>
+              Насколько удобным и логичным был порядок действий при взаимодействии с сайтом?
+            </legend>
+            <div class="scale" role="radiogroup" aria-label="Оценка от 1 до 5">
+              <label class="scale__option">
+                <input type="radio" name="question-8" value="1">
+                <span class="scale__mark"></span>
+                <span class="scale__number">1</span>
+                <strong>Совсем нелогичным,</strong>
+                <span>порядок действий сбивал с толку</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-8" value="2">
+                <span class="scale__mark"></span>
+                <span class="scale__number">2</span>
+                <strong>Скорее нелогичным,</strong>
+                <span>часто возникала путаница</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-8" value="3">
+                <span class="scale__mark"></span>
+                <span class="scale__number">3</span>
+                <strong>Умеренно понятным,</strong>
+                <span>половина шагов была неочевидной</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-8" value="4">
+                <span class="scale__mark"></span>
+                <span class="scale__number">4</span>
+                <strong>Скорее логичным,</strong>
+                <span>структура действий была понятной</span>
+              </label>
+              <label class="scale__option">
+                <input type="radio" name="question-8" value="5">
+                <span class="scale__mark"></span>
+                <span class="scale__number">5</span>
+                <strong>Полностью логичным,</strong>
+                <span>порядок действий был естественным</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question">
+            <legend>
+              <span>9.</span>
+              Выберите наиболее подходящее описание для вашей деятельности в работе с сайтом?
+            </legend>
+            <div class="choice-list" role="radiogroup" aria-label="Описание деятельности">
+              <label class="choice choice--radio">
+                <input type="radio" name="question-9" value="creative">
+                <span class="choice__mark"></span>
+                <span>Творческая</span>
+              </label>
+              <label class="choice choice--radio">
+                <input type="radio" name="question-9" value="executive">
+                <span class="choice__mark"></span>
+                <span>Исполнительская</span>
+              </label>
+              <label class="choice choice--radio">
+                <input type="radio" name="question-9" value="interesting">
+                <span class="choice__mark"></span>
+                <span>Интересная</span>
+              </label>
+              <label class="choice choice--radio">
+                <input type="radio" name="question-9" value="routine">
+                <span class="choice__mark"></span>
+                <span>Рутинная</span>
+              </label>
+              <label class="choice choice--radio">
+                <input type="radio" name="question-9" value="unusual">
+                <span class="choice__mark"></span>
+                <span>Необычная</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="survey__actions">
+            <button class="button" type="submit">Отправить</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

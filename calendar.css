@@ -147,19 +147,28 @@
 }
 
 .calendar-arrow {
-  width: 42px;
-  height: 42px;
-  border: 1px solid #d8d0c8;
-  border-radius: 50%;
-  background: transparent;
-  color: #282828;
-  font-size: 18px;
+  width: 48px;
+  height: 48px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(74, 95, 157, 0.12);
+  color: var(--blue);
+  font-family: var(--sans);
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 0.78;
   cursor: pointer;
+  transition: background-color 0.35s ease, color 0.35s ease, opacity 0.35s ease;
 }
 
 .calendar-arrow:hover {
-  border-color: var(--blue);
-  color: var(--blue);
+  background: var(--blue);
+  color: #ffffff;
 }
 
 .calendar-grid {
@@ -527,7 +536,7 @@
 .calendar-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(29, 37, 71, 0.34);
+  background: rgba(40, 40, 40, 0.42);
 }
 
 .calendar-modal__dialog {
@@ -598,7 +607,7 @@
   min-height: 56px;
   padding: 16px 18px;
   border: 1px solid transparent;
-  background: #f3ede7;
+  background: var(--background);
   color: #282828;
   font: 16px/1.4 var(--sans);
   outline: 1px solid transparent;
@@ -613,7 +622,7 @@
 .calendar-modal__form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
 .calendar-modal__form textarea:focus {
   background: #eee5dd;
-  outline-color: rgba(68, 87, 153, 0.48);
+  outline-color: rgba(83, 83, 83, 0.24);
 }
 
 .calendar-modal__form input:not([type="checkbox"]):not([type="radio"]):not([type="range"])::placeholder,
@@ -728,7 +737,6 @@ body.calendar-modal-open {
 .calendar-page {
   --calendar-line: rgba(177, 130, 132, 0.34);
   --calendar-line-soft: rgba(177, 130, 132, 0.18);
-  --calendar-warm: #f3ede7;
   --calendar-warm-soft: #f8f4ee;
 }
 
@@ -751,7 +759,7 @@ body.calendar-modal-open {
 
 .calendar-filter-button,
 .calendar-arrow {
-  border-color: var(--calendar-line);
+  border-color: rgba(83, 83, 83, 0.24);
 }
 
 .calendar-day:hover,
@@ -774,12 +782,15 @@ body.calendar-modal-open {
 
 .calendar-modal__form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
 .calendar-modal__form textarea {
-  background: #fffbf8;
+  border: 1px solid rgba(68, 87, 153, 0.28) !important;
+  background: #dedbd41a !important;
 }
 
 .calendar-modal__form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus,
 .calendar-modal__form textarea:focus {
-  background: var(--calendar-warm);
+  border-color: rgba(83, 83, 83, 0.32) !important;
+  outline-color: rgba(83, 83, 83, 0.24) !important;
+  background: #fffbf8 !important;
 }
 
 /* Softer tab hover border. */
@@ -793,7 +804,7 @@ body.calendar-modal-open {
 
 /* Consistency audit pass: calendar page. */
 .calendar-page {
-  background: var(--background, #f3ede7) !important;
+  background: var(--background) !important;
   padding-right: var(--site-side-padding, 60px) !important;
   padding-left: var(--site-side-padding, 60px) !important;
 }
@@ -807,7 +818,7 @@ body.calendar-modal-open {
   font-weight: 500 !important;
   letter-spacing: 0 !important;
 }
-.calendar-hero-subtitle, .calendar-event-description, .calendar-event-speaker, .calendar-event-price, .calendar-modal__event {
+.calendar-hero-subtitle, .calendar-event-speaker, .calendar-event-price, .calendar-modal__event {
   color: #535353 !important;
   font-size: 16px !important;
   line-height: 1.55 !important;

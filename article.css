@@ -11,7 +11,7 @@
   gap: 8px;
   margin-bottom: 42px;
   color: #777;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.3;
 }
 
@@ -238,12 +238,82 @@
   background: #eee5dd;
 }
 
+.article-comments__locked[hidden],
+.article-comment-form[hidden] {
+  display: none !important;
+}
+
 .article-comments__locked h3 {
   margin-bottom: 8px;
   color: #26397a;
   font-family: var(--serif);
   font-size: 22px;
   font-weight: 500;
+}
+
+.article-comment-form {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid rgba(68, 87, 153, 0.12);
+  background: #eee5dd;
+}
+
+.article-comment-form__body {
+  display: grid;
+  gap: 12px;
+}
+
+.article-comment-form label {
+  color: #26397a;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.article-comment-form textarea {
+  width: 100%;
+  min-height: 128px;
+  padding: 16px 18px;
+  border: 1px solid rgba(68, 87, 153, 0.18);
+  color: #535353;
+  background: #fffbf8;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.4;
+  resize: vertical;
+  outline: none;
+}
+
+.article-comment-form textarea:focus {
+  border-color: rgba(83, 83, 83, 0.34);
+}
+
+.article-comment-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.article-comment-form__footer span {
+  color: #777777;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.article-comment-form__status {
+  min-height: 20px;
+  margin: 0;
+  color: #445799;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.article-comment--current {
+  border-color: rgba(68, 87, 153, 0.36);
+  background: #eee5dd;
 }
 
 @media (max-width: 1100px) {
@@ -291,12 +361,6 @@
   margin: 0;
   opacity: 0.86;
   transform: rotate(2deg);
-}
-
-.article-side-image--two {
-  justify-self: end;
-  width: 180px;
-  transform: rotate(-3deg);
 }
 
 .article-side-image img,
@@ -694,6 +758,21 @@
     padding: 18px;
   }
 
+  .article-comment-form {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .article-comment-form__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .article-comment-form__footer .button {
+    width: 100%;
+  }
+
   .article-comment__avatar {
     width: 40px;
     height: 40px;
@@ -710,7 +789,7 @@
 
 /* Consistency audit pass: article page. */
 .article-page {
-  background: var(--background, #f3ede7) !important;
+  background: var(--background) !important;
   padding-right: var(--site-side-padding, 60px) !important;
   padding-left: var(--site-side-padding, 60px) !important;
 }

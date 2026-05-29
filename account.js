@@ -1,12 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   const links = Array.from(document.querySelectorAll('[data-account-tab]'));
   const panels = Array.from(document.querySelectorAll('[data-account-panel]'));
+  const profileForm = document.querySelector('[data-profile-form]');
+  const profileEditButton = document.querySelector('[data-profile-edit]');
+
+  if (profileForm && profileEditButton) {
+    const profileFields = Array.from(profileForm.querySelectorAll('input, select, textarea'));
+
+    profileEditButton.addEventListener('click', () => {
+      profileForm.classList.add('is-editing');
+      profileFields.forEach((field) => {
+        field.disabled = false;
+      });
+      profileFields[0]?.focus();
+    });
+  }
 
   if (!links.length || !panels.length) return;
 
   const getTabFromHash = () => {
     const hash = window.location.hash.replace('#', '');
-    return panels.some((panel) => panel.dataset.accountPanel === hash) ? hash : 'publications';
+    return panels.some((panel) => panel.dataset.accountPanel === hash) ? hash : 'dashboard';
   };
 
   const activateTab = (tab, shouldPush = true) => {

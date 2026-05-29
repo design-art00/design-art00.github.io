@@ -14,7 +14,7 @@
 
 body {
   margin: 0;
-  background: var(--background, #f3ede7);
+  background: var(--background);
   color: var(--text-main);
   font-family: "Inter Tight", sans-serif;
   font-size: 16px;
@@ -54,7 +54,7 @@ a {
   align-items: center;
   max-width: none;
   margin: 0 auto 28px;
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
 }
 
@@ -269,7 +269,7 @@ a {
 }
 
 #library-root .mini-checkbox-item:hover {
-  color: #6f6f6f;
+  color: #3f3f3f;
 }
 
 .mini-checkbox-item input {
@@ -787,9 +787,6 @@ a {
     width: 100%;
   }
 
-  .items-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .author-name {
@@ -838,7 +835,7 @@ a {
 .glossary-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(38, 57, 122, 0.24);
+  background: rgba(40, 40, 40, 0.34);
   backdrop-filter: blur(4px);
 }
 
@@ -848,7 +845,7 @@ a {
   max-height: min(760px, calc(100vh - 80px));
   overflow: auto;
   padding: 38px;
-  background: #f3ede7;
+  background: var(--background);
   border: 1px solid rgba(68, 87, 153, 0.16);
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12);
 }
@@ -978,7 +975,7 @@ body.glossary-modal-open {
 
 /* Match inner library pages to the homepage background. */
 body {
-  background: #f3ede7;
+  background: var(--background);
 }
 /* Responsive polish for library/test pages. Desktop above 1200px is unchanged. */
 @media (max-width: 1200px) {
@@ -1319,7 +1316,7 @@ body {
 }
 
 /* Consistency audit pass: library pages. */
-body, #library-root, #test-root { background: var(--background, #f3ede7) !important; }
+body, #library-root, #test-root { background: var(--background) !important; }
 #library-root, #test-root {
   padding: calc(var(--fixed-header-offset, 90px) + 34px) var(--site-side-padding, 60px) 80px !important;
 }

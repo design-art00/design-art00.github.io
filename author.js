@@ -135,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const openDiplomaButtons = document.querySelectorAll('[data-diploma-open]');
   const closeDiplomaButtons = document.querySelectorAll('[data-diploma-close]');
   const diplomaImage = document.querySelector('#diplomaModalImage');
-  const diplomaTitle = document.querySelector('#diplomaModalTitle');
 
   function closeDiploma() {
     if (!diplomaModal) return;
@@ -149,9 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (diplomaImage && button?.dataset.diplomaSrc) {
       diplomaImage.src = button.dataset.diplomaSrc;
       diplomaImage.alt = button.dataset.diplomaTitle || 'Документ об образовании';
-    }
-    if (diplomaTitle && button?.dataset.diplomaTitle) {
-      diplomaTitle.textContent = button.dataset.diplomaTitle;
     }
     diplomaModal.classList.add('is-open');
     diplomaModal.setAttribute('aria-hidden', 'false');
