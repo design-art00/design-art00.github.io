@@ -48,6 +48,25 @@ const initSitePreloader = () => {
 
 initSitePreloader();
 
+const enhanceMobileMenu = () => {
+  if (!menuPanel || menuPanel.querySelector('.mobile-menu-tools')) return;
+
+  menuPanel.insertAdjacentHTML('afterbegin', `
+    <div class="mobile-menu-tools">
+      <form class="site-search site-search--mobile" role="search" data-site-search-form>
+        <input type="search" placeholder="Поиск.." autocomplete="off" aria-label="Поиск по сайту">
+        <button type="submit" aria-label="Найти">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.8 5.2a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2Zm0-1.7a7.3 7.3 0 1 0 4.44 13.1l3.83 3.83 1.2-1.2-3.83-3.83A7.3 7.3 0 0 0 10.8 3.5Z"/></svg>
+        </button>
+        <div class="site-search-dropdown" aria-live="polite"></div>
+      </form>
+      <a class="mobile-menu-account" href="#" data-auth-open="login" data-mobile-auth-link>Личный кабинет</a>
+    </div>
+  `);
+};
+
+enhanceMobileMenu();
+
 const markReady = () => {
   // Double rAF gives the browser a moment to apply initial styles before transitioning in.
   requestAnimationFrame(() => requestAnimationFrame(() => {
@@ -82,6 +101,10 @@ if (menuButton && menuPanel) {
 
 menuLinks.forEach((link) => {
   link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.closest('.menu-panel a')) closeMenu();
 });
 
 document.addEventListener('keydown', (event) => {
@@ -336,11 +359,20 @@ if (form && statusNode) {
 
   const accountMenuMarkup = () => `
     <div class="account-menu-panel" data-account-menu>
-      <a href="account.html#dashboard">Мой кабинет</a>
-      <a href="account.html#articles">Мои публикации</a>
-      <a href="account.html#profile">Мой профиль</a>
+      <nav class="account-menu-panel__nav" aria-label="Навигация личного кабинета">
+        <a href="account.html#dashboard">Мой кабинет</a>
+        <p>Мои публикации</p>
+        <a href="account.html#articles">Статьи</a>
+        <a href="account.html#podcasts">Подкасты</a>
+        <p>Профиль</p>
+        <a href="account.html#profile">Моя страница</a>
+        <a href="account.html#comments">Сохраненные материалы</a>
+      </nav>
       <span class="account-menu-panel__line" aria-hidden="true"></span>
-      <button type="button" data-auth-logout><span aria-hidden="true">↗</span>Выйти</button>
+      <button class="account-menu-panel__logout" type="button" data-auth-logout>
+        <img src="assets/icons/bitcoin-icons_exit-outline.svg" alt="" aria-hidden="true">
+        <span>Выйти из аккаунта</span>
+      </button>
     </div>`;
 
   const setAuthTab = (name) => {
@@ -380,12 +412,19 @@ if (form && statusNode) {
       if (existingMenu) existingMenu.remove();
 
       button.classList.toggle('account-button--user', loggedIn);
-      button.setAttribute('href', loggedIn ? 'account.html' : '#');
+      button.setAttribute('href', loggedIn ? 'account.html#dashboard' : '#');
       button.innerHTML = loggedIn
         ? `<span>${accountShortName}</span><img src="${accountAvatar}" alt="${accountName}">`
         : 'Личный кабинет';
 
       if (loggedIn) button.insertAdjacentHTML('afterend', accountMenuMarkup());
+    });
+
+    document.querySelectorAll('[data-mobile-auth-link]').forEach((link) => {
+      link.textContent = loggedIn ? 'Мой кабинет' : 'Личный кабинет';
+      link.setAttribute('href', loggedIn ? 'account.html#dashboard' : '#');
+      if (loggedIn) link.removeAttribute('data-auth-open');
+      else link.setAttribute('data-auth-open', 'login');
     });
   };
 
@@ -456,7 +495,7 @@ if (form && statusNode) {
 // Header search available on every page.
 (() => {
   const headerActions = document.querySelector('.header-actions');
-  if (!headerActions || document.querySelector('.site-search')) return;
+  if (!headerActions && !document.querySelector('.site-search')) return;
 
   const searchIndex = [
     { title: 'Главная', url: 'index.html#top', excerpt: 'Профессиональное сообщество психологов, психотерапевтов и психоаналитиков', keywords: 'главная сообщество проект le collectif' },
@@ -475,22 +514,15 @@ if (form && statusNode) {
     { title: 'Контакты', url: 'contacts.html', excerpt: 'Почта по общим вопросам, сотрудничество, социальные сети и форма связи', keywords: 'контакты почта сотрудничество форма связь telegram вконтакте' }
   ];
 
-  const markup = `
+  const createSearchMarkup = () => `
     <form class="site-search" role="search" data-site-search-form>
-      <input type="search" id="siteSearchInput" placeholder="Поиск.." autocomplete="off" aria-label="Поиск по сайту">
+      <input type="search" placeholder="Поиск.." autocomplete="off" aria-label="Поиск по сайту">
       <button type="submit" aria-label="Найти">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.8 5.2a5.6 5.6 0 1 1 0 11.2 5.6 5.6 0 0 1 0-11.2Zm0-1.7a7.3 7.3 0 1 0 4.44 13.1l3.83 3.83 1.2-1.2-3.83-3.83A7.3 7.3 0 0 0 10.8 3.5Z"/></svg>
       </button>
-      <div class="site-search-dropdown" id="siteSearchResults" aria-live="polite"></div>
+      <div class="site-search-dropdown" aria-live="polite"></div>
     </form>`;
 
-  const accountButton = headerActions.querySelector('.account-button');
-  if (accountButton) accountButton.insertAdjacentHTML('beforebegin', markup);
-  else headerActions.insertAdjacentHTML('afterbegin', markup);
-
-  const search = headerActions.querySelector('.site-search');
-  const input = search.querySelector('#siteSearchInput');
-  const results = search.querySelector('#siteSearchResults');
   const normalize = (value) => value.toLowerCase().trim();
 
   function getMatches(query) {
@@ -513,32 +545,49 @@ if (form && statusNode) {
       .slice(0, 6);
   }
 
-  function renderResults(query = '') {
-    const matches = getMatches(query);
-    search.classList.add('is-open');
-    if (matches.length === 0) {
-      results.innerHTML = '<p class="site-search-empty">Ничего не найдено</p>';
-      return;
-    }
-    results.innerHTML = matches.map((item) => `
-      <a class="site-search-result" href="${item.url}">
-        <strong>${item.title}</strong>
-        <span>${item.excerpt}</span>
-      </a>
-    `).join('');
+  if (headerActions && !headerActions.querySelector('.site-search')) {
+    const accountButton = headerActions.querySelector('.account-button');
+    if (accountButton) accountButton.insertAdjacentHTML('beforebegin', createSearchMarkup());
+    else headerActions.insertAdjacentHTML('afterbegin', createSearchMarkup());
   }
+
+  const searches = Array.from(document.querySelectorAll('.site-search'));
 
   function closeSearch() {
-    search.classList.remove('is-open');
+    searches.forEach((search) => search.classList.remove('is-open'));
   }
 
-  input.addEventListener('focus', () => renderResults(input.value));
-  input.addEventListener('input', () => renderResults(input.value));
+  searches.forEach((search) => {
+    if (search.dataset.searchReady === 'true') return;
+    search.dataset.searchReady = 'true';
 
-  search.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const first = getMatches(input.value)[0];
-    if (first) window.location.href = first.url;
+    const input = search.querySelector('input[type="search"]');
+    const results = search.querySelector('.site-search-dropdown');
+    if (!input || !results) return;
+
+    function renderResults(query = '') {
+      const matches = getMatches(query);
+      search.classList.add('is-open');
+      if (matches.length === 0) {
+        results.innerHTML = '<p class="site-search-empty">Ничего не найдено</p>';
+        return;
+      }
+      results.innerHTML = matches.map((item) => `
+        <a class="site-search-result" href="${item.url}">
+          <strong>${item.title}</strong>
+          <span>${item.excerpt}</span>
+        </a>
+      `).join('');
+    }
+
+    input.addEventListener('focus', () => renderResults(input.value));
+    input.addEventListener('input', () => renderResults(input.value));
+
+    search.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const first = getMatches(input.value)[0];
+      if (first) window.location.href = first.url;
+    });
   });
 
   document.addEventListener('click', (event) => {
