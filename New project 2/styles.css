@@ -325,8 +325,15 @@ input {
 }
 
 @media (max-width: 520px) {
+  .page {
+    padding: 24px 16px;
+  }
+
   .survey {
-    padding: 24px 16px 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
   }
 
   .survey h1 {

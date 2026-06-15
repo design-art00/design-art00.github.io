@@ -52,7 +52,7 @@
     <nav class="account-breadcrumbs" aria-label="Хлебные крошки">
       <a href="index.html#top">Главная</a>
       <span>/</span>
-      <a href="account.html#publications">Личный кабинет</a>
+      <a href="account.html#articles">Личный кабинет</a>
       <span>/</span>
       <span>Редактирование статьи</span>
     </nav>
@@ -67,11 +67,23 @@
               <span>Специалист</span>
             </div>
           </div>
-          <nav aria-label="Разделы личного кабинета">
-            <a class="is-active" href="account.html#publications">Мои публикации</a>
-            <a href="account.html#profile">Мой профиль</a>
-            <a href="account.html#comments">Мои комментарии</a>
+          <nav class="account-sidebar__nav" aria-label="Разделы личного кабинета">
+            <a href="account.html#dashboard">Мой кабинет</a>
+            <p>Мои публикации</p>
+            <a class="is-active" href="account.html#articles">Статьи</a>
+            <a href="account.html#podcasts">Подкасты</a>
+            <p>Профиль</p>
+            <a href="account.html#profile">Моя страница</a>
+            <a href="account.html#comments">Сохраненные материалы</a>
           </nav>
+          <button class="account-sidebar__logout" type="button" data-auth-logout>
+            <img src="assets/icons/bitcoin-icons_exit-outline.svg" alt="" aria-hidden="true">
+            <span>Выйти из аккаунта</span>
+          </button>
+        </div>
+        <div class="account-sidebar__help">
+          <p>Есть вопрос или предложение о работе платформы?</p>
+          <a href="contacts.html">Задать вопрос</a>
         </div>
       </aside>
 
@@ -82,7 +94,7 @@
             <h1>Редактирование статьи</h1>
             <span>Проверьте заголовок, текст, тему и статус публикации перед отправкой</span>
           </div>
-          <a class="button ghost" href="account.html#publications">Вернуться</a>
+          <a class="button ghost" href="account.html#articles">Вернуться</a>
         </section>
 
         <section class="account-section account-editor">
@@ -166,15 +178,10 @@ Safran J. D., Muran J. C. Negotiating the Therapeutic Alliance. Guilford Press, 
                 </select>
               </label>
 
-              <label>
-                <span>URL материала</span>
-                <input type="text" value="therapy-alliance.html">
-              </label>
-
               <div class="article-edit-actions">
                 <button class="button primary" type="button">Сохранить черновик</button>
                 <button class="button ghost" type="button">Предпросмотр</button>
-                <button class="button ghost" type="button">Опубликовать</button>
+                <button class="button ghost" type="button">Отправить на проверку</button>
               </div>
             </aside>
           </form>

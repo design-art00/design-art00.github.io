@@ -1853,21 +1853,6 @@ color:#445799;
   background: #26397a;
 }
 
-/* Softer visual language for homepage cards and photos. */
-.hero-group,
-.about-image,
-.library-card,
-.expert-card,
-.expert-card img,
-.publication-list article,
-.topic-grid article,
-  .event-row,
-  .photo-invite__photo,
-  .quote-slider,
-  .contact-form {
-  border-radius: 20px;
-}
-
 .library-card,
 .expert-card,
 .publication-list article,
@@ -1923,20 +1908,6 @@ body * {
   -webkit-hyphens: none !important;
   overflow-wrap: normal;
   word-break: normal;
-}
-
-.hero-group,
-.about-image,
-.library-card,
-.expert-card,
-.expert-card img,
-.publication-list article,
-.topic-grid article,
-  .event-row,
-  .photo-invite__photo,
-  .quote-slider,
-  .contact-form {
-  border-radius: 16px;
 }
 
 /* Account modal. */
@@ -2188,49 +2159,6 @@ body.auth-modal-open {
 
 .finder {
   background: var(--surface-gray);
-}
-
-/* Squared visual system: remove decorative corner rounding site-wide. */
-:where(
-  .button,
-  .account-button,
-  .menu-button,
-  .nav-dropdown-menu,
-  .hero-group,
-  .quote-slider,
-  .about-image,
-  .library-card,
-  .expert-card,
-  .expert-card img,
-  .publication-list article,
-  .topic-grid article,
-  .event-row,
-  .photo-invite__photo,
-  .contact-form,
-  .auth-modal__dialog,
-  .auth-modal__close,
-  .auth-tabs,
-  .auth-tabs button,
-  .auth-modal-form input,
-  .page-btn
-) {
-  border-radius: 0 !important;
-}
-
-/* Keep buttons pill-shaped while cards and panels stay squared. */
-.button,
-.account-button,
-.menu-button,
-.card-link,
-.link-underline.card-link,
-.result-btn,
-.clear-filter-btn,
-.auth-tabs,
-.auth-tabs button,
-.auth-modal-form .button,
-.contact-form .button,
-.page-btn {
-  border-radius: 999px !important;
 }
 
 /* Homepage vertical rhythm. */
@@ -2506,8 +2434,10 @@ body.auth-modal-open {
 .site-search-dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  left: 0;
+  right: 0;
+  left: auto;
   width: min(390px, calc(100vw - 80px));
+  max-width: calc(100vw - 40px);
   display: grid;
   gap: 6px;
   padding: 10px;
@@ -2839,10 +2769,6 @@ body.auth-modal-open {
     width: min(260px, 38vw);
   }
 
-  .site-search-dropdown {
-    right: 0;
-    left: auto;
-  }
 }
 
 @media (min-width: 961px) and (max-width: 1200px) {
@@ -3111,7 +3037,7 @@ body.auth-modal-open {
 
   h1 {
     font-size: 36px;
-    line-height: 1.08;
+    line-height: 1.1;
     overflow-wrap: break-word;
   }
 
@@ -3948,7 +3874,7 @@ html, body, .site-header, .menu-panel, .calendar-page, .contacts-page, .article-
   padding-left: var(--site-side-padding) !important;
   padding-right: var(--site-side-padding) !important;
 }
-.contacts-page h1, .calendar-hero h1, .account-topbar h1 {
+.contacts-page h1, .calendar-hero h1 {
   font-family: var(--serif) !important;
   font-size: 42px !important;
   line-height: 1.1 !important;
@@ -5282,7 +5208,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 }
 
 /* Mobile homepage alignment to the 360px design mockup. */
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   html,
   body {
     width: 100%;
@@ -5962,13 +5888,20 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   }
 }
 
-/* Final 360px homepage pass: keep the fixed header from covering content
+/* Final mobile homepage pass: keep the fixed header from covering content
    and prevent card grids from forcing horizontal overflow. */
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .site-header {
-    width: 100vw !important;
-    min-height: 64px;
-    padding: 18px 14px 10px !important;
+    position: sticky !important;
+    top: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 64px !important;
+    padding: 14px 20px 12px !important;
   }
 
   .site-header .logo {
@@ -5976,29 +5909,34 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   }
 
   .site-header .header-actions {
-    position: fixed !important;
-    top: 18px !important;
-    right: 14px !important;
+    position: static !important;
     display: flex !important;
     flex: 0 0 auto !important;
     width: auto !important;
     margin-left: auto !important;
     justify-self: end !important;
-    z-index: 2147483647 !important;
+    z-index: auto !important;
   }
 
   .site-header .menu-button {
-    position: static !important;
+    position: fixed !important;
+    top: 14px !important;
+    right: 20px !important;
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    min-width: 74px !important;
-    height: 30px !important;
-    min-height: 30px !important;
-    padding: 0 12px !important;
+    min-width: 92px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    padding: 0 14px !important;
     gap: 7px;
-    font-size: 12px !important;
+    border: 1px solid rgba(68, 87, 153, 0.08) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 2px 10px rgba(29, 37, 71, 0.12) !important;
+    font-family: var(--sans) !important;
+    font-size: 14px !important;
     font-weight: 400;
+    line-height: 1 !important;
     text-transform: none;
     color: var(--blue-deep) !important;
     background: #ffffff !important;
@@ -6006,6 +5944,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
     visibility: visible !important;
     transform: none !important;
     clip-path: none !important;
+    z-index: 2147483647 !important;
   }
 
   .site-header .menu-button i {
@@ -6013,12 +5952,13 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   }
 
   .home-page .hero {
-    padding: 86px 20px 20px !important;
+    padding: 24px 20px 20px !important;
   }
 
   .home-page .hero h1 {
-    max-width: 320px;
-    font-size: 22px !important;
+    width: min(100%, 560px);
+    max-width: none;
+    font-size: clamp(22px, 5.8vw, 34px) !important;
     line-height: 1.04;
   }
 
@@ -6034,9 +5974,35 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
     content: " ";
   }
 
-  .home-page .hero-buttons,
+  .home-page .hero-buttons {
+    width: min(100%, 560px);
+    max-width: none;
+  }
+
   .home-page .section-topline .button {
     max-width: 320px;
+  }
+
+  .home-page .hero-right p,
+  .home-page .members {
+    width: min(100%, 560px);
+    max-width: none;
+  }
+
+  .home-page .hero-right p,
+  .home-page .about .about-text,
+  .home-page .authors .quote-card p,
+  .home-page .event-row p,
+  .home-page .contacts-intro {
+    font-size: clamp(12px, 3.2vw, 16px);
+  }
+
+  .home-page h2 {
+    font-size: clamp(25px, 6.2vw, 36px) !important;
+  }
+
+  .home-page .button {
+    font-size: clamp(12px, 3vw, 15px);
   }
 
   .home-page .about .nowrap {

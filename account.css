@@ -123,15 +123,6 @@
   letter-spacing: 0.08em;
 }
 
-.account-topbar h1 {
-  margin-bottom: 10px;
-  color: #26397a;
-  font-family: var(--serif);
-  font-size: 42px;
-  line-height: 1.1;
-  font-weight: 500;
-}
-
 .account-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -168,6 +159,8 @@
 }
 
 .account-section {
+  --account-section-offset-x: -30px;
+  --account-section-offset-top: -30px;
   padding: 30px;
   scroll-margin-top: calc(var(--fixed-header-offset) + 24px);
 }
@@ -247,6 +240,8 @@
 }
 
 .account-publications-section {
+  --account-section-offset-x: -28px;
+  --account-section-offset-top: -30px;
   padding: 30px 28px 34px;
 }
 
@@ -692,6 +687,8 @@
   .account-sidebar__plate,
   .account-topbar,
   .account-section {
+    --account-section-offset-x: -22px;
+    --account-section-offset-top: -22px;
     padding: 22px;
   }
 
@@ -903,13 +900,37 @@
 
 .account-topbar {
   display: block;
+  width: 100%;
   padding: 30px 28px 32px;
 }
 
 .account-topbar h1 {
   margin-bottom: 14px;
   color: var(--blue-deep);
-  font-size: 50px;
+  font-size: 36px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+.account-publications-head,
+.account-section__head {
+  padding: 30px 28px 32px;
+  background: #fffbf8;
+}
+
+.account-publications-head {
+  margin: var(--account-section-offset-top, -30px) var(--account-section-offset-x, -28px) 42px;
+}
+
+.account-section__head {
+  margin: var(--account-section-offset-top, -30px) var(--account-section-offset-x, -30px) 24px;
+}
+
+.account-publications-head h2,
+.account-section__head h2 {
+  margin-bottom: 14px;
+  color: var(--blue-deep);
+  font-size: 36px;
   line-height: 1.05;
   font-weight: 500;
 }
@@ -940,7 +961,7 @@
 .account-dashboard-card h2 {
   max-width: 420px;
   color: #282828;
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.08;
   font-weight: 400;
 }
@@ -969,6 +990,11 @@
   width: 36px;
   height: 36px;
   object-fit: contain;
+}
+
+.account-dashboard-card__icon--saved img {
+  width: 30px;
+  height: 30px;
 }
 
 .account-dashboard-card:hover,
@@ -1021,10 +1047,6 @@
 @media (max-width: 640px) {
   .account-breadcrumbs {
     margin-bottom: 28px;
-  }
-
-  .account-topbar h1 {
-    font-size: 36px;
   }
 
   .account-publications-head {

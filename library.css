@@ -774,8 +774,7 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .top-toolbar,
-  .card-bottom {
+  .top-toolbar {
     flex-direction: column;
   }
 
@@ -1111,6 +1110,16 @@ body {
   #library-root,
   #test-root {
     padding: calc(var(--fixed-header-offset, 70px) + 22px) 18px 50px;
+    overflow-x: hidden;
+  }
+
+  #library-root .main-container,
+  #library-root .content-area,
+  #library-root .items-grid,
+  #library-root .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .filters-plate,
@@ -1143,6 +1152,13 @@ body {
     font-size: 16px;
   }
 
+  .page-desc,
+  .card > div:first-child,
+  .item-title {
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .top-toolbar {
     margin-bottom: 24px;
   }
@@ -1158,10 +1174,13 @@ body {
   .card {
     min-height: 188px;
     padding: 22px;
+    gap: 56px;
   }
 
   .item-title {
     font-size: 20px;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .author-name,
@@ -1171,9 +1190,22 @@ body {
   }
 
   .card-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: auto;
+  }
+
+  .card-bottom .link-underline {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .card-bottom .publish-date {
+    flex: 0 0 auto;
+    text-align: right;
   }
 
   .page-btn {
@@ -1383,7 +1415,60 @@ body, #library-root, #test-root { background: var(--background) !important; }
   font-size: 14px !important;
 }
 @media (max-width: 1200px) { #library-root, #test-root { padding-right: 28px !important; padding-left: 28px !important; } }
-@media (max-width: 640px) { #library-root, #test-root { padding: calc(var(--fixed-header-offset, 70px) + 24px) 18px 70px !important; } }
+@media (max-width: 640px) {
+  #library-root,
+  #test-root {
+    padding: calc(var(--fixed-header-offset, 70px) + 24px) 18px 70px !important;
+    overflow-x: hidden;
+  }
+
+  #library-root .main-container,
+  #library-root .content-area,
+  #library-root .items-grid,
+  #library-root .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .page-desc,
+  .card > div:first-child,
+  .item-title {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .card {
+    min-height: 188px;
+    padding: 22px !important;
+    gap: 56px;
+  }
+
+  .item-title {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    overflow-wrap: break-word;
+  }
+
+  .card-bottom {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: auto;
+  }
+
+  .card-bottom .link-underline {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .card-bottom .publish-date {
+    flex: 0 0 auto;
+    text-align: right;
+  }
+}
 @media (min-width: 1920px) {
   #library-root,
   #test-root {
