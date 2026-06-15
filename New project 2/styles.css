@@ -110,9 +110,9 @@ input {
   margin: 0 0 22px;
   padding: 0;
   color: #111416;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
-  line-height: 1.38;
+  line-height: 1.4;
 }
 
 .question legend span {
@@ -342,7 +342,7 @@ input {
 
   .question legend {
     max-width: 100%;
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .choice-grid {

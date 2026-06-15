@@ -4707,9 +4707,10 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 
   .home-page .members {
     order: 3;
-    display: grid;
-    gap: 8px;
-    justify-items: start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
     margin-top: 4px;
   }
 
@@ -4718,22 +4719,27 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   }
 
   .home-page .avatar-stack img {
-    width: 28px;
-    height: 28px;
+    width: 46px;
+    height: 46px;
+    margin-right: -12px;
   }
 
   .home-page .members p {
     display: grid;
-    gap: 4px;
+    gap: 2px;
+    margin: 0;
   }
 
   .home-page .members strong {
-    font-size: 22px;
-    line-height: 1;
+    color: var(--blue-deep);
+    font-size: 35px;
+    line-height: 0.95;
   }
 
   .home-page .members span {
-    font-size: 12px;
+    color: #777777;
+    font-size: 14px;
+    white-space: nowrap;
   }
 
   .home-page .hero-buttons {
@@ -5359,9 +5365,10 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 
   .home-page .members {
     order: 3;
-    display: grid;
-    gap: 8px;
-    justify-items: start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
     margin: 2px 0 0;
   }
 
@@ -5370,9 +5377,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   }
 
   .home-page .avatar-stack img {
-    width: 36px;
-    height: 36px;
-    margin-right: -8px;
+    width: 46px;
+    height: 46px;
+    margin-right: -12px;
   }
 
   .home-page .members p {
@@ -5383,13 +5390,14 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
 
   .home-page .members strong {
     color: var(--blue-deep);
-    font-size: 31px;
+    font-size: 35px;
     line-height: 0.95;
   }
 
   .home-page .members span {
     color: #777777;
-    font-size: 11px;
+    font-size: 14px;
+    white-space: nowrap;
   }
 
   .home-page .hero-buttons {
