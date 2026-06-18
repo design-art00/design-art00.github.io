@@ -435,41 +435,6 @@
   }
 }
 
-@media (max-width: 760px) {
-  .calendar-page {
-    padding-top: calc(var(--fixed-header-offset) + 24px);
-  }
-
-  .calendar-breadcrumbs {
-    margin-bottom: 34px;
-  }
-
-  .calendar-hero h1 {
-    font-size: 46px;
-  }
-
-  .calendar-filter-group {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .calendar-grid {
-    overflow-x: auto;
-    grid-template-columns: repeat(7, minmax(112px, 1fr));
-  }
-
-  .calendar-month-bar,
-  .calendar-events-head {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .calendar-event-card {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-}
-
 /* Calendar typography aligned with inner pages. */
 .calendar-hero h1 {
   font-size: 42px;
@@ -655,20 +620,12 @@
 }
 
 .calendar-modal__checkbox input:checked {
-  background: var(--blue);
+  background: url("assets/icons/checkbox2.svg") center / 100% 100% no-repeat;
   border-color: var(--blue);
 }
 
 .calendar-modal__checkbox input:checked::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 2px;
-  width: 4px;
-  height: 8px;
-  border: solid #ffffff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  content: none;
 }
 
 .calendar-modal__status {
@@ -680,16 +637,6 @@
 
 body.calendar-modal-open {
   overflow: hidden;
-}
-
-@media (max-width: 760px) {
-  .calendar-hero h1 {
-    font-size: 36px;
-  }
-
-  .calendar-modal__dialog {
-    padding: 28px 22px;
-  }
 }
 
 /* Calendar final title and price refinements. */
@@ -887,4 +834,250 @@ body.calendar-modal-open {
 .calendar-arrow.slider-arrow:hover {
   background: var(--blue) !important;
   color: #ffffff !important;
+}
+
+@media (max-width: 760px) {
+  .calendar-page {
+    min-height: auto;
+    padding: 10px 18px 56px !important;
+    overflow-x: hidden;
+  }
+
+  .calendar-page > *,
+  .calendar-board,
+  .calendar-events-panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .calendar-breadcrumbs {
+    margin-top: 10px !important;
+    margin-bottom: 24px !important;
+    font-size: 14px !important;
+    line-height: 1.35;
+  }
+
+  .calendar-hero {
+    margin-bottom: 28px;
+  }
+
+  .calendar-hero-title {
+    max-width: 100%;
+  }
+
+  .calendar-hero h1 {
+    max-width: 320px !important;
+    font-size: clamp(34px, 10vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .calendar-filter-panel {
+    display: block;
+    margin-bottom: 34px;
+  }
+
+  .calendar-filter-group {
+    display: grid;
+    gap: 12px;
+  }
+
+  .calendar-filter-title {
+    font-size: 14px !important;
+    letter-spacing: 0.08em;
+  }
+
+  .calendar-category-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .calendar-category-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .calendar-filter-button {
+    flex: 0 0 auto;
+    min-height: 40px !important;
+    padding: 9px 16px !important;
+    font-size: 15px !important;
+  }
+
+  .calendar-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .calendar-month-bar,
+  .calendar-events-head {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .calendar-month-bar h2,
+  .calendar-events-head h2 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .calendar-month-controls {
+    margin-left: auto;
+    gap: 8px !important;
+  }
+
+  .calendar-arrow.slider-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+  }
+
+  .calendar-arrow .slider-arrow-icon {
+    font-size: 34px;
+  }
+
+  .calendar-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    border-left: 0;
+    overflow: visible;
+  }
+
+  .calendar-weekday {
+    min-width: 0;
+    padding: 8px 2px;
+    font-size: 10px !important;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .calendar-day {
+    min-width: 0;
+    min-height: 48px;
+    padding: 6px 2px;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .calendar-day-number {
+    font-size: 15px;
+    line-height: 1.1;
+  }
+
+  .calendar-day-events {
+    display: block;
+    margin: 0;
+    line-height: 0;
+  }
+
+  .calendar-day-event,
+  .calendar-day-more {
+    display: block;
+    overflow: hidden;
+    width: 5px;
+    height: 5px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: var(--blue);
+    color: transparent;
+    font-size: 0;
+    white-space: nowrap;
+  }
+
+  .calendar-day-more {
+    display: none;
+  }
+
+  .calendar-events-head {
+    align-items: flex-start;
+  }
+
+  .calendar-reset-date {
+    margin-left: auto;
+    font-size: 11px !important;
+    letter-spacing: 0.08em;
+  }
+
+  .calendar-selected-date {
+    margin: -6px 0 16px;
+    font-size: 15px;
+  }
+
+  .calendar-event-card {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 16px;
+    padding: 22px 0;
+  }
+
+  .calendar-event-date strong {
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  .calendar-event-date span {
+    margin-top: 4px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .calendar-event-meta {
+    gap: 6px 8px;
+    margin-bottom: 10px;
+    font-size: 11px !important;
+    letter-spacing: 0.08em;
+  }
+
+  .calendar-event-meta i {
+    width: 10px;
+  }
+
+  .calendar-event-card h3 {
+    margin-bottom: 10px;
+    font-size: 21px;
+    line-height: 1.18;
+  }
+
+  .calendar-event-card p,
+  .calendar-event-speaker,
+  .calendar-event-price,
+  .calendar-event-location,
+  .calendar-event-seats {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  .calendar-event-actions {
+    display: grid;
+    gap: 10px;
+  }
+
+  .event-action {
+    width: 100%;
+    min-height: 42px !important;
+    padding: 11px 18px !important;
+    font-size: 14px !important;
+  }
+
+  .calendar-modal {
+    padding: 18px;
+  }
+
+  .calendar-modal__dialog {
+    max-height: calc(100dvh - 36px);
+    padding: 28px 22px;
+  }
+
+  .calendar-modal h2 {
+    padding-right: 34px;
+    font-size: 30px;
+    line-height: 1.12;
+  }
 }

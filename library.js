@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const topToolbar = root.querySelector('.top-toolbar');
   if (topToolbar && cards.length > 1 && !root.querySelector('#sortFilter')) {
     const isGlossaryPage = Boolean(root.querySelector('#glossaryLetters'));
-    const dateSortOptions = isGlossaryPage ? '' : `
+    const isLiteraturePage = Boolean(root.querySelector('.filter-btn.active[href$="literature.html"]'));
+    const dateSortOptions = isGlossaryPage || isLiteraturePage ? '' : `
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-desc">По дате (сначала новые)</label>
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="date-asc">По дате (сначала старые)</label>`;
     const sortFilter = document.createElement('div');
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sortFilter.innerHTML = `
       <button type="button" class="mini-filter-btn" id="sortFilterBtn">Сортировать по</button>
       <div class="mini-filter-dropdown">
-        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc">От А до Я</label>
+        <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-asc" checked>От А до Я</label>
         <label class="mini-checkbox-item"><input type="radio" class="sort-radio" name="librarySort" value="title-desc">От Я до А</label>
         ${dateSortOptions}
       </div>`;
@@ -281,10 +282,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const podcastButtonIcons = {
+    play: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.7v10.6c0 .6.6.9 1.1.6l8.2-5.3c.5-.3.5-1 0-1.3L5.1 2.1C4.6 1.8 4 2.1 4 2.7z"></path></svg>',
+    pause: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h3v12H4zM9 2h3v12H9z"></path></svg>'
+  };
+
+  const renderPodcastButton = (button, isPlaying = false) => {
+    button.innerHTML = `${isPlaying ? podcastButtonIcons.pause : podcastButtonIcons.play}${isPlaying ? 'Пауза' : 'Слушать'}`;
+  };
+
   const resetPodcastButtons = () => {
-    podcastButtons.forEach((button) => {
-      button.innerHTML = '<svg viewBox="0 0 16 16"><path d="M4 2.7v10.6c0 .6.6.9 1.1.6l8.2-5.3c.5-.3.5-1 0-1.3L5.1 2.1C4.6 1.8 4 2.1 4 2.7z"></path></svg>Слушать';
-    });
+    podcastButtons.forEach((button) => renderPodcastButton(button));
   };
 
   podcastButtons.forEach((button) => {
@@ -301,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
       audio.play();
       currentPodcastButton = button;
       resetPodcastButtons();
-      button.innerHTML = '<svg viewBox="0 0 16 16"><path d="M4 2h3v12H4zM9 2h3v12H9z"></path></svg>Пауза';
+      renderPodcastButton(button, true);
       miniTitle.textContent = button.dataset.title;
       miniAuthor.textContent = button.dataset.author;
       miniPlayer.classList.add('visible');
@@ -374,5 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.key === 'Escape') closeGlossaryModal();
   });
 
+  resetPodcastButtons();
   updateUI();
 });

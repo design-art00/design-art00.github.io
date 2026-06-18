@@ -245,20 +245,12 @@
 }
 
 .checkbox-item input[type="checkbox"]:checked {
-  background: var(--accent-color, #445799);
+  background: url("assets/icons/checkbox2.svg") center / 100% 100% no-repeat;
   border-color: var(--accent-color, #445799);
 }
 
 .checkbox-item input[type="checkbox"]:checked::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 2px;
-  width: 4px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  content: none;
 }
 
 .checkbox-item input[type="radio"] {
@@ -306,6 +298,10 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
   margin-bottom: 12px;
+}
+
+.spec-photo--top {
+  object-position: center top;
 }
 
 .spec-name {
@@ -669,20 +665,12 @@ body,
 
 /* Specialists filters: restore visible checkmarks after final consistency pass. */
 .checkbox-item input[type="checkbox"]:checked {
-  background: var(--accent-color, #445799) !important;
+  background: url("assets/icons/checkbox2.svg") center / 100% 100% no-repeat !important;
   border-color: var(--accent-color, #445799) !important;
 }
 
 .checkbox-item input[type="checkbox"]:checked::after {
-  content: "" !important;
-  position: absolute;
-  left: 5px;
-  top: 2px;
-  width: 4px;
-  height: 8px;
-  border: solid #ffffff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  content: none !important;
 }
 
 .checkbox-item input[type="radio"]:checked {

@@ -34,7 +34,6 @@
 .account-topbar,
 .account-section {
   border: 1px solid rgba(68, 87, 153, 0.1);
-  border-radius: 16px;
   background: #fffbf8;
 }
 
@@ -88,7 +87,6 @@
   align-items: center;
   min-height: 42px;
   padding: 0 14px;
-  border-radius: 10px;
   color: #535353;
   font-family: var(--sans);
   font-size: 16px;
@@ -133,7 +131,6 @@
   min-height: 112px;
   padding: 22px;
   border: 1px solid rgba(68, 87, 153, 0.1);
-  border-radius: 16px;
   background: #fffbf8;
 }
 
@@ -186,7 +183,6 @@
 .account-table {
   display: grid;
   border: 1px solid rgba(68, 87, 153, 0.1);
-  border-radius: 14px;
   background: #fffbf8;
   overflow: hidden;
 }
@@ -375,7 +371,6 @@
 .profile-form textarea {
   width: 100%;
   border: 1px solid rgba(68, 87, 153, 0.18);
-  border-radius: 12px;
   color: #333;
   background: #fffbf8;
   font-family: var(--sans);
@@ -552,7 +547,6 @@
   align-items: center;
   padding: 18px 20px;
   border: 1px solid rgba(68, 87, 153, 0.1);
-  border-radius: 14px;
   background: #fffbf8;
 }
 
@@ -584,26 +578,6 @@
   .account-topbar {
     grid-template-columns: 1fr;
   }
-}
-
-:where(
-  .account-sidebar__plate,
-  .account-topbar,
-  .account-section,
-  .account-sidebar a,
-  .account-stats article,
-  .account-table,
-  .profile-form input,
-  .profile-form select,
-  .article-edit-form input,
-  .article-edit-form select,
-  .article-edit-form textarea,
-  .article-edit-panel,
-  .profile-form textarea,
-  .account-comments article,
-  .status-pill
-) {
-  border-radius: 0 !important;
 }
 
 /* Account tabs. */
@@ -696,7 +670,7 @@
 
 @media (max-width: 640px) {
   .account-page {
-    padding: calc(var(--fixed-header-offset, 70px) + 24px) 18px 70px;
+    padding: 10px 18px 70px;
   }
 
   .account-sidebar nav,
@@ -1082,8 +1056,13 @@
 }
 
 @media (max-width: 640px) {
+  .account-page {
+    padding-top: 10px;
+  }
+
   .account-breadcrumbs {
-    margin-bottom: 28px;
+    margin-top: 10px;
+    margin-bottom: 24px;
   }
 
   .account-publications-head {

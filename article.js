@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     reactions.forEach((button) => {
       button.addEventListener("click", () => {
-        const count = button.querySelector("span");
+        const count = button.querySelector(".comment-reaction__count");
         const wasActive = button.classList.contains("is-active");
 
         reactions.forEach((reaction) => {
           if (reaction.classList.contains("is-active")) {
-            const reactionCount = reaction.querySelector("span");
+            const reactionCount = reaction.querySelector(".comment-reaction__count");
             reaction.classList.remove("is-active");
             reaction.setAttribute("aria-pressed", "false");
             if (reactionCount) reactionCount.textContent = Math.max(0, Number(reactionCount.textContent) - 1);
@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   syncCommentAuthState();
   window.addEventListener("storage", syncCommentAuthState);
+  window.addEventListener("lecollectif:auth-change", syncCommentAuthState);
   document.addEventListener("click", (event) => {
     if (event.target.closest("[data-auth-logout]")) {
       setTimeout(syncCommentAuthState, 0);
@@ -101,9 +102,9 @@ document.addEventListener("DOMContentLoaded", () => {
           <p></p>
           <div class="article-comment__actions" aria-label="Действия с комментарием">
             <button class="comment-reply" type="button">Редактировать</button>
-            <button class="comment-reaction" type="button" aria-label="Люблю комментарий" aria-pressed="false">♡ <span>0</span></button>
-            <button class="comment-reaction" type="button" aria-label="Понравился комментарий" aria-pressed="false">👍 <span>0</span></button>
-            <button class="comment-reaction" type="button" aria-label="Не понравился комментарий" aria-pressed="false">👎 <span>0</span></button>
+            <button class="comment-reaction comment-reaction--heart" type="button" aria-label="Люблю комментарий" aria-pressed="false"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">0</span></button>
+            <button class="comment-reaction comment-reaction--like" type="button" aria-label="Понравился комментарий" aria-pressed="false"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">0</span></button>
+            <button class="comment-reaction comment-reaction--dislike" type="button" aria-label="Не понравился комментарий" aria-pressed="false"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">0</span></button>
           </div>
         </div>
       `;

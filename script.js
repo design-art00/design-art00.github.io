@@ -49,9 +49,10 @@ const initSitePreloader = () => {
 initSitePreloader();
 
 const enhanceMobileMenu = () => {
-  if (!menuPanel || menuPanel.querySelector('.mobile-menu-tools')) return;
+  if (!menuPanel || menuPanel.dataset.mobileEnhanced === 'true') return;
 
-  menuPanel.insertAdjacentHTML('afterbegin', `
+  menuPanel.dataset.mobileEnhanced = 'true';
+  menuPanel.innerHTML = `
     <div class="mobile-menu-tools">
       <form class="site-search site-search--mobile" role="search" data-site-search-form>
         <input type="search" placeholder="Поиск.." autocomplete="off" aria-label="Поиск по сайту">
@@ -60,9 +61,16 @@ const enhanceMobileMenu = () => {
         </button>
         <div class="site-search-dropdown" aria-live="polite"></div>
       </form>
-      <a class="mobile-menu-account" href="#" data-auth-open="login" data-mobile-auth-link>Личный кабинет</a>
     </div>
-  `);
+    <div class="mobile-menu-nav">
+      <a href="index.html#top">Главная</a>
+      <a href="specialists.html">Специалисты</a>
+      <a href="articles.html">Библиотека знаний</a>
+      <a href="calendar.html">Календарь мероприятий</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+    <a class="mobile-menu-account" href="#" data-auth-open="login" data-mobile-auth-link>Личный кабинет</a>
+  `;
 };
 
 enhanceMobileMenu();
@@ -89,6 +97,8 @@ const closeMenu = () => {
   document.body.classList.remove('menu-open');
   menuPanel.classList.remove('is-open');
   menuButton.setAttribute('aria-expanded', 'false');
+  const label = menuButton.querySelector('span');
+  if (label) label.textContent = 'Меню';
 };
 
 if (menuButton && menuPanel) {
@@ -96,6 +106,8 @@ if (menuButton && menuPanel) {
     const isOpen = menuPanel.classList.toggle('is-open');
     document.body.classList.toggle('menu-open', isOpen);
     menuButton.setAttribute('aria-expanded', String(isOpen));
+    const label = menuButton.querySelector('span');
+    if (label) label.textContent = isOpen ? 'Закрыть' : 'Меню';
   });
 }
 
@@ -304,6 +316,7 @@ if (form && statusNode) {
   const accountName = 'Анна Воронина';
   const accountShortName = 'Анна В.';
   const accountAvatar = 'assets/expert-anna.jpg';
+  let authReturnMode = null;
 
   const markup = `
     <div class="auth-modal" id="authModal" aria-hidden="true">
@@ -434,6 +447,7 @@ if (form && statusNode) {
       event.preventDefault();
       localStorage.removeItem(accountKey);
       refreshAccountButtons();
+      window.dispatchEvent(new CustomEvent('lecollectif:auth-change', { detail: { loggedIn: false } }));
       if (document.body.classList.contains('account-body')) window.location.href = 'index.html#top';
       return;
     }
@@ -442,6 +456,7 @@ if (form && statusNode) {
     if (opener) {
       if (isLoggedIn() && opener.classList.contains('account-button')) return;
       event.preventDefault();
+      authReturnMode = opener.closest('[data-comment-guest]') ? 'article-comment' : null;
       openAuthModal(opener.dataset.authOpen || 'login');
       return;
     }
@@ -471,6 +486,13 @@ if (form && statusNode) {
         message.classList.remove('is-error');
         refreshAccountButtons();
         closeAuthModal();
+        window.dispatchEvent(new CustomEvent('lecollectif:auth-change', { detail: { loggedIn: true } }));
+        if (authReturnMode === 'article-comment') {
+          authReturnMode = null;
+          document.querySelector('[data-article-comment-form] textarea')?.focus();
+          return;
+        }
+        authReturnMode = null;
         window.location.href = 'account.html';
       } else {
         message.textContent = 'Введите Анна Воронина и пароль 1111';

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260615-1">
-  <link rel="stylesheet" href="article.css?v=20260426-1">
+  <link rel="stylesheet" href="article.css?v=20260616-1">
 </head>
 <body>
   <header class="site-header">
@@ -148,9 +148,9 @@
             <p>Очень откликнулась мысль о том, что тело не враг, а способ обратной связи. Это меняет сам тон отношения к симптомам</p>
             <div class="article-comment__actions" aria-label="Действия с комментарием">
               <button class="comment-reply" type="button">Ответить</button>
-              <button class="comment-reaction" type="button" aria-label="Люблю комментарий">♡ <span>12</span></button>
-              <button class="comment-reaction" type="button" aria-label="Понравился комментарий">👍 <span>8</span></button>
-              <button class="comment-reaction" type="button" aria-label="Не понравился комментарий">👎 <span>1</span></button>
+              <button class="comment-reaction comment-reaction--heart" type="button" aria-label="Люблю комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">12</span></button>
+              <button class="comment-reaction comment-reaction--like" type="button" aria-label="Понравился комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">8</span></button>
+              <button class="comment-reaction comment-reaction--dislike" type="button" aria-label="Не понравился комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">1</span></button>
             </div>
           </div>
         </article>
@@ -164,9 +164,9 @@
             <p><span class="comment-mention">Мария</span>, спасибо за отклик. Мне кажется важным именно это смещение: не искать виноватого в симптоме, а пробовать услышать, какую нагрузку он несет</p>
             <div class="article-comment__actions" aria-label="Действия с комментарием">
               <button class="comment-reply" type="button">Ответить</button>
-              <button class="comment-reaction" type="button" aria-label="Люблю комментарий">♡ <span>8</span></button>
-              <button class="comment-reaction" type="button" aria-label="Понравился комментарий">👍 <span>5</span></button>
-              <button class="comment-reaction" type="button" aria-label="Не понравился комментарий">👎 <span>0</span></button>
+              <button class="comment-reaction comment-reaction--heart" type="button" aria-label="Люблю комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">8</span></button>
+              <button class="comment-reaction comment-reaction--like" type="button" aria-label="Понравился комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">5</span></button>
+              <button class="comment-reaction comment-reaction--dislike" type="button" aria-label="Не понравился комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">0</span></button>
             </div>
           </div>
         </article>
@@ -180,9 +180,9 @@
             <p>Спасибо за бережный текст. Особенно ценно, что здесь не противопоставляется медицинская и психологическая помощь</p>
             <div class="article-comment__actions" aria-label="Действия с комментарием">
               <button class="comment-reply" type="button">Ответить</button>
-              <button class="comment-reaction" type="button" aria-label="Люблю комментарий">♡ <span>6</span></button>
-              <button class="comment-reaction" type="button" aria-label="Понравился комментарий">👍 <span>4</span></button>
-              <button class="comment-reaction" type="button" aria-label="Не понравился комментарий">👎 <span>0</span></button>
+              <button class="comment-reaction comment-reaction--heart" type="button" aria-label="Люблю комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">6</span></button>
+              <button class="comment-reaction comment-reaction--like" type="button" aria-label="Понравился комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">4</span></button>
+              <button class="comment-reaction comment-reaction--dislike" type="button" aria-label="Не понравился комментарий"><span class="comment-reaction__icon" aria-hidden="true"></span><span class="comment-reaction__count">0</span></button>
             </div>
           </div>
         </article>
@@ -252,7 +252,7 @@
     <p class="footer-legal-name">НКО «Коллектиф» ИНН 782300184</p>
   </footer>
 
-  <script src="script.js?v=20260424-2"></script>
-  <script src="article.js?v=20260421-2"></script>
+  <script src="script.js?v=20260615-1"></script>
+  <script src="article.js?v=20260616-1"></script>
 </body>
 </html>

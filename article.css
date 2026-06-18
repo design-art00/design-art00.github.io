@@ -553,7 +553,7 @@
   font-size: 15px !important;
 }
 
-.comment-reaction span {
+.comment-reaction__count {
   font-size: 11px;
 }
 
@@ -642,18 +642,55 @@
   margin-left: 0;
   padding: 6px 10px !important;
   border-color: rgba(68, 87, 153, 0.18) !important;
-  background: transparent;
+  color: #535353 !important;
+  background: transparent !important;
+}
+
+.comment-reaction__icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.comment-reaction--heart .comment-reaction__icon {
+  background-image: url("assets/icons/heart.svg");
+}
+
+.comment-reaction--like .comment-reaction__icon,
+.comment-reaction--dislike .comment-reaction__icon {
+  background-image: url("assets/icons/thumbsup.svg");
+}
+
+.comment-reaction--dislike .comment-reaction__icon {
+  transform: rotate(180deg);
 }
 
 .comment-reply + .comment-reaction {
   margin-left: auto;
 }
 
-.comment-reaction:hover,
-.comment-reaction.is-active {
-  color: #fff !important;
+.comment-reaction:hover {
+  color: #535353 !important;
   border-color: var(--blue) !important;
-  background: var(--blue) !important;
+  background: transparent !important;
+}
+
+.comment-reaction.is-active {
+  color: #535353 !important;
+  background: transparent !important;
+}
+
+.comment-reaction--heart.is-active .comment-reaction__icon {
+  background-image: url("assets/icons/heart-filled.svg");
+}
+
+.comment-reaction--like.is-active .comment-reaction__icon,
+.comment-reaction--dislike.is-active .comment-reaction__icon {
+  background-image: url("assets/icons/thumbsup-filled.svg");
 }
 
 .comment-mention {
@@ -701,11 +738,12 @@
 
 @media (max-width: 760px) {
   .article-page {
-    padding: calc(var(--fixed-header-offset, 70px) + 24px) 18px 70px;
+    padding: 10px 18px 70px;
   }
 
   .article-breadcrumbs {
-    margin-bottom: 28px;
+    margin-top: 10px;
+    margin-bottom: 24px;
   }
 
   .article-hero {
