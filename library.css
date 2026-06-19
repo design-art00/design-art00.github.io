@@ -1188,7 +1188,8 @@ body {
   .card {
     min-height: 188px;
     padding: 22px;
-    gap: 56px;
+    gap: 20px;
+    justify-content: flex-start;
   }
 
   .item-title {
@@ -1209,7 +1210,7 @@ body {
     justify-content: space-between;
     flex-direction: row;
     gap: 16px;
-    margin-top: auto;
+    margin-top: 20px;
   }
 
   .card-bottom .link-underline {
@@ -1446,7 +1447,8 @@ body, #library-root, #test-root { background: var(--background) !important; }
   .card {
     min-height: 188px;
     padding: 22px !important;
-    gap: 56px;
+    gap: 20px;
+    justify-content: flex-start;
   }
 
   .item-title {
@@ -1461,7 +1463,7 @@ body, #library-root, #test-root { background: var(--background) !important; }
     justify-content: space-between;
     flex-direction: row;
     gap: 16px;
-    margin-top: auto;
+    margin-top: 20px;
   }
 
   .card-bottom .link-underline {
