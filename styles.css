@@ -3983,8 +3983,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
   .home-page .hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 20px;
     min-height: 0;
+    padding-top: 30px !important;
   }
 
   .home-page .hero-left,
@@ -4035,7 +4036,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
     flex-direction: row;
     align-items: center;
     gap: 24px;
-    margin: 2px 0 0;
+    margin: 0;
   }
 
   .home-page .avatar-stack {
@@ -4071,7 +4072,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="password
     display: grid;
     gap: 8px;
     width: min(100%, 560px);
-    margin: 6px 0 0;
+    margin: 0;
   }
 
   .home-page .about {
